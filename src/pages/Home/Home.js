@@ -1,5 +1,11 @@
+import { Container } from "../../styles/common";
+
 function Home() {
-    return <div></div>;
+    return (
+        <div>
+            <Container>teste</Container>
+        </div>
+    );
 }
 
 export default Home;
