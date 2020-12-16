@@ -1,6 +1,8 @@
 import Carousel from "../Carousel";
-
-import { Link, Slide, Background, WrapContainer, Content, Title, Subtitle, Image } from "./styles";
+import { ReactComponent as TriangleWhite } from "../../assets/icons/triangle-white.svg";
+import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
+import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
+import { Link, Slide, Background, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper } from "./styles";
 
 function Hero({ slides }) {
     const carouselSettings = {
@@ -38,9 +40,12 @@ function Hero({ slides }) {
                         </Link>
                     ))}
                 </Content>
-                <div className="wrap-image">
+                <ImageWrapper>
+                    <TriangleWhite className="triangle-white" />
+                    <TriangleYellow className="triangle-yellow" />
+                    <TriangleGreen className="triangle-green" />
                     <Image className="image" src={slide.image} alt={slide.title} />
-                </div>
+                </ImageWrapper>
             </WrapContainer>
         </Slide>
     ));

@@ -55,22 +55,28 @@ export const WrapContainer = styled(Container)`
 
     @media (min-width: 768px) {
         padding-top: 76px;
-        min-height: initial;
+        min-height: 430px;
         flex-direction: row;
+        align-items: flex-end;
     }
 
     @media (min-width: 1200px) {
         min-height: 600px;
-        align-items: flex-end;
     }
 `;
 
 export const Content = styled.div`
     color: ${(props) => props.theme.colors.white};
 
+    @media (min-width: 768px) {
+        align-self: flex-start;
+    }
+
     @media (min-width: 1200px) {
-        max-width: 522px;
+        max-width: calc(100% - 466px);
+        width: 100%;
         margin-bottom: 116px;
+        align-self: flex-end;
     }
 `;
 
@@ -102,6 +108,12 @@ export const Image = styled.img`
     display: block;
     height: 324px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: 768px) {
+        height: 345px;
+    }
 
     @media (min-width: 1200px) {
         height: 524px;
@@ -123,5 +135,89 @@ export const Slide = styled.div`
 
     @media (min-width: 1200px) {
         min-height: 600px;
+    }
+`;
+
+export const ImageWrapper = styled.div`
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 1200px) {
+        max-width: 477px;
+        width: 477px;
+        margin: 0;
+    }
+
+    &:hover {
+        .triangle-green {
+            transform: translateY(-15%);
+        }
+
+        .triangle-yellow {
+            transform: translate(10%, -15%) scale(1.1);
+        }
+
+        .triangle-white {
+            transform: translateY(15%) scale(1.1);
+        }
+    }
+
+    svg {
+        position: absolute;
+        transition: transform 250ms ease-in-out;
+
+        &.triangle-green {
+            width: 138px;
+            height: 69px;
+            bottom: 57px;
+            left: 0;
+        }
+
+        &.triangle-yellow {
+            width: 138px;
+            height: 138px;
+            bottom: 93px;
+            right: 0;
+        }
+
+        &.triangle-white {
+            width: 138px;
+            height: 138px;
+            bottom: 57px;
+            left: 10px;
+        }
+
+        @media (max-height: 738px) and (max-width: 768px) {
+            &.triangle-yellow {
+                bottom: 65px;
+            }
+
+            &.triangle-white {
+                bottom: 45px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            &.triangle-green {
+                width: 223px;
+                height: 111px;
+                left: 30px;
+            }
+
+            &.triangle-yellow {
+                width: 223px;
+                height: 223px;
+                bottom: 158px;
+            }
+
+            &.triangle-white {
+                width: 263px;
+                height: 263px;
+                bottom: 221px;
+                left: 0;
+            }
+        }
     }
 `;
