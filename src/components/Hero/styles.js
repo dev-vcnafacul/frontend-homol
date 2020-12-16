@@ -5,19 +5,27 @@ export const Link = styled.a`
     color: ${(props) => props.theme.colors.white};
     border: 2px solid ${(props) => props.theme.colors.white};
     padding: 10px;
+    margin-bottom: 18px;
     font-weight: 700;
-    margin-right: 14px;
     transition: background-color, color, transform 250ms ease-in-out;
+
+    &:not(:last-child) {
+        margin-right: 14px;
+    }
 
     &:hover {
         background-color: ${(props) => props.theme.colors.white};
         color: ${(props) => props.theme.colors.marine};
         transform: translateX(7px);
     }
+
+    @media (min-width: 1200px) {
+        padding: 12px 28px;
+    }
 `;
 
 export const Slide = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     background: ${(props) => props.background};
 
     .background {
@@ -37,7 +45,7 @@ export const Slide = styled.div`
         flex-direction: column;
         justify-content: space-between;
         padding-top: 102px;
-        height: 100%;
+        min-height: 100vh;
         box-sizing: border-box;
 
         .content {
@@ -54,25 +62,72 @@ export const Slide = styled.div`
                 line-height: 26px;
                 margin-bottom: 24px;
             }
-
-            .wrap-links {
-                margin-bottom: 18px;
-            }
         }
 
         .wrap-image {
-            text-align: center;
-
             .image {
+                display: block;
                 height: 324px;
+                margin: 0 auto;
             }
         }
     }
 
-    @media (max-height: 738px) {
+    @media (min-width: 768px) {
+        min-height: initial;
+
         .wrap {
-            .wrap-image .image {
-                height: 210px;
+            padding-top: 76px;
+            min-height: initial;
+            flex-direction: row;
+
+            .wrap-image {
+                margin: 0 32px 0 21px;
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        min-height: 600px;
+
+        .wrap {
+            min-height: 600px;
+            align-items: flex-end;
+
+            .content {
+                max-width: 522px;
+                margin-bottom: 116px;
+
+                .title {
+                    font-size: 50px;
+                    margin-bottom: 6px;
+                    line-height: 70px;
+                }
+
+                .subtitle {
+                    font-size: 20px;
+                    line-height: 35px;
+                    margin-bottom: 55px;
+                }
+            }
+
+            .wrap-image {
+                margin: 0;
+
+                .image {
+                    height: 524px;
+                    margin: 0 45px 0 119px;
+                }
+            }
+        }
+    }
+
+    @media (max-height: 738px) and (max-width: 768px) {
+        .wrap {
+            .wrap-image {
+                .image {
+                    height: 210px;
+                }
             }
         }
     }
