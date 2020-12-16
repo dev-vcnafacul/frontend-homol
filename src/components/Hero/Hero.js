@@ -1,7 +1,6 @@
 import Carousel from "../Carousel";
 
-import { Link, Slide } from "./styles";
-import { Container } from "../../styles/common";
+import { Link, Slide, Background, WrapContainer, Content, Title, Subtitle, Image } from "./styles";
 
 function Hero({ slides }) {
     const carouselSettings = {
@@ -28,23 +27,21 @@ function Hero({ slides }) {
 
     const listSlides = slides.map((slide, index) => (
         <Slide key={slide.id} background={backgroundGradients[index % 4]}>
-            <img className="background" src={slide.background_image} alt={slide.title} />
-            <Container className="wrap">
-                <div className="content">
-                    <h2 className="title">{slide.title}</h2>
-                    <p className="subtitle">{slide.subtitle}</p>
-                    <div className="wrap-links">
-                        {slide.links.map((link) => (
-                            <Link key={link.id} href={link.link}>
-                                {link.text}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
+            <Background className="background" src={slide.background_image} alt={slide.title} />
+            <WrapContainer>
+                <Content>
+                    <Title className="title">{slide.title}</Title>
+                    <Subtitle className="subtitle">{slide.subtitle}</Subtitle>
+                    {slide.links.map((link) => (
+                        <Link key={link.id} href={link.link}>
+                            {link.text}
+                        </Link>
+                    ))}
+                </Content>
                 <div className="wrap-image">
-                    <img className="image" src={slide.image} alt={slide.title} />
+                    <Image className="image" src={slide.image} alt={slide.title} />
                 </div>
-            </Container>
+            </WrapContainer>
         </Slide>
     ));
 
