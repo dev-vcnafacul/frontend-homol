@@ -1,5 +1,12 @@
+import AboutUs from "../../components/AboutUs";
+import data from "./data";
+
 function Home() {
-    return <div></div>;
+    return (
+        <div>
+            <AboutUs {...data.about_us} />
+        </div>
+    );
 }
 
 export default Home;
