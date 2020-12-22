@@ -85,6 +85,25 @@ const data = {
             instagram: "/",
         },
     },
+    footer: {
+        sitemapLinks: [
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+            { name: "Quem Somos", link: "/" },
+        ],
+        slogan: "Frase impactante",
+        email: "teste@teste.com",
+        socialLinks: {
+            facebook: "/",
+            twitter: "/",
+            linkedin: "/",
+            instagram: "/",
+        },
+    },
 };
 
 export default data;
