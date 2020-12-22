@@ -19,6 +19,10 @@ export const Bar = styled.div`
     @media (min-width: 1200px) {
         padding: 20px 0;
         background-color: ${(props) => (props.solid ? props.theme.colors.backgroundMarine : "transparent")};
+
+        .logo {
+            fill: ${(props) => props.theme.colors.white};
+        }
     }
 `;
 
@@ -42,7 +46,7 @@ export const MenuContainer = styled.div`
     background-color: ${(props) => props.theme.colors.white};
     min-height: calc(100vh - 66px);
     width: 100%;
-    padding: 25px 0 0 0;
+    padding: 16px 0 0 0;
     transition: transform 0.15s;
 
     @media (min-width: 1200px) {
