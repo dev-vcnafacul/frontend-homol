@@ -1,5 +1,5 @@
 import { Input, InputLabel, FormField } from "../atoms";
-import { Title, Description, SubmitBtn, Wrap, Link, SocialLogin } from "./styles";
+import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin } from "./styles";
 
 function LoginForm() {
     return (
@@ -24,7 +24,7 @@ function LoginForm() {
                 </FormField>
                 <SubmitBtn as="input" type="submit" value="Entrar" />
             </form>
-            <Link href="#">Esqueci minha senha</Link>
+            <ForgotPassword href="#">Esqueci minha senha</ForgotPassword>
         </Wrap>
     );
 }

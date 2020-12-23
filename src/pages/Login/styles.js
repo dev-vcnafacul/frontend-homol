@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const Wrap = styled.div`
     position: relative;
     padding: 50px 0 60px;
+    margin-top: 67px;
 
     @media (min-width: 768px) {
         padding: 60px 0 70px;
+    }
+
+    @media (min-width: 1200px) {
+        margin-top: 72px;
     }
 
     .graphism {

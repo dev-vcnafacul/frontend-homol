@@ -33,7 +33,7 @@ export const SubmitBtn = styled(Button)`
     }
 `;
 
-export const Link = styled.a`
+export const ForgotPassword = styled.a`
     display: block;
     margin-top: 16px;
     font-size: 12px;
