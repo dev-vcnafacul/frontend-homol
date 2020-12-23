@@ -1,7 +1,22 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { doAuth } from "../../store/actions/auth";
+
 import { Input, InputLabel, FormField } from "../atoms";
 import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin } from "./styles";
 
 function LoginForm() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.auth);
+
+    function handleLogin(e) {
+        e.preventDefault();
+        dispatch(doAuth(email, password));
+    }
+
     return (
         <Wrap>
             <Title>Entre na sua conta</Title>
@@ -13,14 +28,14 @@ function LoginForm() {
                 Google
             </SocialLogin>
             <Description>Ou ingresse:</Description>
-            <form>
+            <form onSubmit={handleLogin}>
                 <FormField>
                     <InputLabel>E-mail</InputLabel>
-                    <Input type="email" />
+                    <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
                 </FormField>
                 <FormField>
                     <InputLabel>Senha</InputLabel>
-                    <Input type="password" />
+                    <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                 </FormField>
                 <SubmitBtn as="input" type="submit" value="Entrar" />
             </form>
