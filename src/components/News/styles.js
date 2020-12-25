@@ -60,7 +60,7 @@ export const NewsCarousel = styled(Carousel)`
     .tns-nav {
         position: absolute;
         bottom: 0;
-        z-index: -1;
+        z-index: 1;
     }
 
     .tns-nav button {
@@ -91,7 +91,7 @@ export const CardTitle = styled.h3`
     position: absolute;
     bottom: 18px;
     left: 0;
-    text-align: center;
+    text-align: left;
     z-index: 5;
     padding: 0 18px;
 `;
