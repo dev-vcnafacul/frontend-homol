@@ -150,6 +150,7 @@ const data = {
         ],
     },
     actionAreas: {
+        tabItems: ["Linguagens", "Ciências humanas", "Bioexatas"],
         cardItems: [
             {
                 title: "LPT",

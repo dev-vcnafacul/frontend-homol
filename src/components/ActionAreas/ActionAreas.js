@@ -1,3 +1,4 @@
+import HighlightSelector from "../tabSelector/selector.js";
 import {
     Section,
     FlexContainer,
@@ -10,7 +11,7 @@ import {
     CardSubtitle,
 } from "./styles";
 
-function ActionAreas({ cardItems, className }) {
+function ActionAreas({ cardItems, tabItems, className }) {
     const carouselActionsSettings = {
         lazyload: true,
         items: 1,
@@ -39,6 +40,7 @@ function ActionAreas({ cardItems, className }) {
                     <ActionAreasTitle>Veja nossas áreas de ação</ActionAreasTitle>
                     <ActionAreasSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</ActionAreasSubtitle>
                 </SectionContent>
+                <HighlightSelector items={tabItems} fontSize={"1.5rem"}></HighlightSelector>
                 <ActionAreasCarousel arrowColor="gray" settings={carouselActionsSettings}>
                     {cardItems.map((cardItem) => {
                         return (
