@@ -149,6 +149,58 @@ const data = {
             },
         ],
     },
+    actionAreas: {
+        cardItems: [
+            {
+                title: "LPT",
+                subtitle: "Leitura e Produção de Textos",
+            },
+            {
+                title: "Gramatica",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Literatura",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Linguagens Extrangeiras",
+                subtitle: "Lorem ipsum dolor sit",
+            },
+            {
+                title: "LPT1",
+                subtitle: "Leitura e Produção de Textos",
+            },
+            {
+                title: "Gramatica1",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Literatura1",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Linguagens Extrangeiras1",
+                subtitle: "Lorem ipsum dolor sit",
+            },
+            {
+                title: "LPT2",
+                subtitle: "Leitura e Produção de Textos",
+            },
+            {
+                title: "Gramatica2",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Literatura2",
+                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+            },
+            {
+                title: "Linguagens Extrangeiras2",
+                subtitle: "Lorem ipsum dolor sit",
+            },
+        ],
+    },
 };
 
 export default data;
