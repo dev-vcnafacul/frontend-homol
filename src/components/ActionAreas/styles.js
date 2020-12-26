@@ -18,15 +18,16 @@ export const Section = styled.div`
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 200px 200px 0 0;
-        border-color: transparent transparent ${(props) => props.theme.colors.green} transparent;
+        border-width: 0 0 100px 100px;
+        border-color: transparent transparent ${(props) => props.theme.colors.yellow} transparent;
+        transform: rotate(180deg);
         position: absolute;
         left: 0;
         top: 0;
         z-index: -1;
 
         @media (min-width: 1200px) {
-            border-width: 350px 350px 0 0;
+            border-width: 0 0 230px 230px;
         }
     }
 `;
@@ -76,8 +77,8 @@ export const ActionAreasCarousel = styled(Carousel)`
 export const Card = styled.a`
     display: block;
     overflow: hidden;
-    width: 230px;
-    height: 220px;
+    max-width: 230px;
+    min-height: 220px;
     border: 1px solid;
     border color: ${(props) => props.theme.colors.grey};
     position: relative;

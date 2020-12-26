@@ -24,6 +24,9 @@ function ActionAreas({ cardItems, className }) {
         gutter: 20,
         responsive: {
             768: {
+                items: 3,
+            },
+            1024: {
                 items: 4,
             },
         },
