@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CallbackOnClickLi } from "./callbackOnClick.js";
-import { UlCompStyle } from "./style.js";
+import { UlCompStyle } from "./styles.js";
 
 const generateLi = (items, chosenIndex, callBackFunctions) => {
     var CssClass = null;
@@ -28,8 +28,8 @@ const HighlightSelector = (props) => {
     const [listOfElements, setListOfElements] = useState(null);
     const [activePosition, setActivePosition] = useState(0);
     useEffect(() => {
-        setListOfElements(generateLi(props.items, activePosition, [setActivePosition]));
-    }, [props.items, activePosition]);
+        setListOfElements(generateLi(props.items, activePosition, [setActivePosition, props.tabSelected]));
+    }, [props.items, props.tabSelected, activePosition]);
     return (
         <UlCompStyle className={"desktop"} fontSize={props.fontSize} flexDirection={props.flexDirection}>
             {listOfElements}

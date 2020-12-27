@@ -53,6 +53,7 @@ export const ActionAreasSubtitle = styled(SectionSubtitle)`
 
 export const ActionAreasCarousel = styled(Carousel)`
     flex-grow: 1;
+    margin-top: 80px;
 
     .tns-controls {
         margin: 35px 0 0 0;
@@ -70,7 +71,15 @@ export const ActionAreasCarousel = styled(Carousel)`
     }
 
     .tns-nav button {
-        background-color: ${(props) => props.theme.colors.lightGray};
+        background-color: ${(props) => props.theme.colors.grey};
+    }
+
+    &.tabActive {
+        display: block;
+    }
+
+    &.tabDisplayNone {
+        display: none;
     }
 `;
 
@@ -79,23 +88,36 @@ export const Card = styled.a`
     overflow: hidden;
     max-width: 230px;
     min-height: 220px;
+    color:  ${(props) => props.theme.colors.grey};
     border: 1px solid;
     border color: ${(props) => props.theme.colors.grey};
     position: relative;
     cursor: pointer;
 `;
 
+export const CardIcon = styled.img`
+    display: block;
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    position: relative;
+    text-align: center;
+    z-index: 5;
+`;
+
 export const CardTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 25px;
     color: ${(props) => props.theme.colors.marine};
     position: relative;
     text-align: center;
     z-index: 5;
     padding: 0 18px;
+    margin-bottom: 12px;
 `;
 
 export const CardSubtitle = styled.h4`
-    font-size: 1.25rem;
+    font-size: 16px;
+    font-weight: 400;
     color: ${(props) => props.theme.colors.grey};
     position: relative;
     text-align: center;

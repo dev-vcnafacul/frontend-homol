@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HighlightSelector from "../tabSelector/selector.js";
 import {
     Section,
@@ -7,11 +8,13 @@ import {
     SectionContent,
     ActionAreasCarousel,
     Card,
+    CardIcon,
     CardTitle,
     CardSubtitle,
 } from "./styles";
 
 function ActionAreas({ cardItems, tabItems, className }) {
+    let [tabIndex, setTabIndex] = useState(0);
     const carouselActionsSettings = {
         lazyload: true,
         items: 1,
@@ -24,6 +27,9 @@ function ActionAreas({ cardItems, tabItems, className }) {
         controlsText: ["", ""],
         gutter: 20,
         responsive: {
+            560: {
+                items: 2,
+            },
             768: {
                 items: 3,
             },
@@ -32,7 +38,7 @@ function ActionAreas({ cardItems, tabItems, className }) {
             },
         },
     };
-
+    console.log(tabIndex);
     return (
         <Section className={className}>
             <FlexContainer>
@@ -40,12 +46,54 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     <ActionAreasTitle>Veja nossas áreas de ação</ActionAreasTitle>
                     <ActionAreasSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</ActionAreasSubtitle>
                 </SectionContent>
-                <HighlightSelector items={tabItems} fontSize={"1.5rem"}></HighlightSelector>
-                <ActionAreasCarousel arrowColor="gray" settings={carouselActionsSettings}>
-                    {cardItems.map((cardItem) => {
+                <HighlightSelector items={tabItems} fontSize={"1.5rem"} tabSelected={setTabIndex}></HighlightSelector>
+                <ActionAreasCarousel
+                    className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"}
+                    index={tabIndex}
+                    arrowColor="gray"
+                    settings={carouselActionsSettings}
+                >
+                    {cardItems.languages.map((cardItem) => {
                         return (
                             <div key={cardItem.title}>
                                 <Card>
+                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
+                                    <CardTitle>{cardItem.title}</CardTitle>
+                                    <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
+                                </Card>
+                            </div>
+                        );
+                    })}
+                </ActionAreasCarousel>
+                <ActionAreasCarousel
+                    className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"}
+                    index={tabIndex}
+                    arrowColor="gray"
+                    settings={carouselActionsSettings}
+                >
+                    {cardItems.humans.map((cardItem) => {
+                        return (
+                            <div key={cardItem.title}>
+                                <Card>
+                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
+                                    <CardTitle>{cardItem.title}</CardTitle>
+                                    <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
+                                </Card>
+                            </div>
+                        );
+                    })}
+                </ActionAreasCarousel>
+                <ActionAreasCarousel
+                    className={tabIndex === 2 ? "tabActive" : "tabDisplayNone"}
+                    index={tabIndex}
+                    arrowColor="gray"
+                    settings={carouselActionsSettings}
+                >
+                    {cardItems.bioexacts.map((cardItem) => {
+                        return (
+                            <div key={cardItem.title}>
+                                <Card>
+                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
                                     <CardTitle>{cardItem.title}</CardTitle>
                                     <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
                                 </Card>

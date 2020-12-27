@@ -1,5 +1,6 @@
 import HeroImg1 from "../../assets/images/home/hero-img-1.png";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
+import languagesIcon from "../../assets/icons/languages.svg";
 
 const data = {
     hero: {
@@ -151,56 +152,164 @@ const data = {
     },
     actionAreas: {
         tabItems: ["Linguagens", "Ciências humanas", "Bioexatas"],
-        cardItems: [
-            {
-                title: "LPT",
-                subtitle: "Leitura e Produção de Textos",
-            },
-            {
-                title: "Gramatica",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Literatura",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Linguagens Extrangeiras",
-                subtitle: "Lorem ipsum dolor sit",
-            },
-            {
-                title: "LPT1",
-                subtitle: "Leitura e Produção de Textos",
-            },
-            {
-                title: "Gramatica1",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Literatura1",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Linguagens Extrangeiras1",
-                subtitle: "Lorem ipsum dolor sit",
-            },
-            {
-                title: "LPT2",
-                subtitle: "Leitura e Produção de Textos",
-            },
-            {
-                title: "Gramatica2",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Literatura2",
-                subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            },
-            {
-                title: "Linguagens Extrangeiras2",
-                subtitle: "Lorem ipsum dolor sit",
-            },
-        ],
+        cardItems: {
+            languages: [
+                {
+                    icon: languagesIcon,
+                    title: "LPT",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    icon: languagesIcon,
+                    title: "Gramatica",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    icon: languagesIcon,
+                    title: "Literatura",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    icon: languagesIcon,
+                    title: "Linguagens Extrangeiras",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    icon: languagesIcon,
+                    title: "LPT1",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    icon: languagesIcon,
+                    title: "Gramatica1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras1",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    title: "LPT2",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "Gramatica2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras2",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+            ],
+            humans: [
+                {
+                    title: "humanas",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "humanas",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "humanas",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    title: "LPT1",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "Gramatica1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras1",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    title: "LPT2",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "Gramatica2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras2",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+            ],
+            bioexacts: [
+                {
+                    title: "exatas",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "exatas",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "exatas",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    title: "LPT1",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "Gramatica1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura1",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras1",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+                {
+                    title: "LPT2",
+                    subtitle: "Leitura e Produção de Textos",
+                },
+                {
+                    title: "Gramatica2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Literatura2",
+                    subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                },
+                {
+                    title: "Linguagens Extrangeiras2",
+                    subtitle: "Lorem ipsum dolor sit",
+                },
+            ],
+        },
     },
 };
 
