@@ -1,9 +1,10 @@
-import FeatureList from "../../components/FeatureList.js";
+import FeatureList from "../../components/FeatureList";
+import data from "./data";
 
 function Home() {
     return (
         <div>
-            <FeatureList />
+            <FeatureList {...data.features} />
         </div>
     );
 }
