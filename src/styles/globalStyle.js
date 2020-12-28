@@ -71,6 +71,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 12px;
         font-family: 'Raleway', sans-serif;
+        scroll-behavior: smooth;
     }
 
     @media (min-width: 768px) {
