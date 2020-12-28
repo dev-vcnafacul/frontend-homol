@@ -24,7 +24,7 @@ export const Input = styled.input`
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px 4px 0 0;
-    border: 1px solid ${(props) => props.theme.colors.grey};
+    border: 1px solid ${(props) => (props.error ? props.theme.colors.redError : props.theme.colors.grey)};
     color: ${(props) => props.theme.colors.grey};
     font-size: 14px;
     padding: 21px 10px 9px;
@@ -48,4 +48,11 @@ export const InputLabel = styled.label`
         top: 9px;
         left: 24px;
     }
+`;
+
+export const FormError = styled.p`
+    position: absolute;
+    color: #ff0000;
+    bottom: -14px;
+    left: 16px;
 `;

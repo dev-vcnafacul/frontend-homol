@@ -18,8 +18,10 @@ function App() {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Switch>
-                        <PlataformRoutes />
-                        <WebsiteRoutes />
+                        <>
+                            <PlataformRoutes />
+                            <WebsiteRoutes />
+                        </>
                     </Switch>
                 </BrowserRouter>
             </ThemeProvider>

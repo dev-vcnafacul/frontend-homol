@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useFetch } from "../../store/utils";
 import { doAuth } from "../../store/actions/auth";
 
 import { Input, InputLabel, FormField } from "../atoms";
-import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin } from "./styles";
+import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin, Error } from "./styles";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const dispatch = useDispatch();
-    const data = useSelector((state) => state.auth);
+    const [data, fetchData, isLoading, error] = useFetch((state) => state.auth, doAuth(email, password));
 
     function handleLogin(e) {
         e.preventDefault();
-        dispatch(doAuth(email, password));
+        if (email !== "" && password !== "") {
+            fetchData();
+        }
     }
 
     return (
@@ -30,16 +31,33 @@ function LoginForm() {
             <Description>Ou ingresse:</Description>
             <form onSubmit={handleLogin}>
                 <FormField>
-                    <InputLabel>E-mail</InputLabel>
-                    <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <InputLabel htmlFor="email">E-mail</InputLabel>
+                    <Input
+                        id="email"
+                        error={error !== false ? true : false}
+                        type="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                    />
                 </FormField>
                 <FormField>
-                    <InputLabel>Senha</InputLabel>
-                    <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                    <InputLabel htmlFor="password">Senha</InputLabel>
+                    <Input
+                        id="password"
+                        error={error !== false ? true : false}
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                    />
                 </FormField>
                 <SubmitBtn as="input" type="submit" value="Entrar" />
             </form>
             <ForgotPassword href="#">Esqueci minha senha</ForgotPassword>
+            {error !== false && (
+                <FormField>
+                    <Error>Ops! Verifique os campos e tente novamente.</Error>
+                </FormField>
+            )}
         </Wrap>
     );
 }

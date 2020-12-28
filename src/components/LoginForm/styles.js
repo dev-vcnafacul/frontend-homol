@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { SectionTitle, Container } from "../../styles/common";
-import { Button } from "../atoms";
+import { Button, FormError } from "../atoms";
 
 export const Wrap = styled(Container)`
     @media (min-width: 768px) {
@@ -103,4 +103,9 @@ export const SocialLogin = styled.a`
         font-size: 15px;
         margin-bottom: 23px;
     }
+`;
+
+export const Error = styled(FormError)`
+    left: initial;
+    bottom: -28px;
 `;
