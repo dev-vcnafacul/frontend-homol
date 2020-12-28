@@ -84,3 +84,19 @@ export const SocialMediaLinks = styled.div`
         }
     }
 `;
+
+export const Brand = styled.p`
+    margin: 0 0 0 10px;
+    font-size: 25px;
+    color: ${(props) => props.theme.colors.white};
+`;
+
+export const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 1200px) {
+        justify-content: flex-start;
+    }
+`;

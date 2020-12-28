@@ -8,6 +8,8 @@ import {
     SocialMediaTitle,
     SocialMediaLinks,
     SitemapContact,
+    LogoContainer,
+    Brand,
 } from "./styles";
 import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
 import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
@@ -20,7 +22,12 @@ function Footer({ sitemapLinks, slogan, email, socialLinks, className }) {
         <Section className={className}>
             <FlexContainer>
                 <div>
-                    <Logo />
+                    <LogoContainer>
+                        <Logo />
+                        <Brand>
+                            você na <strong>facul</strong>
+                        </Brand>
+                    </LogoContainer>
                     <ParagraphHighlight>{slogan}</ParagraphHighlight>
                 </div>
                 <Sitemap>
