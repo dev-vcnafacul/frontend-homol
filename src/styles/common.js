@@ -36,14 +36,14 @@ export const SectionTitle = styled.h2`
 `;
 
 export const SectionSubtitle = styled.p`
-    font-size: 18px;
+    font-size: 1.16rem;
     line-height: 26px;
-    color: ${(props) => props.theme.colors.grey};
     margin-bottom: 40px;
     text-align: center;
 
     @media (min-width: 1200px) {
         line-height: 35px;
         margin-bottom: 59px;
+        text-align: left;
     }
 `;

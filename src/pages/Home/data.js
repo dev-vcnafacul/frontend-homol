@@ -1,5 +1,6 @@
 import HeroImg1 from "../../assets/images/home/hero-img-1.png";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
+import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 
 const data = {
     hero: {
@@ -67,6 +68,19 @@ const data = {
                 image: HeroImg1,
             },
         ],
+    },
+    about_us: {
+        title: "Quem somos?",
+        subtitle:
+            "Somos um grupo de voluntários com um propósito maior: fazer a diferença. Trabalhamos para que o ambiente universitário seja um ambiente de equidade e oportunidade.",
+        cta: {
+            text: "Conheça nossa história",
+            link: "#",
+        },
+        video: {
+            thumbnail: AboutUsThumbnail,
+            videoID: "LiNm9JxvNOM",
+        },
     },
     header: {
         homeLink: "/",
