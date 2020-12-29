@@ -12,7 +12,6 @@ export const RalewayBold35 = styled(SectionTitle)`
 
 export const Montserrat18 = styled(SectionSubtitle)`
     margin: 0;
-    font-family: Montserrat;
     margin-top: 12px;
     @media only screen and (max-width: 1200px) {
         padding: 0 11%;
@@ -22,7 +21,6 @@ export const Montserrat18 = styled(SectionSubtitle)`
 
 export const BgTester = styled.div`
     background-color: #f8f8f8;
-    width: 1200px;
     height: 715px;
     text-align: center;
     overflow: hidden;
@@ -33,14 +31,14 @@ export const BgTester = styled.div`
 `;
 
 export const ImgLegend = styled.p`
-    margin-top: 24px;    
+    margin-top: 24px;
     font-size: 16px;
-    font-family: Montserrat;
     text-align: left;
     color: #707070;
     @media only screen and (max-width: 1200px) {
         margin: 28px 23px 0 23px;
-        font-size 14px;
+        font-size: 14px;
+        line-height: 24px;
     }
 `;
 
@@ -76,14 +74,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BgImgDiv = styled.img`
-    /*background-image: url("${(props) => props.url}");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
-
     object-fit: cover;
     object-position: center;
-
     flex-grow: 0;
     width: 653px;
     height: 320px;

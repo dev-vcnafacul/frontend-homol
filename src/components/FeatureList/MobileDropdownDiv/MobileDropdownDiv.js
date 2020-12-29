@@ -11,6 +11,7 @@ const MobileDropdownDiv = (props) => {
         if (activePositionMobile === i) {
             apparentItem = (
                 <ChosenMobileItem
+                    opened={showDropdown}
                     onClick={() => {
                         setShowDropdown(!showDropdown);
                     }}
@@ -31,6 +32,7 @@ const MobileDropdownDiv = (props) => {
                         });
                         setShowDropdown(!showDropdown);
                     }}
+                    key={i}
                     index={i}
                     className="normal"
                 >

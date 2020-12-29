@@ -20,6 +20,7 @@ const HighlightSelector = (props) => {
                             element(liIndex);
                         });
                     }}
+                    key={i}
                     index={i}
                     className={CssClass}
                 >
