@@ -64,7 +64,7 @@ export const WrapCarousel = styled.div`
                     props.arrowColor
                         ? encodeURIComponent(props.arrowColor)
                         : encodeURIComponent(props.theme.colors.grey)}
-                 M1.6 9a1.3 1.3 0 10-.5 2.6 1.3 1.3 0 00.5-2.7zM6 9a1.3 1.3 0 10-.5 2.6A1.3 1.3 0 006 8.9zM28.7 9.5L19.6.3A1 1 0 1018 1.7L25.5 9H9.8a1.3 1.3 0 000 2.6h15.7L18 18.9a1 1 0 001.5 1.4l9.1-9.2a1.2 1.2 0 000-1.6z'/%3E%3C/svg%3E");
+                ' d='M1.6 9a1.3 1.3 0 10-.5 2.6 1.3 1.3 0 00.5-2.7zM6 9a1.3 1.3 0 10-.5 2.6A1.3 1.3 0 006 8.9zM28.7 9.5L19.6.3A1 1 0 1018 1.7L25.5 9H9.8a1.3 1.3 0 000 2.6h15.7L18 18.9a1 1 0 001.5 1.4l9.1-9.2a1.2 1.2 0 000-1.6z'/%3E%3C/svg%3E");
             }
         }
     }

@@ -1,5 +1,6 @@
 import HeroImg1 from "../../assets/images/home/hero-img-1.png";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
+import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 
 const data = {
     hero: {
@@ -68,6 +69,19 @@ const data = {
             },
         ],
     },
+    about_us: {
+        title: "Quem somos?",
+        subtitle:
+            "Somos um grupo de voluntários com um propósito maior: fazer a diferença. Trabalhamos para que o ambiente universitário seja um ambiente de equidade e oportunidade.",
+        cta: {
+            text: "Conheça nossa história",
+            link: "#",
+        },
+        video: {
+            thumbnail: AboutUsThumbnail,
+            videoID: "LiNm9JxvNOM",
+        },
+    },
     header: {
         homeLink: "/",
         itemsMenu: [
@@ -78,6 +92,23 @@ const data = {
         ],
         signInLink: "/",
         signUpLink: "/",
+        socialLinks: {
+            facebook: "/",
+            twitter: "/",
+            linkedin: "/",
+            instagram: "/",
+        },
+    },
+    footer: {
+        sitemapLinks: [
+            { name: "Quem Somos", link: "/" },
+            { name: "Localiza cursinho", link: "/" },
+            { name: "Blog", link: "/" },
+            { name: "Termos de Serviço", link: "/" },
+            { name: "Politicas de Privacidade", link: "/" },
+        ],
+        slogan: "Frase impactante",
+        email: "teste@teste.com",
         socialLinks: {
             facebook: "/",
             twitter: "/",
