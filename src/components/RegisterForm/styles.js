@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { SectionTitle, Container } from "../../styles/common";
 import { Button, FormError } from "../atoms";
 
@@ -29,7 +30,7 @@ export const SubmitBtn = styled(Button)`
     }
 `;
 
-export const LinkLogin = styled.a`
+export const LinkLogin = styled(Link)`
     font-weight: 700;
     color: ${(props) => props.theme.colors.orange};
     text-decoration: underline;

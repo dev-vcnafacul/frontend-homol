@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { SectionTitle, Container } from "../../styles/common";
 import { Button, FormError } from "../atoms";
 
@@ -33,7 +34,7 @@ export const SubmitBtn = styled(Button)`
     }
 `;
 
-export const ForgotPassword = styled.a`
+export const ForgotPassword = styled(Link)`
     display: block;
     margin-top: 16px;
     font-size: 12px;

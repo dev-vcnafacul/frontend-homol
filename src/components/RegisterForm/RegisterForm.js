@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useFetch } from "../../store/utils";
 import { doAuth } from "../../store/actions/auth";
 
-import { Input, InputLabel, FormField } from "../atoms";
+import { LOGIN_PATH } from "../../routing/paths";
+
+import { Input, InputLabel, FormField, ToggleVisibility } from "../atoms";
 import {
     Title,
     Description,
@@ -19,7 +21,9 @@ import {
 function RegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [passwordConfirmVisible, setPasswordConfirmVisible] = useState(false);
 
     const [data, fetchData, isLoading, error] = useFetch((state) => state.auth, doAuth(email, password));
 
@@ -49,10 +53,11 @@ function RegisterForm() {
                     <Input
                         id="password"
                         error={error !== false ? true : false}
-                        type="password"
+                        type={passwordVisible === true ? "text" : "password"}
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                     />
+                    <ToggleVisibility visible={passwordVisible} onClick={() => setPasswordVisible(!passwordVisible)} />
                 </FormField>
                 <PasswordSteps>
                     <p>Sua senha deve conter:</p>
@@ -68,9 +73,13 @@ function RegisterForm() {
                     <Input
                         id="passwordConfirm"
                         error={error !== false ? true : false}
-                        type="password"
+                        type={passwordConfirmVisible === true ? "text" : "password"}
                         onChange={(e) => setPasswordConfirm(e.target.value)}
                         value={passwordConfirm}
+                    />
+                    <ToggleVisibility
+                        visible={passwordConfirmVisible}
+                        onClick={() => setPasswordConfirmVisible(!passwordConfirmVisible)}
                     />
                 </FormField>
                 <SubmitBtn as="input" type="submit" value="Continuar" />
@@ -83,7 +92,7 @@ function RegisterForm() {
                 Continuar com Google
             </SocialLogin>
             <Description>
-                Você já tem conta? Faça <LinkLogin href="#">Login</LinkLogin>
+                Você já tem conta? Faça <LinkLogin to={LOGIN_PATH}>Login</LinkLogin>
             </Description>
 
             {error !== false && (
