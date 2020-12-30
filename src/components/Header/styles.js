@@ -221,7 +221,7 @@ export const Bar = styled.div`
 
     ${MenuItem},
     ${SignInButton} {
-        color: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
+        color: ${(props) => (props.openMenu || props.solid ? props.theme.colors.marine : props.theme.colors.white)};
     }
 
     @media (min-width: 1200px) {
