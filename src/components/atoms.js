@@ -53,8 +53,9 @@ export const InputLabel = styled.label`
 export const FormError = styled.p`
     position: absolute;
     color: #ff0000;
-    bottom: -14px;
+    bottom: 10px;
     left: 16px;
+    font-size: 12px;
 `;
 
 export const ToggleVisibility = styled.button`
@@ -65,7 +66,7 @@ export const ToggleVisibility = styled.button`
     width: 16px;
     height: 16px;
     right: 18px;
-    top: calc(50% - 17px);
+    top: calc(50% - 18px);
     cursor: pointer;
     ${(props) =>
         props.visible

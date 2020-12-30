@@ -91,7 +91,7 @@ export const SocialLogin = styled.a`
 
 export const Error = styled(FormError)`
     left: initial;
-    bottom: -28px;
+    bottom: 4px;
 `;
 
 export const PasswordSteps = styled.div`
@@ -110,7 +110,7 @@ export const PasswordSteps = styled.div`
 `;
 
 export const StepsWrap = styled.ul`
-    max-width: 325px;
+    max-width: 336px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -128,6 +128,8 @@ export const Step = styled.li`
     position: relative;
     padding-left: 20px;
 
+    ${(props) => (props.valid === true ? `color: ${props.theme.colors.green}; font-weight: 700;` : "")}
+
     &:before {
         content: "";
         position: absolute;
@@ -135,7 +137,7 @@ export const Step = styled.li`
         height: 10px;
         left: 5px;
         top: -2px;
-        border: solid ${(props) => props.theme.colors.grey};
+        border: solid ${(props) => (props.valid ? props.theme.colors.green : props.theme.colors.grey)};
         border-width: 0 1px 1px 0;
         transform: rotate(45deg);
     }
