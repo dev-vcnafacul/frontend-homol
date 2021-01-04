@@ -6,29 +6,31 @@ import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles"
 import Menu from "./Menu";
 import Sign from "./Sign";
 
-function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, className }) {
-    const [backgroundSolid, setBackgroundSolid] = useState(false);
+function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
+    const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
     const [openMenu, setOpenMenu] = useState(false);
 
     useEffect(() => {
-        function handleScroll() {
-            if (window.scrollY > 50 && !backgroundSolid) {
-                setBackgroundSolid(true);
-            } else if (window.scrollY <= 50 && backgroundSolid) {
-                setBackgroundSolid(false);
+        if (solid !== true) {
+            function handleScroll() {
+                if (window.scrollY > 50 && !backgroundSolid) {
+                    setBackgroundSolid(true);
+                } else if (window.scrollY <= 50 && backgroundSolid) {
+                    setBackgroundSolid(false);
+                }
             }
+
+            window.addEventListener("scroll", handleScroll);
+
+            return () => window.removeEventListener("scroll", handleScroll);
         }
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
     }, [backgroundSolid]);
 
     return (
         <Bar openMenu={openMenu} solid={backgroundSolid} className={className}>
             <FlexContainer>
                 <MenuButtons>
-                    {!openMenu && <MenuIcon onClick={() => setOpenMenu(true)} />}
+                    {!openMenu && <MenuIcon className="menuIcon" onClick={() => setOpenMenu(true)} />}
                     {openMenu && <CloseIcon onClick={() => setOpenMenu(false)} />}
                 </MenuButtons>
                 <a href={homeLink}>

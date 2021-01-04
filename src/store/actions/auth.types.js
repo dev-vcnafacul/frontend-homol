@@ -1,0 +1,2 @@
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
