@@ -99,6 +99,29 @@ const data = {
             instagram: "/",
         },
     },
+    map: {
+        markers: [
+            {
+                name: "Cursinho Teste 1",
+                latitude: -15.7745457,
+                longitude: -48.3575684,
+                address: "Rua Major José Inácio, 1985. CEP 13560-160. São Carlos - SP.",
+            },
+            {
+                name: "Cursinho Teste 2",
+                latitude: -22.0154,
+                longitude: -47.8911,
+                address: "Rua Major José Inácio, 1985. CEP 13560-160. São Carlos - SP.",
+            },
+            {
+                name: "Cursinho Teste 3",
+                latitude: -23.5489,
+                longitude: -46.6388,
+                address: "Rua Major José Inácio, 1985. CEP 13560-160. São Carlos - SP.",
+            },
+        ],
+        ctaLink: "/",
+    },
     footer: {
         sitemapLinks: [
             { name: "Quem Somos", link: "/" },

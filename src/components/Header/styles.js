@@ -7,7 +7,7 @@ export const Bar = styled.div`
     left: 0;
     width: 100%;
     padding: 16px 0;
-    z-index: 20;
+    z-index: 9999;
     background-color: ${(props) =>
         props.openMenu ? props.theme.colors.white : props.solid ? props.theme.colors.backgroundMarine : "transparent"};
     transition: background-color 0.15s;
