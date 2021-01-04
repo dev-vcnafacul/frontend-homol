@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
-import { Bar, FlexContainer, MenuButtons } from "./styles";
+import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles";
 import Menu from "./Menu";
 import Sign from "./Sign";
 
@@ -34,7 +34,12 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                     {openMenu && <CloseIcon onClick={() => setOpenMenu(false)} />}
                 </MenuButtons>
                 <a href={homeLink}>
-                    <Logo />
+                    <LogoContainer>
+                        <Logo />
+                        <Brand openMenu={openMenu}>
+                            você na <strong>facul</strong>
+                        </Brand>
+                    </LogoContainer>
                 </a>
                 <Menu items={itemsMenu} socialLinks={socialLinks} open={openMenu} />
                 <Sign signInLink={signInLink} signUpLink={signUpLink} />

@@ -17,5 +17,6 @@ export const theme = {
         black: "#000000",
         pink: "#DA005A",
         redError: "#ff0000",
+        lightGray: "#E0E0E0",
     },
 };
