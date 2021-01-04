@@ -1,5 +1,5 @@
 import { Input, InputLabel, FormField } from "../atoms";
-import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin } from "./styles";
+import { Title, Description, SubmitBtn, Wrap } from "./styles";
 
 function ForgotPasswordForm() {
     return (

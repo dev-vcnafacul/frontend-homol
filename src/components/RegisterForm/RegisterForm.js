@@ -38,7 +38,7 @@ function RegisterForm() {
     const [passwordConfirmError, setPasswordConfirmError] = useState(false);
     const [passwordConfirmVisible, setPasswordConfirmVisible] = useState(false);
 
-    const [data, fetchData, isLoading, error] = useFetch((state) => state.auth, register(email, password, history));
+    const { fetchData, error } = useFetch((state) => state.auth, register(email, password, history));
 
     const validateEmail = (email) => {
         let regex = /^[\w-s.]+@([\w-]+.)+[\w-]{2,4}$/;

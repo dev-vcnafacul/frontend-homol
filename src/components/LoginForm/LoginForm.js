@@ -12,7 +12,7 @@ function LoginForm() {
     const [password, setPassword] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const [data, fetchData, isLoading, error] = useFetch((state) => state.auth, doAuth(email, password));
+    const { fetchData, error } = useFetch((state) => state.auth, doAuth(email, password));
 
     function handleLogin(e) {
         e.preventDefault();
