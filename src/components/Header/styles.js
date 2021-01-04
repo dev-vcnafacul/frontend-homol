@@ -12,17 +12,9 @@ export const Bar = styled.div`
         props.openMenu ? props.theme.colors.white : props.solid ? props.theme.colors.backgroundMarine : "transparent"};
     transition: background-color 0.15s;
 
-    .logo {
-        fill: ${(props) => (props.openMenu ? props.theme.colors.marine : props.theme.colors.white)};
-    }
-
     @media (min-width: 1200px) {
         padding: 20px 0;
         background-color: ${(props) => (props.solid ? props.theme.colors.backgroundMarine : "transparent")};
-
-        .logo {
-            fill: ${(props) => props.theme.colors.white};
-        }
     }
 `;
 
@@ -57,6 +49,7 @@ export const MenuContainer = styled.div`
         min-height: auto;
         padding: 0;
         text-align: center;
+        width: auto;
     }
 `;
 
@@ -223,4 +216,20 @@ export const SignMenuItem = styled.a`
     font-weight: 700;
     margin: 25px 0 0 0;
     display: block;
+`;
+
+export const Brand = styled.p`
+    margin: 0 0 0 10px;
+    font-size: 18px;
+    color: ${(props) => (props.openMenu ? props.theme.colors.backgroundMarine : props.theme.colors.white)};
+
+    @media (min-width: 1200px) {
+        font-size: 20px;
+        color: ${(props) => props.theme.colors.white};
+    }
+`;
+
+export const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
 `;
