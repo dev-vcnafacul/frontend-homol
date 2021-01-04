@@ -14,15 +14,6 @@ function Map({ markers, ctaLink, className }) {
 
     return (
         <Section className={className}>
-            <Box ref={boxRef}>
-                <BoxContainer>
-                    <Title>Localiza Cursinho</Title>
-                    <Paragraph>{markers[markerActive]?.name}</Paragraph>
-                    <Paragraph>{markers[markerActive]?.address}</Paragraph>
-                    <Subtitle>Conhece um cursinho popular?</Subtitle>
-                    <Button href={ctaLink}>Cadastrar um Cursinho</Button>
-                </BoxContainer>
-            </Box>
             <MapBox center={[-15.7745457, -48.3575684]} zoom={4} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -41,6 +32,15 @@ function Map({ markers, ctaLink, className }) {
                 })}
                 <Geolocation />
             </MapBox>
+            <Box ref={boxRef}>
+                <BoxContainer>
+                    <Title>Localiza Cursinho</Title>
+                    <Paragraph>{markers[markerActive]?.name}</Paragraph>
+                    <Paragraph>{markers[markerActive]?.address}</Paragraph>
+                    <Subtitle>Conhece um cursinho popular?</Subtitle>
+                    <Button href={ctaLink}>Cadastrar um Cursinho</Button>
+                </BoxContainer>
+            </Box>
         </Section>
     );
 }

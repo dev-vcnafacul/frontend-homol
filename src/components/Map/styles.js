@@ -11,7 +11,7 @@ export const MapBox = styled(MapContainer)`
     min-height: 500px;
 
     @media (min-width: 1200px) {
-        min-height: 100vh;
+        min-height: 560px;
     }
 `;
 
@@ -44,7 +44,8 @@ export const Box = styled.div`
 
     @media (min-width: 1200px) {
         position: absolute;
-        top: 50px;
+        top: 50%;
+        transform: translateY(-50%);
         right: 50px;
         z-index: 9998;
         padding: 30px;
