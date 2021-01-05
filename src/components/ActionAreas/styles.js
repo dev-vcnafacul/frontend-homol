@@ -84,6 +84,9 @@ export const ActionAreasCarousel = styled(Carousel)`
 `;
 
 export const Card = styled.a`
+    @media (max-width: 560px) {
+        margin: 0 auto
+    }
     display: block;
     overflow: hidden;
     max-width: 230px;
@@ -126,6 +129,14 @@ export const CardSubtitle = styled.h4`
 `;
 
 export const FlexContainer = styled(Container)`
+    .actionAreasSelector {
+        overflow: scroll;
+        justify-content: space-between;
+
+        & li {
+            margin-left: 15px;
+        }
+    }
     @media (min-width: 1200px) {
         display: block;
         align-items: center;

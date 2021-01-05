@@ -38,7 +38,6 @@ function ActionAreas({ cardItems, tabItems, className }) {
             },
         },
     };
-    console.log(tabIndex);
     return (
         <Section className={className}>
             <FlexContainer>
@@ -46,7 +45,12 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     <ActionAreasTitle>Veja nossas áreas de ação</ActionAreasTitle>
                     <ActionAreasSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</ActionAreasSubtitle>
                 </SectionContent>
-                <HighlightSelector items={tabItems} fontSize={"1.5rem"} tabSelected={setTabIndex}></HighlightSelector>
+                <HighlightSelector
+                    className="actionAreasSelector"
+                    items={tabItems}
+                    fontSize={"1.5rem"}
+                    tabSelected={setTabIndex}
+                ></HighlightSelector>
                 <ActionAreasCarousel
                     className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"}
                     index={tabIndex}

@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const UlCompStyle = styled.ul`
+    @media (max-width: 560px) {
+        overflow: scroll;
+        li {
+            margin-right: 20px;
+        }
+    }
     font-size: ${(props) => props.fontSize};
     padding-inline-start: 0;
     display: flex;
     flex-direction: ${(props) => props.flexDirection};
-    justify-content: space-around;
     align-items: flex-start;
     li {
         white-space: nowrap;
