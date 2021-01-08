@@ -20,5 +20,5 @@ export function useFetch(selector, action) {
             });
     }
 
-    return {data, fetchData, isLoading, error};
+    return { data, fetchData, isLoading, error };
 }
