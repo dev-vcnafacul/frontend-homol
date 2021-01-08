@@ -5,9 +5,10 @@ export const UlComponent = styled.ul`
     padding-inline-start: 0;
     display: flex;
     flex-direction: ${(props) => props.flexDirection};
-    justify-content: space-around;
+    justify-content: ${(props) => (props.justifyContent ? props.justifyContent : "space-around")};
     align-items: flex-start;
     li {
+        margin: ${(props) => (props.liMargin ? props.liMargin : "0")};
         white-space: nowrap;
         list-style-type: none;
         color: #0b2747;

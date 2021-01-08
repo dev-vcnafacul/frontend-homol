@@ -11,6 +11,7 @@ export const RalewayBold35 = styled(SectionTitle)`
 `;
 
 export const Montserrat18 = styled(SectionSubtitle)`
+    text-align: center;
     margin: 0;
     margin-top: 12px;
     @media only screen and (max-width: 1200px) {

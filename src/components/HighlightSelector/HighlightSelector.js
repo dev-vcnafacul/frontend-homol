@@ -31,7 +31,13 @@ const HighlightSelector = (props) => {
         setListOfElements(ilItems);
     }, [props.items, activePosition, props.callBacks]);
     return (
-        <UlComponent className="desktop" fontSize={props.fontSize} flexDirection={props.flexDirection}>
+        <UlComponent
+            className="desktop"
+            fontSize={props.fontSize}
+            flexDirection={props.flexDirection}
+            justifyContent={props.justifyContent}
+            liMargin={props.liMargin}
+        >
             {listOfElements}
         </UlComponent>
     );
