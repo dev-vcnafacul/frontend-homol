@@ -1,3 +1,4 @@
+import FeatureList from "../../components/FeatureList";
 import AboutUs from "../../components/AboutUs";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -13,10 +14,10 @@ function Home() {
             <Hero {...data.hero} />
             <AboutUs {...data.about_us} />
             <News {...data.news} />
+            <FeatureList {...data.features} />
             <Map {...data.map} />
             <Footer {...data.footer} />
         </div>
     );
 }
-
 export default Home;
