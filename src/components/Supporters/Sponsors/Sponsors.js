@@ -22,6 +22,7 @@ function Sponsors({ sponsors, className }) {
             },
             1024: {
                 items: 4,
+                center: false,
                 nav: true,
             },
         },

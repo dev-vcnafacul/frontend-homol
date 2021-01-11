@@ -14,6 +14,7 @@ function Volunteers({ volunteers, className }) {
         gutter: 60,
         center: true,
         fixedWidth: 104,
+        edgePadding: 30,
         responsive: {
             560: {
                 items: 3,

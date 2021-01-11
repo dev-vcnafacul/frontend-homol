@@ -4,6 +4,7 @@ import Carousel from "../../Carousel";
 export const SponsorsCarousel = styled(Carousel)`
     flex-grow: 1;
     margin-top: 140px;
+
     .tns-controls {
         margin: 125px 0 0 0;
         position: static;

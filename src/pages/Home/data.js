@@ -242,6 +242,7 @@ const data = {
         ],
     },
     supporters: {
+        tabTexts: ["Empresas", "Voluntários"],
         sponsors: [
             {
                 image: raccoonLogo,

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Carousel from "../../Carousel";
 
-export const SponsorsCarousel = styled(Carousel)`
+export const VolunteersCarousel = styled(Carousel)`
     flex-grow: 1;
-    margin-top: 140px;
+    margin-top: 105px;
+
     .tns-controls {
-        margin: 125px 0 0 0;
+        margin: 50px 0 0 0;
         position: static;
     }
-
     .tns-controls button {
         z-index: 2;
     }
@@ -30,28 +30,13 @@ export const SponsorsCarousel = styled(Carousel)`
     &.tabDisplayNone {
         display: none;
     }
-    @media (max-width: 1200px) {
-        margin-top: 66px;
-        .tns-controls {
-            margin: 82px 0 0 0;
-        }
-    }
-`;
 
-export const VolunteersCarousel = styled(SponsorsCarousel)`
     @media (max-width: 768px) {
         .tns-ovh {
+            width: 102vw;
             position: relative;
-            width: 100vw;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+            left: calc(-50vw + 48%);
         }
-    }
-    margin-top: 105px;
-    .tns-controls {
-        margin: 50px 0 0 0;
     }
     @media (max-width: 1200px) {
         margin-top: 34px;
