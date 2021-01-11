@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const UlCompStyle = styled.ul`
     @media (max-width: 560px) {
+        justify-content: inherit;
         overflow: scroll;
         li {
             margin-right: 20px;
         }
     }
+    justify-content: space-around;
     font-size: ${(props) => props.fontSize};
     padding-inline-start: 0;
     display: flex;

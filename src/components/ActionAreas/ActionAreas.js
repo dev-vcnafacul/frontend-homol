@@ -51,60 +51,28 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     fontSize={"1.5rem"}
                     tabSelected={setTabIndex}
                 ></HighlightSelector>
-                <ActionAreasCarousel
-                    className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"}
-                    index={tabIndex}
-                    arrowColor="gray"
-                    settings={carouselActionsSettings}
-                >
-                    {cardItems.languages.map((cardItem) => {
-                        return (
-                            <div key={cardItem.title}>
-                                <Card>
-                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
-                                    <CardTitle>{cardItem.title}</CardTitle>
-                                    <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
-                                </Card>
-                            </div>
-                        );
-                    })}
-                </ActionAreasCarousel>
-                <ActionAreasCarousel
-                    className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"}
-                    index={tabIndex}
-                    arrowColor="gray"
-                    settings={carouselActionsSettings}
-                >
-                    {cardItems.humans.map((cardItem) => {
-                        return (
-                            <div key={cardItem.title}>
-                                <Card>
-                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
-                                    <CardTitle>{cardItem.title}</CardTitle>
-                                    <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
-                                </Card>
-                            </div>
-                        );
-                    })}
-                </ActionAreasCarousel>
-                <ActionAreasCarousel
-                    className={tabIndex === 2 ? "tabActive" : "tabDisplayNone"}
-                    index={tabIndex}
-                    arrowColor="gray"
-                    settings={carouselActionsSettings}
-                >
-                    {cardItems.bioexacts.map((cardItem) => {
-                        return (
-                            <div key={cardItem.title}>
-                                <Card>
-                                    <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
-                                    <CardTitle>{cardItem.title}</CardTitle>
-                                    <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
-                                </Card>
-                            </div>
-                        );
-                    })}
-                </ActionAreasCarousel>
+                {cardItems.map((cardTopics) => {
+                    return (
+                        <ActionAreasCarousel
+                            className={tabIndex === cardTopics.id ? "tabActive" : "tabDisplayNone"}
+                            index={tabIndex}
+                            arrowColor="gray"
+                            settings={carouselActionsSettings}
+                        >
+                            {cardTopics.items.map((cardItem) => {
+                                return (
+                                    <div key={cardItem.title}>
+                                        <Card>
+                                            <CardIcon alt="languages" src={cardItem.icon}></CardIcon>
+                                            <CardTitle>{cardItem.title}</CardTitle>
+                                            <CardSubtitle>{cardItem.subtitle}</CardSubtitle>
+                                        </Card>
+                                    </div>
+                                );
+                            })}
+                        </ActionAreasCarousel>
+                    );
+                })}
             </FlexContainer>
         </Section>
     );
