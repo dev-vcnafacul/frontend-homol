@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import store from "./store";
 
 import WebsiteRoutes from "./routing/routes/website";
+import PlataformRoutes from "./routing/routes/plataform";
 
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/globalStyle";
@@ -17,7 +18,10 @@ function App() {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Switch>
-                        <WebsiteRoutes />
+                        <>
+                            <PlataformRoutes />
+                            <WebsiteRoutes />
+                        </>
                     </Switch>
                 </BrowserRouter>
             </ThemeProvider>

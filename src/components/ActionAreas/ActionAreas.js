@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HighlightSelector from "../tabSelector/selector.js";
+import HighlightSelector from "../HighlightSelector/HighlightSelector";
 import {
     Section,
     FlexContainer,
@@ -26,12 +26,16 @@ function ActionAreas({ cardItems, tabItems, className }) {
         speed: 400,
         controlsText: ["", ""],
         gutter: 20,
+        fixedWidth: 230,
+        edgePadding: 20,
         responsive: {
             560: {
                 items: 2,
             },
             768: {
                 items: 3,
+                fixedWidth: 0,
+                edgePadding: 0,
             },
             1024: {
                 items: 4,
@@ -49,7 +53,9 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     className="actionAreasSelector"
                     items={tabItems}
                     fontSize={"1.5rem"}
-                    tabSelected={setTabIndex}
+                    callBacks={[setTabIndex]}
+                    justifyContent={"space-between"}
+                    liMargin={"10px"}
                 ></HighlightSelector>
                 {cardItems.map((cardTopics) => {
                     return (

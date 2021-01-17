@@ -3,13 +3,13 @@ import Carousel from "../Carousel";
 import { Container, SectionTitle, SectionSubtitle } from "../../styles/common";
 
 export const Section = styled.div`
-    padding: 30px 0;
+    padding: 58px 0;
     position: relative;
     display: block;
     overflow-x: hidden;
 
     @media (min-width: 1200px) {
-        padding: 50px 0;
+        padding: 74px 0;
     }
 
     &::after {
@@ -53,10 +53,18 @@ export const ActionAreasSubtitle = styled(SectionSubtitle)`
 
 export const ActionAreasCarousel = styled(Carousel)`
     flex-grow: 1;
-    margin-top: 80px;
+    margin-top: 68px;
+
+    @media (max-width: 560px) {
+        .tns-ovh {
+            width: 102vw;
+            position: relative;
+            left: calc(-50vw + 48%);
+        }
+    }
 
     .tns-controls {
-        margin: 35px 0 0 0;
+        margin: 25px 0 0 0;
         position: static;
     }
 
