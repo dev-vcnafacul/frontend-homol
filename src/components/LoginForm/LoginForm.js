@@ -5,7 +5,7 @@ import { doAuth } from "../../store/actions/auth";
 import { FORGOT_PASSWORD_PATH } from "../../routing/paths";
 
 import { Input, InputLabel, FormField, ToggleVisibility } from "../atoms";
-import { Title, Description, SubmitBtn, Wrap, ForgotPassword, SocialLogin, Error } from "./styles";
+import { Title, Description, SubmitBtn, Wrap, ForgotPassword, Error } from "./styles";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
@@ -24,15 +24,9 @@ function LoginForm() {
     return (
         <Wrap>
             <Title>Entre na sua conta</Title>
-            <Description>Use sua rede social para se conectar</Description>
-            <SocialLogin type="facebook" href="#">
-                Facebook
-            </SocialLogin>
-            <SocialLogin type="google" href="#">
-                Google
-            </SocialLogin>
-            <Description>Ou ingresse:</Description>
-            <form onSubmit={handleLogin}>
+            <Description>Entre com seu e-mail e senha para acessar a plataforma</Description>
+            {error && <Error>E-mail e/ou senha incorreto.</Error>}
+            <form onSubmit={handleLogin} noValidate>
                 <FormField>
                     <InputLabel htmlFor="email">E-mail</InputLabel>
                     <Input
@@ -57,11 +51,6 @@ function LoginForm() {
                 <SubmitBtn as="input" type="submit" value="Entrar" />
             </form>
             <ForgotPassword to={FORGOT_PASSWORD_PATH}>Esqueci minha senha</ForgotPassword>
-            {error !== false && (
-                <FormField>
-                    <Error>Ops! Verifique os campos e tente novamente.</Error>
-                </FormField>
-            )}
         </Wrap>
     );
 }
