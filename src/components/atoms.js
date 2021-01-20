@@ -21,6 +21,8 @@ export const FormField = styled.div`
 `;
 
 export const Input = styled.input`
+    appearance: none;
+    background-color: ${(props) => props.theme.colors.white};
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px 4px 0 0;
@@ -30,6 +32,13 @@ export const Input = styled.input`
     padding: 21px 10px 9px;
     margin-bottom: 25px;
     outline-color: ${(props) => props.theme.colors.orange};
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    background-image: ${(props) =>
+        props.arrow
+            ? "url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+)"
+            : "none"};
 
     @media (min-width: 1200px) {
         font-size: 16px;
