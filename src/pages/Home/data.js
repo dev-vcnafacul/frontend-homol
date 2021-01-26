@@ -247,6 +247,7 @@ const data = {
             {
                 image: raccoonLogo,
                 alt: "",
+                link: "https://raccoon.ag/",
             },
             {
                 image: hostingerLogo,
@@ -255,6 +256,17 @@ const data = {
             {
                 image: raccoonLogo,
                 alt: "",
+                link: "https://raccoon.ag/",
+            },
+            {
+                image: hostingerLogo,
+                alt: "",
+                link: "https://raccoon.ag/",
+            },
+            {
+                image: raccoonLogo,
+                alt: "",
+                link: "https://raccoon.ag/",
             },
             {
                 image: hostingerLogo,
@@ -263,14 +275,7 @@ const data = {
             {
                 image: raccoonLogo,
                 alt: "",
-            },
-            {
-                image: hostingerLogo,
-                alt: "",
-            },
-            {
-                image: raccoonLogo,
-                alt: "",
+                link: "https://raccoon.ag/",
             },
             {
                 image: hostingerLogo,
