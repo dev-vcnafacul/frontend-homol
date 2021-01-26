@@ -252,6 +252,7 @@ const data = {
             {
                 image: hostingerLogo,
                 alt: "",
+                link: "https://www.hostinger.com.br/",
             },
             {
                 image: raccoonLogo,
@@ -261,7 +262,7 @@ const data = {
             {
                 image: hostingerLogo,
                 alt: "",
-                link: "https://raccoon.ag/",
+                link: "https://www.hostinger.com.br/",
             },
             {
                 image: raccoonLogo,
@@ -271,6 +272,7 @@ const data = {
             {
                 image: hostingerLogo,
                 alt: "",
+                link: "https://www.hostinger.com.br/",
             },
             {
                 image: raccoonLogo,
@@ -280,6 +282,7 @@ const data = {
             {
                 image: hostingerLogo,
                 alt: "",
+                link: "https://www.hostinger.com.br/",
             },
         ],
         volunteers: [
