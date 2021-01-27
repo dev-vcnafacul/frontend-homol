@@ -24,7 +24,7 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
 
             return () => window.removeEventListener("scroll", handleScroll);
         }
-    }, [backgroundSolid]);
+    }, [backgroundSolid, solid]);
 
     return (
         <Bar openMenu={openMenu} solid={backgroundSolid} className={className}>
