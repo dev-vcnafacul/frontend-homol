@@ -6,23 +6,23 @@ import { FORGOT_PASSWORD_PATH } from "../../routing/paths";
 
 import { Input, InputLabel, FormField, ToggleVisibility } from "../atoms";
 import { Title, Description, SubmitBtn, Wrap, ForgotPassword, Error } from "./styles";
+import { Loading } from "../../styles/common";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const { fetchData, error } = useFetch((state) => state.auth, doAuth(email, password));
+    const { fetchData, error, isLoading } = useFetch((state) => state.auth, doAuth(email, password));
 
     function handleLogin(e) {
         e.preventDefault();
-        if (email !== "" && password !== "") {
-            fetchData();
-        }
+        fetchData();
     }
 
     return (
         <Wrap>
+            {isLoading && <Loading />}
             <Title>Entre na sua conta</Title>
             <Description>Entre com seu e-mail e senha para acessar a plataforma</Description>
             {error && <Error>E-mail e/ou senha incorreto.</Error>}
