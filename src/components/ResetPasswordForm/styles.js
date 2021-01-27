@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { SectionTitle, Container } from "../../styles/common";
 import { Button } from "../atoms";
 
@@ -14,13 +13,6 @@ export const Title = styled(SectionTitle)`
     margin-bottom: 30px;
 `;
 
-export const Description = styled.p`
-    font-size: 14px;
-    color: ${(props) => props.theme.colors.grey};
-    margin: 16px 0;
-    text-align: center;
-`;
-
 export const SubmitBtn = styled(Button)`
     width: 100%;
 
@@ -30,13 +22,9 @@ export const SubmitBtn = styled(Button)`
     }
 `;
 
-export const LinkLogin = styled(Link)`
-    font-weight: 700;
-    color: ${(props) => props.theme.colors.orange};
-    text-decoration: underline;
-    transition: color 250ms linear;
-
-    &:hover {
-        color: #ff4400;
-    }
+export const Error = styled.p`
+    color: ${(props) => props.theme.colors.redError};
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
 `;
