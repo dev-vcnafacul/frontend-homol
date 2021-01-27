@@ -33,3 +33,10 @@ export const SubmitBtn = styled(Button)`
         padding: 17px 0;
     }
 `;
+
+export const Error = styled.p`
+    color: ${(props) => props.theme.colors.redError};
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+`;
