@@ -51,11 +51,18 @@ export const SupportersSubtitle = styled(SectionSubtitle)`
     @media (min-width: 1200px) {
         text-align: center;
         font-size: 20px;
+        margin-bottom: 67px;
     }
 `;
 
 export const FlexContainer = styled(Container)`
     margin-bottom: 30px;
+    ul {
+        @media (max-width: 1200px) {
+            font-size: 16px;
+        }
+        font-size: 20px;
+    }
     @media (min-width: 1200px) {
         display: block;
         align-items: center;

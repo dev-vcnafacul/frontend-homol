@@ -29,8 +29,12 @@ function Sponsors({ sponsors, className }) {
     };
     return (
         <SponsorsCarousel className={className} arrowColor="gray" settings={sponsorsCarouselActionsSettings}>
-            {sponsors.map((supporter) => {
-                return <SponsorImage src={supporter.image}></SponsorImage>;
+            {sponsors.map((sponsor) => {
+                return (
+                    <SponsorImage href={sponsor.link} target="_blank">
+                        <img src={sponsor.image}></img>
+                    </SponsorImage>
+                );
             })}
         </SponsorsCarousel>
     );

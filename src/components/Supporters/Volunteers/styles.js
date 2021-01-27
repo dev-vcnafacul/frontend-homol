@@ -6,7 +6,7 @@ export const VolunteersCarousel = styled(Carousel)`
     margin-top: 105px;
 
     .tns-controls {
-        margin: 50px 0 0 0;
+        margin: 40px 0 0 0;
         position: static;
     }
     .tns-controls button {
@@ -72,6 +72,7 @@ export const CardText = styled.h3`
     display: block;
     max-width: 112px;
     font-size: 18px;
+    line-height: 1.6rem;
     color: ${(props) => props.theme.colors.darkGrey};
     position: relative;
     text-align: center;
