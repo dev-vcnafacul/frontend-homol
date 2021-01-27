@@ -39,12 +39,6 @@ export const SponsorsCarousel = styled(Carousel)`
     }
 `;
 
-/* export const SponsorImage = styled.img`
-    max-height: 70px;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-`; */
 export const SponsorImage = styled.a`
     img {
         max-width: 100%;

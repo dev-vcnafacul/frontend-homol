@@ -19,7 +19,6 @@ export const Section = styled.div`
         border-style: solid;
         border-width: 0 0 100px 100px;
         border-color: transparent transparent ${(props) => props.theme.colors.green} transparent;
-        /*transform: rotate(180deg);*/
         position: absolute;
         right: 0;
         bottom: 0;
@@ -77,9 +76,10 @@ export const SectionContent = styled.div`
     }
 `;
 
-export const VnfTeamCTA = styled.button`
+export const VnfTeamCTA = styled.a`
     width: 266px;
     height: 43px;
+    line-height: 43px;
     margin: 0 auto;
     margin-top: 48px;
     background-color: ${(props) => props.theme.colors.darkOrange};
@@ -96,12 +96,13 @@ export const VnfTeamCTA = styled.button`
     }
 
     @media (max-width: 1024px) {
-        width: 60%;
+        width: 70%;
         max-width: 266px;
         margin: 0 auto;
         position: relative;
         top: -30px;
-        font-size: 14px;
+        margin-bottom: -30px;
+        font-size: 16px;
         &.desktop {
             display: none;
         }
