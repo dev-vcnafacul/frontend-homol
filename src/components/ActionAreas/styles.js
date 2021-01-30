@@ -57,9 +57,12 @@ export const ActionAreasCarousel = styled(Carousel)`
 
     @media (max-width: 560px) {
         .tns-ovh {
-            width: 102vw;
+            width: 100vw;
             position: relative;
-            left: calc(-50vw + 48%);
+            left: -24px;
+        }
+        #tns3-iw {
+            margin-left: 36px;
         }
     }
 

@@ -4,6 +4,7 @@ export const UlComponent = styled.ul`
     font-size: ${(props) => props.fontSize};
     padding-inline-start: 0;
     display: flex;
+    overflow: auto;
     flex-direction: ${(props) => props.flexDirection};
     justify-content: ${(props) => (props.justifyContent ? props.justifyContent : "space-around")};
     align-items: flex-start;
