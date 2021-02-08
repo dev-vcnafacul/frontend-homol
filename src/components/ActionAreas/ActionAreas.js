@@ -28,6 +28,7 @@ function ActionAreas({ cardItems, tabItems, className }) {
         gutter: 20,
         fixedWidth: 230,
         edgePadding: 20,
+        center: true,
         responsive: {
             560: {
                 items: 2,

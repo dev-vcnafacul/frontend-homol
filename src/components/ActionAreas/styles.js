@@ -11,7 +11,30 @@ export const Section = styled.div`
     @media (min-width: 1200px) {
         padding: 74px 0;
     }
-
+    ul {
+        position: relative;
+        justify-content: space-around;
+        @media (max-width: 560px) {
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            width: 100vw;
+            left: -24px;
+        }
+        li {
+            margin-bottom: 0;
+            padding-bottom: 10px;
+        }
+        &::after {
+            content: " ";
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            bottom: 1px;
+            z-index: -1;
+            background-color: ${(props) => props.theme.colors.lightGray};
+        }
+    }
     &::after {
         content: " ";
         display: block;
@@ -53,9 +76,9 @@ export const ActionAreasSubtitle = styled(SectionSubtitle)`
 
 export const ActionAreasCarousel = styled(Carousel)`
     flex-grow: 1;
-    margin-top: 68px;
+    margin-top: 46px;
 
-    @media (max-width: 560px) {
+    @media (max-width: 768px) {
         .tns-ovh {
             width: 100vw;
             position: relative;
