@@ -6,6 +6,7 @@ import Hero from "../../components/Hero";
 import Supporters from "../../components/Supporters";
 import Map from "../../components/Map";
 import News from "../../components/News";
+import ActionAreas from "../../components/ActionAreas";
 import data from "./data";
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
             <AboutUs {...data.about_us} />
             <News {...data.news} />
             <FeatureList {...data.features} />
+            <ActionAreas {...data.actionAreas} />
             <Supporters {...data.supporters} />
             <Map {...data.map} />
             <Footer {...data.footer} />
