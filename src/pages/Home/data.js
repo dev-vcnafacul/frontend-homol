@@ -519,6 +519,14 @@ const data = {
             },
         ],
     },
+    lgpd: {
+        headerText: "Cookies e Privacidade",
+        text:
+            "Nós utilizamos cookies e outras tecnologias semelhantes para melhorar sua experiência em nossos serviços, personalizar nossa publicidade e recomendar conteúdo de seu interesse. Ao utilizar nossos serviços, você aceita a política de monitoramento de cookies. Para mais informações, consulte nossa ",
+        acceptText: "Aceito",
+        rejectText: "Não aceito",
+        link: "",
+    },
 };
 
 export default data;
