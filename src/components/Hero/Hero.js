@@ -2,7 +2,18 @@ import Carousel from "../Carousel";
 import { ReactComponent as TriangleWhite } from "../../assets/icons/triangle-white.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
-import { Link, Slide, Background, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper } from "./styles";
+import {
+    Link,
+    Slide,
+    Background,
+    WrapContainer,
+    Content,
+    Title,
+    Subtitle,
+    Image,
+    ImageWrapper,
+    TextWrapper,
+} from "./styles";
 
 function Hero({ slides }) {
     const carouselSettings = {
@@ -29,21 +40,19 @@ function Hero({ slides }) {
 
     const listSlides = slides.map((slide, index) => (
         <Slide key={slide.id} background={backgroundGradients[index % 4]}>
-            <Background className="background" src={slide.background_image} alt={slide.title} />
             <WrapContainer>
                 <Content>
-                    <Title className="title">{slide.title}</Title>
-                    <Subtitle className="subtitle">{slide.subtitle}</Subtitle>
+                    <TextWrapper>
+                        <Title className="title">{slide.title}</Title>
+                        <Subtitle className="subtitle">{slide.subtitle}</Subtitle>
+                    </TextWrapper>
                     {slide.links.map((link) => (
                         <Link key={link.id} href={link.link}>
                             {link.text}
                         </Link>
                     ))}
                 </Content>
-                <ImageWrapper>
-                    <TriangleWhite className="triangle-white" />
-                    <TriangleYellow className="triangle-yellow" />
-                    <TriangleGreen className="triangle-green" />
+                <ImageWrapper imageDimension={slide.imageDimension} imagePosition={slide.imagePosition}>
                     <Image className="image" src={slide.image} alt={slide.title} />
                 </ImageWrapper>
             </WrapContainer>

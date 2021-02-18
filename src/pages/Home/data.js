@@ -1,4 +1,8 @@
-import HeroImg1 from "../../assets/images/home/hero-img-1.png";
+//import HeroImg1 from "../../assets/images/home/hero-img-1.png";
+import HeroImg1 from "../../assets/images/home/hero_student.svg";
+import HeroImg2 from "../../assets/images/home/hero_teacher.svg";
+import HeroImg3 from "../../assets/images/home/hero_cursinho.svg";
+import HeroImg4 from "../../assets/images/home/hero_sponsor.svg";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
 import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 import raccoonLogo from "../../assets/images/home/Grupo 1706.svg";
@@ -28,6 +32,18 @@ const data = {
                 ],
                 background_image: HeroBackgroundImg1,
                 image: HeroImg1,
+                imageDimension: {
+                    desktopWidth: "430px",
+                    desktopHeight: "450px",
+                    mobileWidth: "269px",
+                    mobileHeight: "283px",
+                },
+                imagePosition: {
+                    desktopLeft: "9px",
+                    desktopBottom: "27px",
+                    mobileTop: "0px",
+                    mobileMarginBottom: "54px",
+                },
             },
             {
                 id: "2",
@@ -41,7 +57,19 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg2,
+                imageDimension: {
+                    desktopWidth: "664px",
+                    desktopHeight: "395px",
+                    mobileWidth: "360px",
+                    mobileHeight: "206px",
+                },
+                imagePosition: {
+                    desktopLeft: "0px",
+                    desktopBottom: "74px",
+                    mobileTop: "49px",
+                    mobileMarginBottom: "82px",
+                },
             },
             {
                 id: "3",
@@ -55,7 +83,19 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg3,
+                imageDimension: {
+                    desktopWidth: "579px",
+                    desktopHeight: "505px",
+                    mobileWidth: "343px",
+                    mobileHeight: "299px",
+                },
+                imagePosition: {
+                    desktopLeft: "0px",
+                    desktopBottom: "47px",
+                    mobileTop: "-34px",
+                    mobileMarginBottom: "72px",
+                },
             },
             {
                 id: "4",
@@ -69,7 +109,19 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg4,
+                imageDimension: {
+                    desktopWidth: "675px",
+                    desktopHeight: "447px",
+                    mobileWidth: "360px",
+                    mobileHeight: "263px",
+                },
+                imagePosition: {
+                    desktopLeft: "-117px",
+                    desktopBottom: "47px",
+                    mobileTop: "16px",
+                    mobileMarginBottom: "58px",
+                },
             },
         ],
     },
