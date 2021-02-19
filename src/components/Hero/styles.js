@@ -49,35 +49,31 @@ export const Background = styled.img`
 export const WrapContainer = styled(Container)`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding-top: 102px;
     min-height: 100vh;
     box-sizing: border-box;
-
     @media (min-width: 768px) {
         padding-top: 76px;
         min-height: 430px;
         flex-direction: row;
-        align-items: flex-end;
-        margin-bottom: 50px;
+        align-items: flex-start;
+        justify-content: space-between;
     }
-
     @media (min-width: 1200px) {
         min-height: 600px;
-        margin-bottom: 0px;
+        align-items: center;
     }
 `;
 
 export const Content = styled.div`
     color: ${(props) => props.theme.colors.white};
-    z-index: 1;
     @media (min-width: 768px) {
         align-self: flex-start;
-        width: 400px;
     }
-
     @media (min-width: 1200px) {
-        width: 530px;
+        max-width: calc(100% - 466px);
+        width: 100%;
         margin-bottom: 116px;
         align-self: flex-end;
     }
@@ -118,55 +114,36 @@ export const Subtitle = styled.p`
 
 export const Image = styled.img`
     display: block;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 1;
 `;
 
 export const Slide = styled.div`
-    min-height: 100vh;
+    min-height: 750px;
     background: ${(props) => props.background};
-
     @media (min-width: 768px) {
         min-height: initial;
     }
-
     @media (min-width: 1200px) {
         min-height: 600px;
     }
 `;
-
 export const ImageWrapper = styled.div`
     position: relative;
-    z-index: 0;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
     @media (max-width: 768px) {
-        height: ${(props) => props.imageDimension.mobileHeight};
-        min-width: ${(props) => props.imageDimension.mobileWidth};
-        margin-top: ${(props) => props.imagePosition.mobileTop};
-        left: -24px;
-        margin-left: calc(calc(100vw - ${(props) => props.imageDimension.mobileWidth}) / 2);
-        margin-bottom: ${(props) => props.imagePosition.mobileMarginBottom};
-    }
-    @media (min-width: 768px) {
-        height: auto;
-        min-width: ${(props) => props.imageDimension.mobileWidth};
-        margin: 0;
-        bottom: ${(props) => props.imagePosition.desktopBottom};
-        max-width: calc(100% - 400px);
-        left: 10px;
+        max-width: 100vw;
+        max-height: 350px;
     }
     @media (min-width: 1200px) {
-        height: ${(props) => props.imageDimension.desktopHeight};
-        width: ${(props) => props.imageDimension.desktopWidth};
-        max-width: calc(100% - 530px);
-        left: ${(props) => props.imagePosition.desktopLeft};
-        bottom: ${(props) => props.imagePosition.desktopBottom};
-    }
-
-    svg {
-        position: absolute;
-        transition: transform 250ms ease-in-out;
+        max-width: 477px;
+        width: 477px;
+        margin: 0;
+        top: 0px;
     }
 `;
