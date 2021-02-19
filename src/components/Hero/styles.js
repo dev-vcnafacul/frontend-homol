@@ -137,6 +137,7 @@ export const ImageWrapper = styled.div`
     width: 100%;
     margin: 0 auto;
     @media (max-width: 768px) {
+        margin-top: 5px;
         max-width: 100vw;
         max-height: 350px;
     }
