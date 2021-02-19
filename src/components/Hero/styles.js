@@ -49,7 +49,7 @@ export const Background = styled.img`
 export const WrapContainer = styled(Container)`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 102px;
     min-height: 100vh;
     box-sizing: border-box;
@@ -59,10 +59,12 @@ export const WrapContainer = styled(Container)`
         min-height: 430px;
         flex-direction: row;
         align-items: flex-end;
+        margin-bottom: 50px;
     }
 
     @media (min-width: 1200px) {
         min-height: 600px;
+        margin-bottom: 0px;
     }
 `;
 
@@ -71,6 +73,7 @@ export const Content = styled.div`
     z-index: 1;
     @media (min-width: 768px) {
         align-self: flex-start;
+        width: 400px;
     }
 
     @media (min-width: 1200px) {
@@ -138,17 +141,26 @@ export const Slide = styled.div`
 export const ImageWrapper = styled.div`
     position: relative;
     z-index: 0;
-    @media (max-width: 1200px) {
+    @media (max-width: 768px) {
         height: ${(props) => props.imageDimension.mobileHeight};
-        width: ${(props) => props.imageDimension.mobileWidth};
+        min-width: ${(props) => props.imageDimension.mobileWidth};
         margin-top: ${(props) => props.imagePosition.mobileTop};
         left: -24px;
         margin-left: calc(calc(100vw - ${(props) => props.imageDimension.mobileWidth}) / 2);
         margin-bottom: ${(props) => props.imagePosition.mobileMarginBottom};
     }
+    @media (min-width: 768px) {
+        height: auto;
+        min-width: ${(props) => props.imageDimension.mobileWidth};
+        margin: 0;
+        bottom: ${(props) => props.imagePosition.desktopBottom};
+        max-width: calc(100% - 400px);
+        left: 10px;
+    }
     @media (min-width: 1200px) {
         height: ${(props) => props.imageDimension.desktopHeight};
         width: ${(props) => props.imageDimension.desktopWidth};
+        max-width: calc(100% - 530px);
         left: ${(props) => props.imagePosition.desktopLeft};
         bottom: ${(props) => props.imagePosition.desktopBottom};
     }
