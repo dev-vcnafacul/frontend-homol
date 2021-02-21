@@ -5,13 +5,13 @@ import { API_URL } from "../../constants";
 export function doAuth(email, password) {
     return async (dispatch) => {
         const data = { email, password };
-        const response = await fetch(`${API_URL}/session`, {
+        const response = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         });
 
-        if (response.status === 401) {
+        if (response.status === 400) {
             throw new Error("User not found");
         } else {
             const responseJSON = await response.json();
