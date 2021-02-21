@@ -40,3 +40,18 @@ export const LinkLogin = styled(Link)`
         color: #ff4400;
     }
 `;
+
+export const Error = styled.p`
+    color: ${(props) => props.theme.colors.redError};
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+`;
+
+export const Success = styled.p`
+    font-size: 18px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.4;
+`;
