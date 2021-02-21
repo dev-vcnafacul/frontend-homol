@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
+    min-height: calc(100vh - 77px);
+    box-sizing: border-box;
     position: relative;
     padding: 50px 0 76px;
     margin-top: 67px;
