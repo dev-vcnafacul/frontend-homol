@@ -1,19 +1,5 @@
 import Carousel from "../Carousel";
-import { ReactComponent as TriangleWhite } from "../../assets/icons/triangle-white.svg";
-import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
-import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
-import {
-    Link,
-    Slide,
-    Background,
-    WrapContainer,
-    Content,
-    Title,
-    Subtitle,
-    Image,
-    ImageWrapper,
-    TextWrapper,
-} from "./styles";
+import { Link, Slide, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper, TextWrapper } from "./styles";
 
 function Hero({ slides }) {
     const carouselSettings = {
