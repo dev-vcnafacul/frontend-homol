@@ -1,4 +1,8 @@
-import HeroImg1 from "../../assets/images/home/hero-img-1.png";
+//import HeroImg1 from "../../assets/images/home/hero-img-1.png";
+import HeroImg1 from "../../assets/images/home/hero_student.svg";
+import HeroImg2 from "../../assets/images/home/hero_teacher.svg";
+import HeroImg3 from "../../assets/images/home/hero_cursinho.svg";
+import HeroImg4 from "../../assets/images/home/hero_sponsor.svg";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
 import languagesIcon from "../../assets/icons/languages.svg";
 import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
@@ -42,7 +46,7 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg2,
             },
             {
                 id: "3",
@@ -56,7 +60,7 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg3,
             },
             {
                 id: "4",
@@ -70,7 +74,7 @@ const data = {
                     },
                 ],
                 background_image: HeroBackgroundImg1,
-                image: HeroImg1,
+                image: HeroImg4,
             },
         ],
     },
