@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
 export const Bar = styled.div`
-    &.invisible {
-        display: none;
-    }
+    display: ${(props) => (props.invisible ? "none" : "flex")};
     position: fixed;
     z-index: 9999;
     bottom: 0;
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
