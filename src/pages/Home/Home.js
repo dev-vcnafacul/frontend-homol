@@ -7,11 +7,13 @@ import Supporters from "../../components/Supporters";
 import Map from "../../components/Map";
 import News from "../../components/News";
 import ActionAreas from "../../components/ActionAreas";
+import CookieBar from "../../components/CookieBar";
 import data from "./data";
 
 function Home() {
     return (
         <div>
+            <CookieBar {...data.lgpd} />
             <Header {...data.header} />
             <Hero {...data.hero} />
             <AboutUs {...data.about_us} />

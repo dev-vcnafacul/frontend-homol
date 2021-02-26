@@ -16,6 +16,16 @@ export const Button = styled.a`
     }
 `;
 
+export const InvertedButton = styled(Button)`
+    color: ${(props) => props.theme.colors.orange};
+    background-color: ${(props) => props.theme.colors.white};
+    border: 1px solid;
+    border-color: ${(props) => props.theme.colors.orange};
+    &:hover {
+        background-color: ${(props) => props.theme.colors.lightGray};
+    }
+`;
+
 export const FormField = styled.div`
     position: relative;
 `;
