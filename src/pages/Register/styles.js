@@ -18,7 +18,7 @@ export const Wrap = styled.div`
     .graphism {
         position: absolute;
 
-        &.triangle-green {
+        &.triangle-pink {
             width: 194px;
             height: 194px;
             left: -97px;
@@ -35,7 +35,7 @@ export const Wrap = styled.div`
         }
 
         @media (min-width: 768px) {
-            &.triangle-green {
+            &.triangle-pink {
                 width: 446px;
                 height: 446px;
                 left: -223px;
