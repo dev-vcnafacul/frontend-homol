@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Input, InputLabel, FormField, FormError } from "../atoms";
+import { CheckboxWrapper, CheckboxText } from "./styles";
 import { SubmitBtn } from "./styles";
 
 function Step2({ goNextStep }) {
@@ -8,7 +9,7 @@ function Step2({ goNextStep }) {
     const [errors, setErrors] = useState({});
 
     const isValidField = (field, value) => {
-        if (!value || value.trim() === "") {
+        if (!value || (typeof value === "string" && value.trim() === "")) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Campo obrigatório" };
             });
@@ -51,7 +52,7 @@ function Step2({ goNextStep }) {
     function handleForm(e) {
         e.preventDefault();
         let validate = true;
-        const fields = ["firstName", "lastName", "gender", "birthday", "phone", "state", "city"];
+        const fields = ["firstName", "lastName", "gender", "birthday", "phone", "state", "city", "lgpd"];
         fields.forEach((field) => {
             if (!isValidField(field, data[field])) validate = false;
         });
@@ -195,6 +196,26 @@ function Step2({ goNextStep }) {
                 />
                 <FormError>{errors.city}</FormError>
             </FormField>
+            <CheckboxWrapper
+                onChange={(value) => {
+                    setData({ ...data, lgpd: value });
+                }}
+            >
+                <>
+                    <CheckboxText>
+                        Eu li e aceito os{" "}
+                        <a onClick={(e) => e.stopPropagation()} href="/" target="_blank">
+                            termos de uso
+                        </a>{" "}
+                        e{" "}
+                        <a onClick={(e) => e.stopPropagation()} href="/" target="_blank">
+                            políticas de privacidade
+                        </a>
+                    </CheckboxText>
+                    <FormError>{errors.lgpd}</FormError>
+                </>
+            </CheckboxWrapper>
+
             <SubmitBtn as="input" type="submit" value="Cadastrar" />
         </form>
     );

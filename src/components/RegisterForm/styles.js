@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { SectionTitle, Container } from "../../styles/common";
 import { Button } from "../atoms";
+import CheckboxField from "../CheckboxField";
 
 export const Wrap = styled(Container)`
     @media (min-width: 768px) {
@@ -54,4 +55,21 @@ export const Success = styled.p`
     max-width: 400px;
     margin: 0 auto;
     line-height: 1.4;
+`;
+
+export const CheckboxText = styled.p`
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    color: ${(props) => props.theme.colors.grey};
+
+    a {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+`;
+
+export const CheckboxWrapper = styled(CheckboxField)`
+    padding-bottom: 25px;
+    position: relative;
 `;
