@@ -1,9 +1,10 @@
 import data from "../Home/data";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import RegisterForm from "../../components/RegisterForm";
 
-import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
+import { ReactComponent as TrianglePink } from "../../assets/icons/triangle-pink.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
 
 import { Wrap } from "./styles";
@@ -13,10 +14,11 @@ function Register() {
         <>
             <Header solid {...data.header} />
             <Wrap>
-                <TriangleGreen className="graphism triangle-green" />
+                <TrianglePink className="graphism triangle-pink" />
                 <TriangleYellow className="graphism triangle-yellow" />
                 <RegisterForm />
             </Wrap>
+            <Footer {...data.footer} />
         </>
     );
 }

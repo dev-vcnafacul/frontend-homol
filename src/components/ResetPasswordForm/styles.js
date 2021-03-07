@@ -13,18 +13,6 @@ export const Title = styled(SectionTitle)`
     margin-bottom: 30px;
 `;
 
-export const Description = styled.p`
-    font-size: 12px;
-    line-height: 18px;
-    color: ${(props) => props.theme.colors.orange};
-    margin-bottom: 30px;
-    text-align: center;
-
-    @media (min-width: 768px) {
-        font-size: 14px;
-    }
-`;
-
 export const SubmitBtn = styled(Button)`
     width: 100%;
 

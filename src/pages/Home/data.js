@@ -10,6 +10,7 @@ import raccoonLogo from "../../assets/images/home/Grupo 1706.svg";
 import hostingerLogo from "../../assets/images/home/1200px-Hostinger_logo_purple.svg@2x.png";
 import volunteerFace1 from "../../assets/images/home/face1.png";
 import volunteerFace2 from "../../assets/images/home/face2.png";
+import { LOGIN_PATH, REGISTER_PATH } from "../../routing/paths";
 
 const data = {
     hero: {
@@ -99,8 +100,8 @@ const data = {
             { name: "Apoiadores", link: "/" },
             { name: "Blog", link: "/" },
         ],
-        signInLink: "/",
-        signUpLink: "/",
+        signInLink: REGISTER_PATH,
+        signUpLink: LOGIN_PATH,
         socialLinks: {
             facebook: "/",
             twitter: "/",

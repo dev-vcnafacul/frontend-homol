@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
+    min-height: calc(100vh - 77px);
+    box-sizing: border-box;
     position: relative;
     padding: 50px 0 60px;
     margin-top: 67px;
@@ -16,7 +18,7 @@ export const Wrap = styled.div`
     .graphism {
         position: absolute;
 
-        &.triangle-green {
+        &.triangle-pink {
             width: 194px;
             height: 194px;
             left: -97px;
@@ -33,7 +35,7 @@ export const Wrap = styled.div`
         }
 
         @media (min-width: 768px) {
-            &.triangle-green {
+            &.triangle-pink {
                 width: 446px;
                 height: 446px;
                 left: -223px;

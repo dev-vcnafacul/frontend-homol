@@ -1,6 +1,7 @@
 import data from "../Home/data";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import ForgotPasswordForm from "../../components/ForgotPasswordForm";
 
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
@@ -17,6 +18,7 @@ function ForgotPassword() {
                 <TriangleYellow className="graphism triangle-yellow" />
                 <ForgotPasswordForm />
             </Wrap>
+            <Footer {...data.footer} />
         </>
     );
 }

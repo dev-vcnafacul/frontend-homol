@@ -1,11 +1,11 @@
 import { AUTH_SUCCESS, REGISTER_SUCCESS } from "./auth.types";
 import { HOME_PATH } from "../../routing/paths";
+import { API_URL } from "../../constants";
 
 export function doAuth(email, password) {
     return async (dispatch) => {
         const data = { email, password };
-        //Fake temporary api: https://reqres.in/
-        const response = await fetch("https://reqres.in/api/login", {
+        const response = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
