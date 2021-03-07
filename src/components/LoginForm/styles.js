@@ -15,9 +15,10 @@ export const Title = styled(SectionTitle)`
 `;
 
 export const Description = styled.p`
-    font-size: 12px;
+    font-size: 16px;
     color: ${(props) => props.theme.colors.orange};
     margin-bottom: 20px;
+    line-height: 1.4;
     text-align: center;
 
     @media (min-width: 768px) {

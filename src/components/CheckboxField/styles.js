@@ -11,12 +11,12 @@ export const Box = styled.div`
     min-width: 14px;
     width: 14px;
     height: 14px;
-    border: 1px solid #ff7600;
+    border: 1px solid ${(props) => props.theme.colors.orange};
 
     &:after {
         content: " ";
-        background-color: ${({ active }) => (active ? "#FF7600" : "#FFFFFF")};
-        border: 2px solid #ffffff;
+        background-color: ${(props) => (props.active ? props.theme.colors.orange : props.theme.colors.white)};
+        border: 2px solid ${(props) => props.theme.colors.white};
         width: 10px;
         height: 10px;
         display: block;
