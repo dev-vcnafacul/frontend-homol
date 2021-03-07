@@ -67,7 +67,7 @@ export const FormError = styled.p`
     font-size: 12px;
 `;
 
-export const ToggleVisibility = styled.button`
+export const ToggleVisibility = styled.div`
     position: absolute;
     padding: 0;
     background-color: transparent;
