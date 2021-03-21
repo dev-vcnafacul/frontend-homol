@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-import { Title, Wrap, Error, Success } from "./styles";
+import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv } from "./styles";
 import { Loading } from "../../styles/common";
 import { API_URL } from "../../constants";
+import successIconFile from "../../assets/icons/check-circle.svg";
+import { LOGIN_PATH } from "../../routing/paths";
 
 function RegisterForm({ className }) {
     const [data, setData] = useState({});
@@ -45,11 +47,14 @@ function RegisterForm({ className }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user),
             });
-
+            const responsePayload = await response.json();
+            const errors = responsePayload["errors"];
             if (response.status === 200 || response.status === 204) {
                 setStep((step) => step + 1);
-            } else if (response.status === 400) {
-                setMessage("E-mail já existente na base.");
+            } else if (response.status === 422) {
+                if (errors[0]["rule"] === "unique" && errors[0]["field"] === "email") {
+                    setMessage("Esse e-mail já existe em nossa base de dados. Tente novamente!");
+                }
             } else {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
             }
@@ -63,14 +68,29 @@ function RegisterForm({ className }) {
     return (
         <Wrap className={className}>
             {loading && <Loading />}
-            <Title>Cadastre-se</Title>
-            <Error>{message}</Error>
-            {step === 1 && <Step1 goNextStep={goNextStep} />}
-            {step === 2 && <Step2 goNextStep={goNextStep} />}
+            {step === 1 && (
+                <div>
+                    <Title>Cadastre-se</Title>
+                    <Error>{message}</Error>
+                    <Step1 goNextStep={goNextStep} />
+                </div>
+            )}
+            {step === 2 && (
+                <div>
+                    <Title>Cadastre-se</Title>
+                    <Error>{message}</Error>
+                    <Step2 goNextStep={goNextStep} />
+                </div>
+            )}
             {step === 3 && (
-                <Success>
-                    Parabéns! Cadastro realizado com sucesso. Por favor, faça o seu login para acessar a plataforma.
-                </Success>
+                <SuccessDiv>
+                    <SuccessIcon src={successIconFile}></SuccessIcon>
+                    <Title>Tudo pronto</Title>
+                    <Success>
+                        Parabéns! Cadastro realizado com sucesso. Por favor, faça o seu login para acessar a plataforma.
+                    </Success>
+                    <LoginShortcut href={LOGIN_PATH}>Comece a explorar nossa plataforma</LoginShortcut>
+                </SuccessDiv>
             )}
         </Wrap>
     );

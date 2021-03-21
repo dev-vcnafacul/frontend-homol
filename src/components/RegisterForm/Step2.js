@@ -8,20 +8,123 @@ function Step2({ goNextStep }) {
     const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
 
+    const invalidDate = (value) => {
+        if (value.length < 10) {
+            return "Escreva a data no formato dd/mm/aaaa";
+        }
+        const day = value.substring(0, 2);
+        const month = value.substring(3, 5);
+        const year = value.substring(6, 10);
+        if (parseInt(month) > 12) {
+            return "O mês " + month + " não é válido. O mês deve estar entre 01 e 12";
+        }
+        if (parseInt(year) < 1900) {
+            return "O ano " + year + " não é válido. O ano deve ser maior que 1900";
+        }
+        const testDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+        if (
+            isNaN(testDate.getTime()) ||
+            testDate.getDate() !== parseInt(day) ||
+            testDate.getMonth() !== parseInt(month) - 1 ||
+            testDate.getFullYear() !== parseInt(year)
+        ) {
+            return "O dia " + day + " não parece ser válido";
+        }
+        if (testDate > new Date()) {
+            return "A data inserida é no futuro";
+        }
+        return null;
+    };
+
     const isValidField = (field, value) => {
+        const possibleDDD = [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            21,
+            22,
+            24,
+            27,
+            28,
+            31,
+            32,
+            33,
+            34,
+            35,
+            37,
+            38,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            51,
+            53,
+            54,
+            55,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            71,
+            73,
+            74,
+            75,
+            77,
+            79,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+        ];
+
         if (!value || (typeof value === "string" && value.trim() === "")) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Campo obrigatório" };
             });
             return false;
-        } else if (field === "birthday" && value.length < 10) {
+        } else if (field === "birthday" && invalidDate(value)) {
             setErrors((errors) => {
-                return { ...errors, [field]: "*Data inválida" };
+                return { ...errors, [field]: "*Data inválida: " + invalidDate(value) };
             });
             return false;
-        } else if (field === "phone" && value.length < 15) {
+        } else if (field === "phone" && value.length < 14) {
             setErrors((errors) => {
-                return { ...errors, [field]: "*Telefone inválido" };
+                return { ...errors, [field]: "*Telefone inválido: O número deve ter no mínimo um DDD mais 8 dígitos" };
+            });
+            return false;
+        } else if (field === "phone" && !possibleDDD.includes(parseInt(value.substring(1, 3)))) {
+            setErrors((errors) => {
+                return { ...errors, [field]: "*Telefone inválido: O DDD " + value.substring(1, 3) + " não é válido" };
             });
             return false;
         } else {
