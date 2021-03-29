@@ -113,7 +113,7 @@ export const Slide = styled.div`
     min-height: 750px;
     background: ${(props) => props.background};
     @media (min-width: 768px) {
-        min-height: initial;
+        min-height: 480px;
     }
     @media (min-width: 1200px) {
         min-height: 600px;
@@ -121,7 +121,7 @@ export const Slide = styled.div`
 `;
 export const ImageWrapper = styled.div`
     position: relative;
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
     margin: 0 auto;
     @media (max-width: 768px) {
