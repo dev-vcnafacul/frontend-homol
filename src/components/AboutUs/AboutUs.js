@@ -57,7 +57,6 @@ function AboutUs({ title, subtitle, cta, video }) {
                     <span style={{ fontWeight: "bold" }}>{subtitleParts[1]}</span>
                     {subtitleParts[2]}
                 </SectionSubtitle>
-                <Button href={cta.link}>{cta.text}</Button>
             </Content>
         </Wrap>
     );
