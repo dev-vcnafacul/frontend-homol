@@ -17,7 +17,6 @@ function Home() {
             <Header {...data.header} />
             <Hero {...data.hero} />
             <AboutUs {...data.about_us} />
-            <News {...data.news} />
             <FeatureList {...data.features} />
             <ActionAreas {...data.actionAreas} />
             <Supporters {...data.supporters} />
