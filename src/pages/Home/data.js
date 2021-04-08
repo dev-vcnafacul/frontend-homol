@@ -82,7 +82,7 @@ const data = {
     about_us: {
         title: "Quem somos?",
         subtitle:
-            "Somos um grupo de voluntários com um propósito maior: fazer a diferença. Trabalhamos para que o ambiente universitário seja um ambiente de equidade e oportunidade.",
+            "Somos uma equipe de voluntários trabalhando por um bem maior: a Educação. Queremos que o ambiente universitário seja justo e igualitário, e que o desejo de ingressar no ensino superior não dependa de cor, gênero, orientação sexual ou classe social.",
         cta: {
             text: "Conheça nossa história",
             link: "#",
