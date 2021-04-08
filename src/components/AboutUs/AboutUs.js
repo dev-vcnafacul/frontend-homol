@@ -33,6 +33,8 @@ function AboutUs({ title, subtitle, cta, video }) {
         );
     }
 
+    const subtitleParts = subtitle.split("*");
+
     return (
         <Wrap>
             <VideoWrapper>
@@ -50,7 +52,11 @@ function AboutUs({ title, subtitle, cta, video }) {
             </VideoWrapper>
             <Content>
                 <SectionTitle>{title}</SectionTitle>
-                <SectionSubtitle>{subtitle}</SectionSubtitle>
+                <SectionSubtitle>
+                    {subtitleParts[0]}
+                    <span style={{ fontWeight: "bold" }}>{subtitleParts[1]}</span>
+                    {subtitleParts[2]}
+                </SectionSubtitle>
                 <Button href={cta.link}>{cta.text}</Button>
             </Content>
         </Wrap>
