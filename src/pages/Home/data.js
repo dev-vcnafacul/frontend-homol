@@ -134,9 +134,6 @@ const data = {
     },
     footer: {
         sitemapLinks: [
-            { name: "Quem Somos", link: "/" },
-            { name: "Localiza cursinho", link: "/" },
-            { name: "Blog", link: "/" },
             { name: "Termos de Serviço", link: "/" },
             { name: "Politicas de Privacidade", link: "/" },
         ],
