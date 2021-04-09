@@ -4,7 +4,21 @@ import HeroImg2 from "../../assets/images/home/hero_teacher.svg";
 import HeroImg3 from "../../assets/images/home/hero_cursinho.svg";
 import HeroImg4 from "../../assets/images/home/hero_sponsor.svg";
 import HeroBackgroundImg1 from "../../assets/images/home/about-us-background.png";
-import languagesIcon from "../../assets/icons/languages.svg";
+import homeSubjectArte from "../../assets/icons/home-subjects-arte.svg";
+import homeSubjectAtualidades from "../../assets/icons/home-subjects-atualidades.svg";
+import homeSubjectBiologia from "../../assets/icons/home-subjects-biologia.svg";
+import homeSubjectEspanhol from "../../assets/icons/home-subjects-espanhol.svg";
+import homeSubjectFilosofia from "../../assets/icons/home-subjects-filosofia.svg";
+import homeSubjectFisica from "../../assets/icons/home-subjects-fisica.svg";
+import homeSubjectGeografia from "../../assets/icons/home-subjects-geografia.svg";
+import homeSubjectGramatica from "../../assets/icons/home-subjects-gramatica.svg";
+import homeSubjectHistoria from "../../assets/icons/home-subjects-historia.svg";
+import homeSubjectIngles from "../../assets/icons/home-subjects-ingles.svg";
+import homeSubjectLeituraProdTextos from "../../assets/icons/home-subjects-leitura-prod-textos.svg";
+import homeSubjectLiteratura from "../../assets/icons/home-subjects-literatura.svg";
+import homeSubjectMatematica from "../../assets/icons/home-subjects-matematica.svg";
+import homeSubjectQuimica from "../../assets/icons/home-subjects-quimica.svg";
+import homeSubjectSociologia from "../../assets/icons/home-subjects-sociologia.svg";
 import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 import raccoonLogo from "../../assets/images/home/Grupo 1706.svg";
 import hostingerLogo from "../../assets/images/home/1200px-Hostinger_logo_purple.svg@2x.png";
@@ -210,170 +224,95 @@ const data = {
         ],
     },
     actionAreas: {
-        tabItems: ["Linguagens", "Ciências humanas", "Bioexatas"],
+        tabItems: ["Linguagens", "Ciências da natureza e matemática", "Ciências humanas"],
         cardItems: [
             {
                 id: 0,
                 items: [
                     {
-                        icon: languagesIcon,
-                        title: "LPT",
-                        subtitle: "Leitura e Produção de Textos",
+                        icon: homeSubjectLeituraProdTextos,
+                        title: "Leitura e Produção de Textos",
+                        subtitle: "",
                     },
                     {
-                        icon: languagesIcon,
-                        title: "Gramatica",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                        icon: homeSubjectGramatica,
+                        title: "Gramática",
+                        subtitle: "",
                     },
                     {
-                        icon: languagesIcon,
+                        icon: homeSubjectLiteratura,
                         title: "Literatura",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                        subtitle: "",
                     },
                     {
-                        icon: languagesIcon,
-                        title: "Linguagens Extrangeiras",
-                        subtitle: "Lorem ipsum dolor sit",
+                        icon: homeSubjectIngles,
+                        title: "Inglês",
+                        subtitle: "",
                     },
                     {
-                        icon: languagesIcon,
-                        title: "LPT1",
-                        subtitle: "Leitura e Produção de Textos",
+                        icon: homeSubjectEspanhol,
+                        title: "Espanhol",
+                        subtitle: "",
                     },
                     {
-                        icon: languagesIcon,
-                        title: "Gramatica1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras1",
-                        subtitle: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        title: "LPT2",
-                        subtitle: "Leitura e Produção de Textos",
-                    },
-                    {
-                        title: "Gramatica2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras2",
-                        subtitle: "Lorem ipsum dolor sit",
+                        icon: homeSubjectArte,
+                        title: "Artes",
+                        subtitle: "",
                     },
                 ],
             },
             {
                 id: 1,
                 items: [
-                    {
-                        title: "humanas",
-                        subtitle: "Leitura e Produção de Textos",
+                    {   
+                        icon: homeSubjectBiologia,
+                        title: "Biologia",
+                        subtitle: "",
                     },
-                    {
-                        title: "humanas",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                    {   
+                        icon: homeSubjectFisica,
+                        title: "Física",
+                        subtitle: "",
                     },
-                    {
-                        title: "humanas",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                    {   
+                        icon: homeSubjectQuimica,
+                        title: "Química",
+                        subtitle: "",
                     },
-                    {
-                        title: "Linguagens Extrangeiras",
-                        subtitle: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        title: "LPT1",
-                        subtitle: "Leitura e Produção de Textos",
-                    },
-                    {
-                        title: "Gramatica1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras1",
-                        subtitle: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        title: "LPT2",
-                        subtitle: "Leitura e Produção de Textos",
-                    },
-                    {
-                        title: "Gramatica2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras2",
-                        subtitle: "Lorem ipsum dolor sit",
+                    {   
+                        icon: homeSubjectMatematica,
+                        title: "Matemática",
+                        subtitle: "",
                     },
                 ],
             },
             {
                 id: 2,
                 items: [
-                    {
-                        title: "exatas",
-                        subtitle: "Leitura e Produção de Textos",
+                    {   
+                        icon: homeSubjectSociologia,
+                        title: "Sociologia",
+                        subtitle: "",
                     },
-                    {
-                        title: "exatas",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                    {   
+                        icon: homeSubjectFilosofia,
+                        title: "Filosofia",
+                        subtitle: "",
                     },
-                    {
-                        title: "exatas",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                    {   
+                        icon: homeSubjectHistoria,
+                        title: "História",
+                        subtitle: "",
                     },
-                    {
-                        title: "Linguagens Extrangeiras",
-                        subtitle: "Lorem ipsum dolor sit",
+                    {   
+                        icon: homeSubjectGeografia,
+                        title: "Geografia",
+                        subtitle: "",
                     },
-                    {
-                        title: "LPT1",
-                        subtitle: "Leitura e Produção de Textos",
-                    },
-                    {
-                        title: "Gramatica1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura1",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras1",
-                        subtitle: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        title: "LPT2",
-                        subtitle: "Leitura e Produção de Textos",
-                    },
-                    {
-                        title: "Gramatica2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Literatura2",
-                        subtitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-                    },
-                    {
-                        title: "Linguagens Extrangeiras2",
-                        subtitle: "Lorem ipsum dolor sit",
+                    {   
+                        icon: homeSubjectAtualidades,
+                        title: "Atualidades",
+                        subtitle: "",
                     },
                 ],
             },

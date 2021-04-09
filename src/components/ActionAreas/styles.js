@@ -137,6 +137,9 @@ export const CardIcon = styled.img`
     margin: 0 auto;
     margin-top: 35px;
     margin-bottom: 15px;
+    width: 74px;
+    height: 74px;
+    fill: ${(props) => props.theme.colors.pink};
     position: relative;
     text-align: center;
     z-index: 5;
