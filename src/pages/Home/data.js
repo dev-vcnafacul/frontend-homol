@@ -264,22 +264,22 @@ const data = {
             {
                 id: 1,
                 items: [
-                    {   
+                    {
                         icon: homeSubjectBiologia,
                         title: "Biologia",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectFisica,
                         title: "Física",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectQuimica,
                         title: "Química",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectMatematica,
                         title: "Matemática",
                         subtitle: "",
@@ -289,27 +289,27 @@ const data = {
             {
                 id: 2,
                 items: [
-                    {   
+                    {
                         icon: homeSubjectSociologia,
                         title: "Sociologia",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectFilosofia,
                         title: "Filosofia",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectHistoria,
                         title: "História",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectGeografia,
                         title: "Geografia",
                         subtitle: "",
                     },
-                    {   
+                    {
                         icon: homeSubjectAtualidades,
                         title: "Atualidades",
                         subtitle: "",
