@@ -48,7 +48,9 @@ function ActionAreas({ cardItems, tabItems, className }) {
             <FlexContainer>
                 <SectionContent>
                     <ActionAreasTitle>Veja nossas áreas de ação</ActionAreasTitle>
-                    <ActionAreasSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</ActionAreasSubtitle>
+                    <ActionAreasSubtitle>
+                        Disciplinas divididas de forma a facilitar o estudo para o ENEM
+                    </ActionAreasSubtitle>
                 </SectionContent>
                 <HighlightSelector
                     className="actionAreasSelector"
