@@ -141,7 +141,6 @@ const data = {
         email: "contato@vcnafacul.com.br",
         socialLinks: {
             facebook: "https://www.facebook.com/vcnafacul/",
-            twitter: "/",
             linkedin: "https://www.linkedin.com/company/vcnafacul/",
             instagram: "https://www.instagram.com/vcnafacul/",
         },
