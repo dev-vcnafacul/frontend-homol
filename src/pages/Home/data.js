@@ -140,13 +140,13 @@ const data = {
             { name: "Termos de Serviço", link: "/" },
             { name: "Politicas de Privacidade", link: "/" },
         ],
-        slogan: "Frase impactante",
-        email: "teste@teste.com",
+        slogan: "Equidade. Oportunidade. Realização.",
+        email: "contato@vcnafacul.com.br",
         socialLinks: {
-            facebook: "/",
+            facebook: "https://www.facebook.com/vcnafacul/",
             twitter: "/",
-            linkedin: "/",
-            instagram: "/",
+            linkedin: "https://www.linkedin.com/company/vcnafacul/",
+            instagram: "https://www.instagram.com/vcnafacul/",
         },
     },
     news: {
