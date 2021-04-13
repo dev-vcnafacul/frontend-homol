@@ -66,13 +66,15 @@ const data = {
             },
             {
                 id: "3",
-                title: "Você conhece um Cursinho Popular?",
-                subtitle: "Queremos facilitar a busca por Cursinhos Populares que cabem no bolso dos Alunos.",
+                title: "Cursinhos populares, vamos nessa!",
+                subtitle:
+                    "Se você conhece algum cursinho popular cadastre no botão abaixo e ajude um aluno a encontrá-lo.",
                 links: [
                     {
                         id: "1",
                         text: "Cadastre um cursinho",
-                        link: "#",
+                        link:
+                            "https://docs.google.com/forms/d/e/1FAIpQLSf-VaK8qrxYx6qd-6WHV8aaaiOnR5cxMsQUaKhU3L1N3jNx0w/viewform",
                     },
                 ],
                 background_image: HeroBackgroundImg1,
