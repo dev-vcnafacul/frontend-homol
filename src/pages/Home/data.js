@@ -51,13 +51,14 @@ const data = {
             },
             {
                 id: "2",
-                title: "Você que já fez ou faz FACUL pode ajudar!",
-                subtitle: "Conectamos os Alunos a uma rede de Professores de todas as áreas que querem contribuir.",
+                title: "Quer contribuir com esse projeto?",
+                subtitle: "Venha fazer parte do nosso time de voluntários que estão fazendo tudo acontecer!",
                 links: [
                     {
                         id: "1",
-                        text: "Seja um Professor",
-                        link: "#",
+                        text: "Seja um voluntário",
+                        link:
+                            "https://docs.google.com/forms/d/e/1FAIpQLSeMw9aY9Qz3BCecidXo8_XaGiFgWiUq1ldJwRnP00e1bW1QHw/viewform",
                     },
                 ],
                 background_image: HeroBackgroundImg1,
