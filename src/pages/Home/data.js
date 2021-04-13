@@ -82,13 +82,13 @@ const data = {
             },
             {
                 id: "4",
-                title: "Empresas também podem participar!",
-                subtitle: "Qualquer ajuda é muito bem-vinda! Saiba como sua empresa pode contribuir para o projeto.",
+                title: "Empresas também podem contribuir.",
+                subtitle: "Seu apoio é importante para nós! Saiba como sua empresa pode fazer parte dessa história.",
                 links: [
                     {
                         id: "1",
                         text: "Entre em contato",
-                        link: "#",
+                        link: "mailto:contato@vcnafacul.com.br",
                     },
                 ],
                 background_image: HeroBackgroundImg1,
