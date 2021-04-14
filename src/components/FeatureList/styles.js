@@ -40,6 +40,8 @@ export const ImgLegend = styled.p`
         margin: 28px 23px 0 23px;
         font-size: 14px;
         line-height: 24px;
+        text-align: center;
+        max-width: 653px;
     }
 `;
 
@@ -83,8 +85,10 @@ export const BgImgDiv = styled.img`
 
     @media only screen and (max-width: 1200px) {
         width: 100%;
-        height: 412px;
-        margin: 0;
+        max-width: 653px;
+        height: auto;
+        min-height: 240px;
+        text-align: center;
     }
 
     transition: 500ms linear;
