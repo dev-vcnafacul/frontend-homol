@@ -21,7 +21,7 @@ function Sponsors({ sponsors, className }) {
                 items: 3,
             },
             1024: {
-                items: 4,
+                items: 3,
                 center: false,
                 nav: true,
             },

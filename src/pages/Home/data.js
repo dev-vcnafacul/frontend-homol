@@ -22,6 +22,7 @@ import homeSubjectSociologia from "../../assets/icons/home-subjects-sociologia.s
 import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 import raccoonLogo from "../../assets/images/home/Grupo 1706.svg";
 import hostingerLogo from "../../assets/images/home/1200px-Hostinger_logo_purple.svg@2x.png";
+import wikilabLogo from "../../assets/images/home/Logo_WikiLab.png";
 import volunteerFace1 from "../../assets/images/home/face1.png";
 import volunteerFace2 from "../../assets/images/home/face2.png";
 import { LOGIN_PATH, REGISTER_PATH } from "../../routing/paths";
@@ -365,43 +366,18 @@ const data = {
         sponsors: [
             {
                 image: raccoonLogo,
-                alt: "",
+                alt: "logo-raccoon",
                 link: "https://raccoon.ag/",
             },
             {
                 image: hostingerLogo,
-                alt: "",
+                alt: "logo-hostinger",
                 link: "https://www.hostinger.com.br/",
             },
             {
-                image: raccoonLogo,
-                alt: "",
-                link: "https://raccoon.ag/",
-            },
-            {
-                image: hostingerLogo,
-                alt: "",
-                link: "https://www.hostinger.com.br/",
-            },
-            {
-                image: raccoonLogo,
-                alt: "",
-                link: "https://raccoon.ag/",
-            },
-            {
-                image: hostingerLogo,
-                alt: "",
-                link: "https://www.hostinger.com.br/",
-            },
-            {
-                image: raccoonLogo,
-                alt: "",
-                link: "https://raccoon.ag/",
-            },
-            {
-                image: hostingerLogo,
-                alt: "",
-                link: "https://www.hostinger.com.br/",
+                image: wikilabLogo,
+                alt: "logo-wikilab",
+                link: "https://coworkingsaocarlos.com/",
             },
         ],
         volunteers: [
