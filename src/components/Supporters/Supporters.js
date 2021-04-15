@@ -24,12 +24,6 @@ function Supporters({ sponsors, volunteers, tabTexts, className }) {
                 ></HighlightSelector>
                 <Sponsors sponsors={sponsors} className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"} />
                 <Volunteers volunteers={volunteers} className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"} />
-                <VnfTeamCTA href="" className="desktop">
-                    Conheça todo nosso time
-                </VnfTeamCTA>
-                <VnfTeamCTA href="" className="mobile">
-                    Conheça nossa história
-                </VnfTeamCTA>
             </FlexContainer>
         </Section>
     );
