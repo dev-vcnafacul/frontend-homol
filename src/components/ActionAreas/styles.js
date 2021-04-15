@@ -7,7 +7,31 @@ export const Section = styled.div`
     position: relative;
     display: block;
     overflow-x: hidden;
+    ul.desktop {
+        display: none;
+        @media (min-width: 768px) {
+            display: flex;
+        }
+    }
 
+    div.mobileDropdown {
+        text-align: center;
+        font-size: 22px;
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    ul.mobileDropdown {
+        height: 120px;
+        z-index: 1;
+        width: 100vw;
+        font-size: 22px;
+        @media (min-width: 768px) {
+            left: 0;
+            width: 100%;
+        }
+    }
     @media (min-width: 1200px) {
         padding: 74px 0;
     }
@@ -76,7 +100,7 @@ export const ActionAreasSubtitle = styled(SectionSubtitle)`
 
 export const ActionAreasCarousel = styled(Carousel)`
     flex-grow: 1;
-    margin-top: 46px;
+    margin-top: 30px;
 
     @media (max-width: 768px) {
         .tns-ovh {

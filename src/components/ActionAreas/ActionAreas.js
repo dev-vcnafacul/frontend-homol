@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HighlightSelector from "../HighlightSelector/HighlightSelector";
+import MobileDropdownDiv from "../FeatureList/MobileDropdownDiv";
 import {
     Section,
     FlexContainer,
@@ -60,6 +61,12 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     justifyContent={"space-between"}
                     liMargin={"10px"}
                 ></HighlightSelector>
+                <MobileDropdownDiv
+                    className="actionAreasMobileDropdown"
+                    items={tabItems}
+                    imgCB={setTabIndex}
+                    callBacks={[setTabIndex]}
+                ></MobileDropdownDiv>
                 {cardItems.map((cardTopics) => {
                     return (
                         <ActionAreasCarousel
