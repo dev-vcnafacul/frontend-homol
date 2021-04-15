@@ -11,7 +11,7 @@ function Supporters({ sponsors, volunteers, tabTexts, className }) {
             <FlexContainer>
                 <SectionContent>
                     <SupportersTitle>Nossos apoiadores!</SupportersTitle>
-                    <SupportersSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</SupportersSubtitle>
+                    <SupportersSubtitle>Pessoas e empresas que sonharam com a gente</SupportersSubtitle>
                 </SectionContent>
                 <HighlightSelector
                     callBacks={[setTabIndex]}
