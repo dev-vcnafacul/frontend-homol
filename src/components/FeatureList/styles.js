@@ -27,7 +27,7 @@ export const BgTester = styled.div`
     overflow: hidden;
     @media only screen and (max-width: 1200px) {
         width: 100%;
-        height: 858px;
+        height: 700px;
     }
 `;
 
@@ -69,6 +69,7 @@ export const Wrapper = styled.div`
         margin: 0;
         flex-direction: column;
         margin-top: 36px;
+        align-items: center;
 
         ul.desktop {
             display: none;
@@ -89,6 +90,7 @@ export const BgImgDiv = styled.img`
         height: auto;
         min-height: 240px;
         text-align: center;
+        margin: 0 auto;
     }
 
     transition: 500ms linear;
