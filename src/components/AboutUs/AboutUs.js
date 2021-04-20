@@ -10,6 +10,8 @@ import { Wrap, VideoWrapper, VideoContainer, Content, ImageContainer } from "./s
 import { Button, Play } from "../atoms";
 import { SectionSubtitle, SectionTitle } from "../../styles/common";
 
+import { Anchor } from "./../atoms";
+
 function AboutUs({ title, subtitle, cta, video }) {
     const [videoComponent, setVideoComponent] = useState("");
 
@@ -36,29 +38,32 @@ function AboutUs({ title, subtitle, cta, video }) {
     const subtitleParts = subtitle.split("*");
 
     return (
-        <Wrap>
-            <VideoWrapper>
-                <TriangleGreyBorder className="graphism triangle-border" />
-                <TriangleYellow className="graphism triangle-yellow" />
-                <SquarePink className="graphism square-pink" />
-                <VideoContainer>
-                    <TabletImage className="tablet" />
-                    <ImageContainer>
-                        <img src={video.thumbnail} alt="" className="video" width="640" height="390" />
-                        <Play onClick={handleClick} />
-                    </ImageContainer>
-                    {videoComponent}
-                </VideoContainer>
-            </VideoWrapper>
-            <Content>
-                <SectionTitle>{title}</SectionTitle>
-                <SectionSubtitle>
-                    {subtitleParts[0]}
-                    <span style={{ fontWeight: "bold" }}>{subtitleParts[1]}</span>
-                    {subtitleParts[2]}
-                </SectionSubtitle>
-            </Content>
-        </Wrap>
+        <>
+            <Anchor id="about-us"></Anchor>
+            <Wrap>
+                <VideoWrapper>
+                    <TriangleGreyBorder className="graphism triangle-border" />
+                    <TriangleYellow className="graphism triangle-yellow" />
+                    <SquarePink className="graphism square-pink" />
+                    <VideoContainer>
+                        <TabletImage className="tablet" />
+                        <ImageContainer>
+                            <img src={video.thumbnail} alt="" className="video" width="640" height="390" />
+                            <Play onClick={handleClick} />
+                        </ImageContainer>
+                        {videoComponent}
+                    </VideoContainer>
+                </VideoWrapper>
+                <Content>
+                    <SectionTitle>{title}</SectionTitle>
+                    <SectionSubtitle>
+                        {subtitleParts[0]}
+                        <span style={{ fontWeight: "bold" }}>{subtitleParts[1]}</span>
+                        {subtitleParts[2]}
+                    </SectionSubtitle>
+                </Content>
+            </Wrap>
+        </>
     );
 }
 

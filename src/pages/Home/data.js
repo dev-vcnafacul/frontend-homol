@@ -44,7 +44,7 @@ const data = {
                     {
                         id: "2",
                         text: "Busque um cursinho",
-                        link: "#",
+                        link: "#map",
                     },
                 ],
                 background_image: HeroBackgroundImg1,
@@ -113,9 +113,9 @@ const data = {
     header: {
         homeLink: "/",
         itemsMenu: [
-            { name: "Quem Somos", link: "/" },
-            { name: "Localize um Cursinho", link: "/" },
-            { name: "Apoiadores", link: "/" },
+            { name: "Quem Somos", link: "#about-us" },
+            { name: "Localize um Cursinho", link: "#map" },
+            { name: "Apoiadores", link: "#supporters" },
             { name: "Blog", link: "/" },
         ],
         signInLink: REGISTER_PATH,

@@ -120,3 +120,11 @@ export const Play = styled.button`
         height: 72px;
     }
 `;
+
+export const Anchor = styled.span`
+    position: relative;
+    bottom: 69px;
+    @media (min-width: 1200px) {
+        bottom: 77px;
+    }
+`;
