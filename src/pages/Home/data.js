@@ -116,7 +116,6 @@ const data = {
             { name: "Quem Somos", link: "#about-us" },
             { name: "Localize um Cursinho", link: "#map" },
             { name: "Apoiadores", link: "#supporters" },
-            { name: "Blog", link: "/" },
         ],
         signInLink: REGISTER_PATH,
         signUpLink: LOGIN_PATH,
