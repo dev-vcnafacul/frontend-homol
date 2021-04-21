@@ -4,7 +4,6 @@ import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
 import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles";
 import Menu from "./Menu";
-import Sign from "./Sign";
 
 function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
     const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
@@ -42,7 +41,6 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                     </LogoContainer>
                 </a>
                 <Menu items={itemsMenu} socialLinks={socialLinks} open={openMenu} openFunction={setOpenMenu} />
-                <Sign signInLink={signInLink} signUpLink={signUpLink} />
             </FlexContainer>
         </Bar>
     );
