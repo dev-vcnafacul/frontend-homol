@@ -156,8 +156,8 @@ const data = {
     },
     footer: {
         sitemapLinks: [
-            { name: "Termos de Serviço", link: "/" },
-            { name: "Politicas de Privacidade", link: "/" },
+            { name: "Termos de Serviço", link: "/Termos de Uso.pdf" },
+            { name: "Politicas de Privacidade", link: "/Política de Privacidade.pdf" },
         ],
         slogan: "Equidade. Oportunidade. Realização.",
         email: "contato@vcnafacul.com.br",
