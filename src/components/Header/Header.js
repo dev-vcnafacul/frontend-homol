@@ -41,7 +41,7 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                         </Brand>
                     </LogoContainer>
                 </a>
-                <Menu items={itemsMenu} socialLinks={socialLinks} open={openMenu} />
+                <Menu items={itemsMenu} socialLinks={socialLinks} open={openMenu} openFunction={setOpenMenu} />
                 <Sign signInLink={signInLink} signUpLink={signUpLink} />
             </FlexContainer>
         </Bar>

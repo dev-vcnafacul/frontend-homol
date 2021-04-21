@@ -14,7 +14,7 @@ import {
     SearchButton,
 } from "./styles";
 
-function Menu({ items, socialLinks, open, className }) {
+function Menu({ items, socialLinks, open, openFunction, className }) {
     return (
         <MenuContainer open={open} className={className}>
             <SearchContainer>
@@ -25,7 +25,13 @@ function Menu({ items, socialLinks, open, className }) {
             </SearchContainer>
             {items.map((item) => {
                 return (
-                    <MenuItem href={item.link} key={item.name}>
+                    <MenuItem
+                        href={item.link}
+                        key={item.name}
+                        onClick={(e) => {
+                            openFunction(!open);
+                        }}
+                    >
                         {item.name}
                     </MenuItem>
                 );
