@@ -34,12 +34,12 @@ const data = {
                 id: "1",
                 title: "Nossa missão é ver VOCÊ NA FACUL!",
                 subtitle:
-                    "Nós queremos proporcionar a você a oportunidade de conhecer seus direitos e continuar seus estudos.",
+                    "Plataforma em construção! Cadastre-se para ser avisado para testá-la ou busque um cursinho presencial.",
                 links: [
                     {
                         id: "1",
-                        text: "Entre na plataforma",
-                        link: "#",
+                        text: "Faça o pré-cadastro",
+                        link: "/cadastro",
                     },
                     {
                         id: "2",
