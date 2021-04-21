@@ -85,9 +85,11 @@ function RegisterForm({ className }) {
             {step === 3 && (
                 <SuccessDiv>
                     <SuccessIcon src={successIconFile}></SuccessIcon>
-                    <Title>Tudo pronto</Title>
+                    <Title>Seja bem-vinde ao Você na Facul!</Title>
                     <Success>
-                        Parabéns! Cadastro realizado com sucesso. Por favor, faça o seu login para acessar a plataforma.
+                        {
+                            "Seu pré-cadastro foi realizado com sucesso!\nQueremos te acompanhar na sua jornada de estudos em direção a Universidade.\nEstamos construindo a nossa plataforma! Aguarde!\nAssim que a primeira funcionalidade estiver pronta nós vamos te avisar para que você seja um dos primeiros a testá-la! =]"
+                        }
                     </Success>
                     <LoginShortcut href={LOGIN_PATH}>Comece a explorar nossa plataforma</LoginShortcut>
                 </SuccessDiv>
