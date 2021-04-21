@@ -91,7 +91,9 @@ function RegisterForm({ className }) {
                             "Seu pré-cadastro foi realizado com sucesso!\nQueremos te acompanhar na sua jornada de estudos em direção a Universidade.\nEstamos construindo a nossa plataforma! Aguarde!\nAssim que a primeira funcionalidade estiver pronta nós vamos te avisar para que você seja um dos primeiros a testá-la! =]"
                         }
                     </Success>
-                    <LoginShortcut href="https://www.instagram.com/vcnafacul/">Veja nossos posts no instagram!</LoginShortcut>
+                    <LoginShortcut href="https://www.instagram.com/vcnafacul/">
+                        Veja nossos posts no instagram!
+                    </LoginShortcut>
                 </SuccessDiv>
             )}
         </Wrap>
