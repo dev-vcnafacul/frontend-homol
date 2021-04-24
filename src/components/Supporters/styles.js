@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Container, SectionTitle, SectionSubtitle } from "../../styles/common";
 
 export const Section = styled.div`
-    padding: 30px 0;
+    padding: 30px 0 50px 0;
     position: relative;
     display: block;
     overflow-x: hidden;
