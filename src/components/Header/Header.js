@@ -36,7 +36,7 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                 <a href={homeLink}>
                     <LogoContainer>
                         <Logo />
-                        <Brand openMenu={openMenu}>
+                        <Brand openMenu={openMenu} dark={backgroundSolid}>
                             você na <strong>facul</strong>
                         </Brand>
                     </LogoContainer>

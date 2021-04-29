@@ -207,7 +207,7 @@ export const Bar = styled.div`
     left: 0;
     width: 100%;
     padding: 16px 0;
-    z-index: 20;
+    z-index: 9999;
     background-color: ${(props) => (props.openMenu || props.solid ? props.theme.colors.white : "transparent")};
     transition: background-color 0.15s;
     box-shadow: ${(props) => (props.solid ? "0px 3px 6px #00000029" : "none")};
@@ -238,11 +238,12 @@ export const Bar = styled.div`
 export const Brand = styled.p`
     margin: 0 0 0 10px;
     font-size: 18px;
-    color: ${(props) => (props.openMenu ? props.theme.colors.backgroundMarine : props.theme.colors.white)};
+    color: ${(props) =>
+        props.openMenu || props.dark ? props.theme.colors.backgroundMarine : props.theme.colors.white};
 
     @media (min-width: 1200px) {
         font-size: 20px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.dark ? props.theme.colors.backgroundMarine : props.theme.colors.white)};
     }
 `;
 
