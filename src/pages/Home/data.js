@@ -678,7 +678,7 @@ const data = {
             "Nós utilizamos cookies e outras tecnologias semelhantes para melhorar sua experiência em nossos serviços, personalizar nossa publicidade e recomendar conteúdo de seu interesse. Ao utilizar nossos serviços, você aceita a política de monitoramento de cookies. Para mais informações, consulte nossa ",
         acceptText: "Aceito",
         rejectText: "Não aceito",
-        link: "",
+        link: "/Pol%C3%ADtica%20de%20Privacidade.pdf",
     },
 };
 

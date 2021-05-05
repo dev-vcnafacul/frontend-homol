@@ -307,11 +307,15 @@ function Step2({ goNextStep }) {
                 <>
                     <CheckboxText>
                         Eu li e aceito os{" "}
-                        <a onClick={(e) => e.stopPropagation()} href="/" target="_blank">
+                        <a onClick={(e) => e.stopPropagation()} href="/Termos%20de%20Uso.pdf" target="_blank">
                             termos de uso
                         </a>{" "}
                         e{" "}
-                        <a onClick={(e) => e.stopPropagation()} href="/" target="_blank">
+                        <a
+                            onClick={(e) => e.stopPropagation()}
+                            href="/Pol%C3%ADtica%20de%20Privacidade.pdf"
+                            target="_blank"
+                        >
                             políticas de privacidade
                         </a>
                     </CheckboxText>
