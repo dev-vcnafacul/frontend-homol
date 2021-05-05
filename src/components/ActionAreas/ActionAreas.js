@@ -17,6 +17,7 @@ import {
 function ActionAreas({ cardItems, tabItems, className }) {
     let [tabIndex, setTabIndex] = useState(0);
     const carouselActionsSettings = {
+        loop: false,
         lazyload: true,
         items: 1,
         controls: true,
@@ -29,7 +30,6 @@ function ActionAreas({ cardItems, tabItems, className }) {
         gutter: 20,
         fixedWidth: 230,
         edgePadding: 20,
-        center: true,
         responsive: {
             560: {
                 items: 2,
