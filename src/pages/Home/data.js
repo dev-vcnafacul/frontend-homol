@@ -124,17 +124,16 @@ const data = {
     header: {
         homeLink: "/",
         itemsMenu: [
-            { name: "Quem Somos", link: "#about-us" },
-            { name: "Localize um Cursinho", link: "#map" },
-            { name: "Apoiadores", link: "#supporters" },
+            { name: "Quem Somos", link: "/#about-us" },
+            { name: "Localize um Cursinho", link: "/#map" },
+            { name: "Apoiadores", link: "/#supporters" },
         ],
         signInLink: REGISTER_PATH,
         signUpLink: LOGIN_PATH,
         socialLinks: {
-            facebook: "/",
-            twitter: "/",
-            linkedin: "/",
-            instagram: "/",
+            facebook: "https://www.facebook.com/vcnafacul/",
+            linkedin: "https://www.linkedin.com/company/vcnafacul/",
+            instagram: "https://www.instagram.com/vcnafacul/",
         },
     },
     map: {
