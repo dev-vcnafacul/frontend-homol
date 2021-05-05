@@ -42,9 +42,9 @@ const MobileDropdownDiv = (props) => {
         }
     }
     return (
-        <MobileDropdownDivStyle>
+        <MobileDropdownDivStyle className="mobileDropdown">
             {apparentItem}
-            <ul className={showDropdown ? "visible" : "invisible"}>{hiddenItems}</ul>
+            <ul className={`mobileDropdown ${showDropdown ? "visible" : "invisible"}`}>{hiddenItems}</ul>
         </MobileDropdownDivStyle>
     );
 };

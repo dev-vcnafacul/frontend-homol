@@ -1,1 +1,1 @@
-export const API_URL = "http://134.209.170.203";
+export const API_URL = "https://api.vcnafacul.com.br";

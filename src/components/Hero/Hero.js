@@ -1,5 +1,6 @@
 import Carousel from "../Carousel";
-import { Link, Slide, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper, TextWrapper } from "./styles";
+import { LinkStyed, Slide, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper, TextWrapper } from "./styles";
+import { Link } from "react-router-dom";
 
 function Hero({ slides }) {
     const carouselSettings = {
@@ -33,9 +34,14 @@ function Hero({ slides }) {
                         <Subtitle className="subtitle">{slide.subtitle}</Subtitle>
                     </TextWrapper>
                     {slide.links.map((link) => (
-                        <Link key={link.id} href={link.link}>
+                        <LinkStyed
+                            key={link.id}
+                            {...(link.internal
+                                ? { as: Link, to: link.link }
+                                : { href: link.link, target: link.target })}
+                        >
                             {link.text}
-                        </Link>
+                        </LinkStyed>
                     ))}
                 </Content>
                 <ImageWrapper imageDimension={slide.imageDimension} imagePosition={slide.imagePosition}>

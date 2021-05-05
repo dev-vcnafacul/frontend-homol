@@ -3,7 +3,7 @@ import Carousel from "../../Carousel";
 
 export const SponsorsCarousel = styled(Carousel)`
     flex-grow: 1;
-    margin-top: 140px;
+    margin-top: 80px;
 
     .tns-controls {
         margin: 125px 0 0 0;

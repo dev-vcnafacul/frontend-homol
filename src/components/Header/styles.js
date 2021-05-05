@@ -50,7 +50,7 @@ export const MenuItem = styled.a`
 
     @media (min-width: 1200px) {
         font-size: 16px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
         margin: 0 25px 0 0;
         display: inline;
         font-weight: 500;
@@ -111,7 +111,7 @@ export const SignInButton = styled.a`
 
     @media (min-width: 1200px) {
         font-size: 16px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
         margin: 0 25px 0 0;
         font-weight: 700;
         display: inline;
@@ -151,32 +151,6 @@ export const SocialMediaLinks = styled.div`
     }
 `;
 
-export const SearchInput = styled.input`
-    background-color: rgba(176, 176, 176, 0.16);
-    color: ${(props) => props.theme.colors.marine};
-    font-size: 16px;
-    padding: 16px 24px;
-    width: calc(100% - 30px);
-    box-sizing: border-box;
-    margin: 0 15px 65px 15px;
-    border: 0;
-`;
-
-export const SearchContainer = styled.div`
-    position: relative;
-    @media (min-width: 1200px) {
-        display: none;
-    }
-`;
-
-export const SearchButton = styled.button`
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    background-color: transparent;
-    border: 0;
-`;
-
 export const SignMenu = styled.div`
     position: fixed;
     top: 0;
@@ -207,7 +181,7 @@ export const Bar = styled.div`
     left: 0;
     width: 100%;
     padding: 16px 0;
-    z-index: 20;
+    z-index: 9999;
     background-color: ${(props) => (props.openMenu || props.solid ? props.theme.colors.white : "transparent")};
     transition: background-color 0.15s;
     box-shadow: ${(props) => (props.solid ? "0px 3px 6px #00000029" : "none")};
@@ -218,11 +192,6 @@ export const Bar = styled.div`
 
     .menuIcon {
         fill: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
-    }
-
-    ${MenuItem},
-    ${SignInButton} {
-        color: ${(props) => (props.openMenu || props.solid ? props.theme.colors.marine : props.theme.colors.white)};
     }
 
     @media (min-width: 1200px) {
@@ -238,11 +207,12 @@ export const Bar = styled.div`
 export const Brand = styled.p`
     margin: 0 0 0 10px;
     font-size: 18px;
-    color: ${(props) => (props.openMenu ? props.theme.colors.backgroundMarine : props.theme.colors.white)};
+    color: ${(props) =>
+        props.openMenu || props.dark ? props.theme.colors.backgroundMarine : props.theme.colors.white};
 
     @media (min-width: 1200px) {
         font-size: 20px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.dark ? props.theme.colors.backgroundMarine : props.theme.colors.white)};
     }
 `;
 

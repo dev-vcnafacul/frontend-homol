@@ -39,6 +39,7 @@ export const Sitemap = styled.div`
 
     @media (min-width: 1200px) {
         margin: 0;
+        margin-left: 40px;
     }
 `;
 

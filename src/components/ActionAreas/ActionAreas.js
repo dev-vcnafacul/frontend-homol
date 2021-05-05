@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HighlightSelector from "../HighlightSelector/HighlightSelector";
+import MobileDropdownDiv from "../FeatureList/MobileDropdownDiv";
 import {
     Section,
     FlexContainer,
@@ -16,6 +17,7 @@ import {
 function ActionAreas({ cardItems, tabItems, className }) {
     let [tabIndex, setTabIndex] = useState(0);
     const carouselActionsSettings = {
+        loop: false,
         lazyload: true,
         items: 1,
         controls: true,
@@ -28,7 +30,6 @@ function ActionAreas({ cardItems, tabItems, className }) {
         gutter: 20,
         fixedWidth: 230,
         edgePadding: 20,
-        center: true,
         responsive: {
             560: {
                 items: 2,
@@ -48,7 +49,9 @@ function ActionAreas({ cardItems, tabItems, className }) {
             <FlexContainer>
                 <SectionContent>
                     <ActionAreasTitle>Veja nossas áreas de ação</ActionAreasTitle>
-                    <ActionAreasSubtitle>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</ActionAreasSubtitle>
+                    <ActionAreasSubtitle>
+                        Disciplinas divididas de forma a facilitar o estudo para o ENEM
+                    </ActionAreasSubtitle>
                 </SectionContent>
                 <HighlightSelector
                     className="actionAreasSelector"
@@ -58,6 +61,12 @@ function ActionAreas({ cardItems, tabItems, className }) {
                     justifyContent={"space-between"}
                     liMargin={"10px"}
                 ></HighlightSelector>
+                <MobileDropdownDiv
+                    className="actionAreasMobileDropdown"
+                    items={tabItems}
+                    imgCB={setTabIndex}
+                    callBacks={[setTabIndex]}
+                ></MobileDropdownDiv>
                 {cardItems.map((cardTopics) => {
                     return (
                         <ActionAreasCarousel
@@ -65,6 +74,7 @@ function ActionAreas({ cardItems, tabItems, className }) {
                             index={tabIndex}
                             arrowColor="gray"
                             settings={carouselActionsSettings}
+                            key={cardTopics.id}
                         >
                             {cardTopics.items.map((cardItem) => {
                                 return (

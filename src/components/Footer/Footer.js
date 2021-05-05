@@ -33,7 +33,7 @@ function Footer({ sitemapLinks, slogan, email, socialLinks, className }) {
                 <Sitemap>
                     {sitemapLinks.map((sitemapLink) => {
                         return (
-                            <SitemapLink key={sitemapLink.name} href={sitemapLink.name}>
+                            <SitemapLink key={sitemapLink.name} href={sitemapLink.link}>
                                 {sitemapLink.name}
                             </SitemapLink>
                         );

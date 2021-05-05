@@ -35,7 +35,9 @@ const CookieBar = ({ headerText, text, link, acceptText, rejectText }) => {
                 <p>
                     {text}
                     <span>
-                        <PolicyLink href={link}>Política de cookies</PolicyLink>
+                        <PolicyLink target="_blank" href={link}>
+                            Política de cookies
+                        </PolicyLink>
                     </span>
                     .
                 </p>
