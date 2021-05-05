@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container } from "../../styles/common";
 
-export const Link = styled.a`
+export const LinkStyed = styled.a`
     display: inline-block;
     color: ${(props) => props.theme.colors.white};
     border: 2px solid ${(props) => props.theme.colors.white};
