@@ -5,6 +5,7 @@ import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
 import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles";
 import Menu from "./Menu";
 import Sign from "./Sign";
+import { Link } from "react-router-dom";
 
 function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
     const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
@@ -33,14 +34,14 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                     {!openMenu && <MenuIcon className="menuIcon" onClick={() => setOpenMenu(true)} />}
                     {openMenu && <CloseIcon onClick={() => setOpenMenu(false)} />}
                 </MenuButtons>
-                <a href={homeLink}>
+                <Link to={homeLink}>
                     <LogoContainer>
                         <Logo />
                         <Brand openMenu={openMenu} dark={backgroundSolid}>
                             você na <strong>facul</strong>
                         </Brand>
                     </LogoContainer>
-                </a>
+                </Link>
                 <Menu items={itemsMenu} socialLinks={socialLinks} open={openMenu} openFunction={setOpenMenu} />
                 <Sign signInLink={signInLink} signUpLink={signUpLink} />
             </FlexContainer>
