@@ -33,7 +33,7 @@ function Volunteers({ volunteers, className }) {
         <VolunteersCarousel className={className} arrowColor="gray" settings={volunteersCarouselActionsSettings}>
             {volunteers.map((volunteer) => {
                 return (
-                    <Card>
+                    <Card key={volunteer.name}>
                         <CardIcon src={volunteer.image}></CardIcon>
                         <CardText>{volunteer.name}</CardText>
                     </Card>

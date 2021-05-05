@@ -25,7 +25,7 @@ function Map({ markers, ctaLink, className }) {
                     {markers.map((marker, index) => {
                         return (
                             <Marker
-                                key={marker.name}
+                                key={marker.id}
                                 position={[marker.latitude, marker.longitude]}
                                 eventHandlers={{
                                     click: () => handleClickMarker(index),

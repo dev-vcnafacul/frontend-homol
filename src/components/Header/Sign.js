@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
-import { SignContainer, SignInButton, SignUpButton, AccountCircleButton, SignMenu, SignMenuItem } from "./styles";
+import { SignContainer, SignInButton, AccountCircleButton, SignMenu, SignMenuItem } from "./styles";
 
 function Sign({ signInLink, signUpLink, className }) {
     const [open, setOpen] = useState(false);

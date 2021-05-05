@@ -31,8 +31,8 @@ function Sponsors({ sponsors, className }) {
         <SponsorsCarousel className={className} arrowColor="gray" settings={sponsorsCarouselActionsSettings}>
             {sponsors.map((sponsor) => {
                 return (
-                    <SponsorImage href={sponsor.link} target="_blank">
-                        <img src={sponsor.image}></img>
+                    <SponsorImage href={sponsor.link} target="_blank" key={sponsor.alt}>
+                        <img alt="apoiador" title="apoiador" src={sponsor.image}></img>
                     </SponsorImage>
                 );
             })}

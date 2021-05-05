@@ -74,6 +74,7 @@ function ActionAreas({ cardItems, tabItems, className }) {
                             index={tabIndex}
                             arrowColor="gray"
                             settings={carouselActionsSettings}
+                            key={cardTopics.id}
                         >
                             {cardTopics.items.map((cardItem) => {
                                 return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HighlightSelector from "../HighlightSelector";
-import { Section, FlexContainer, SupportersTitle, SupportersSubtitle, SectionContent, VnfTeamCTA } from "./styles";
+import { Section, FlexContainer, SupportersTitle, SupportersSubtitle, SectionContent } from "./styles";
 import Sponsors from "./Sponsors";
 import Volunteers from "./Volunteers";
 import { Anchor } from "./../atoms";
