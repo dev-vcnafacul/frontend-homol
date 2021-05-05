@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
 import { SignContainer, SignInButton, AccountCircleButton, SignMenu, SignMenuItem } from "./styles";
 
-function Sign({ signInLink, signUpLink, className }) {
+function Sign({ signInLink, solid, signUpLink, className }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -11,7 +11,9 @@ function Sign({ signInLink, signUpLink, className }) {
                 <AccountCircleButton onClick={() => setOpen(true)}>
                     <UserIcon />
                 </AccountCircleButton>
-                <SignInButton href={signInLink}>Cadastrar</SignInButton>
+                <SignInButton solid={solid} href={signInLink}>
+                    Cadastrar
+                </SignInButton>
             </SignContainer>
             <SignMenu open={open}>
                 <AccountCircleButton onClick={() => setOpen(false)}>

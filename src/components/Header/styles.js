@@ -50,7 +50,7 @@ export const MenuItem = styled.a`
 
     @media (min-width: 1200px) {
         font-size: 16px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
         margin: 0 25px 0 0;
         display: inline;
         font-weight: 500;
@@ -111,7 +111,7 @@ export const SignInButton = styled.a`
 
     @media (min-width: 1200px) {
         font-size: 16px;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
         margin: 0 25px 0 0;
         font-weight: 700;
         display: inline;
@@ -149,32 +149,6 @@ export const SocialMediaLinks = styled.div`
     a {
         margin: 0 20px;
     }
-`;
-
-export const SearchInput = styled.input`
-    background-color: rgba(176, 176, 176, 0.16);
-    color: ${(props) => props.theme.colors.marine};
-    font-size: 16px;
-    padding: 16px 24px;
-    width: calc(100% - 30px);
-    box-sizing: border-box;
-    margin: 0 15px 65px 15px;
-    border: 0;
-`;
-
-export const SearchContainer = styled.div`
-    position: relative;
-    @media (min-width: 1200px) {
-        display: none;
-    }
-`;
-
-export const SearchButton = styled.button`
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    background-color: transparent;
-    border: 0;
 `;
 
 export const SignMenu = styled.div`
@@ -218,11 +192,6 @@ export const Bar = styled.div`
 
     .menuIcon {
         fill: ${(props) => (props.solid ? props.theme.colors.marine : props.theme.colors.white)};
-    }
-
-    ${MenuItem},
-    ${SignInButton} {
-        color: ${(props) => (props.openMenu || props.solid ? props.theme.colors.marine : props.theme.colors.white)};
     }
 
     @media (min-width: 1200px) {

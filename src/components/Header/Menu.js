@@ -2,27 +2,11 @@ import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg"
 import { ReactComponent as LinkedinIcon } from "../../assets/icons/linkedin.svg";
 import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg";
-import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
-import {
-    MenuContainer,
-    MenuItem,
-    SocialMediaContainer,
-    SocialMediaTitle,
-    SocialMediaLinks,
-    SearchInput,
-    SearchContainer,
-    SearchButton,
-} from "./styles";
+import { MenuContainer, MenuItem, SocialMediaContainer, SocialMediaTitle, SocialMediaLinks } from "./styles";
 
-function Menu({ items, socialLinks, open, openFunction, className }) {
+function Menu({ items, socialLinks, open, solid, openFunction, className }) {
     return (
         <MenuContainer open={open} className={className}>
-            <SearchContainer>
-                <SearchInput type="text" placeholder="Você está pesquisando ..." />
-                <SearchButton>
-                    <SearchIcon />
-                </SearchButton>
-            </SearchContainer>
             {items.map((item) => {
                 return (
                     <MenuItem
@@ -31,6 +15,7 @@ function Menu({ items, socialLinks, open, openFunction, className }) {
                         onClick={(e) => {
                             openFunction(!open);
                         }}
+                        solid={solid}
                     >
                         {item.name}
                     </MenuItem>
