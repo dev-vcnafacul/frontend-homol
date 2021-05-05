@@ -7,7 +7,7 @@ import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-ye
 import { ReactComponent as SquarePink } from "../../assets/icons/square-pink.svg";
 
 import { Wrap, VideoWrapper, VideoContainer, Content, ImageContainer } from "./styles";
-import { Button, Play } from "../atoms";
+import { Play } from "../atoms";
 import { SectionSubtitle, SectionTitle } from "../../styles/common";
 
 import { Anchor } from "./../atoms";

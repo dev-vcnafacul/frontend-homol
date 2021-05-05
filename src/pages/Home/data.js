@@ -18,7 +18,6 @@ import homeSubjectLiteratura from "../../assets/icons/home-subjects-literatura.s
 import homeSubjectMatematica from "../../assets/icons/home-subjects-matematica.svg";
 import homeSubjectQuimica from "../../assets/icons/home-subjects-quimica.svg";
 import homeSubjectSociologia from "../../assets/icons/home-subjects-sociologia.svg";
-import AboutUsThumbnail from "../../assets/images/home/about-us-background.png";
 import raccoonLogo from "../../assets/images/home/Grupo 1706.svg";
 import hostingerLogo from "../../assets/images/home/1200px-Hostinger_logo_purple.svg@2x.png";
 import wikilabLogo from "../../assets/images/home/Logo_WikiLab.png";
@@ -117,7 +116,7 @@ const data = {
             link: "#",
         },
         video: {
-            thumbnail: AboutUsThumbnail,
+            thumbnail: "/images/thumb-about-us.png",
             videoID: "LiNm9JxvNOM",
         },
     },
