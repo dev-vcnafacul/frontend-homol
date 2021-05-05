@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { SectionTitle, Container } from "../../styles/common";
 import { Button } from "../atoms";
 import CheckboxField from "../CheckboxField";
@@ -19,30 +18,12 @@ export const Title = styled(SectionTitle)`
     }
 `;
 
-export const Description = styled.p`
-    font-size: 14px;
-    color: ${(props) => props.theme.colors.grey};
-    margin: 16px 0;
-    text-align: center;
-`;
-
 export const SubmitBtn = styled(Button)`
     width: 100%;
 
     @media (min-width: 1200px) {
         font-size: 19px;
         padding: 17px 0;
-    }
-`;
-
-export const LinkLogin = styled(Link)`
-    font-weight: 700;
-    color: ${(props) => props.theme.colors.orange};
-    text-decoration: underline;
-    transition: color 250ms linear;
-
-    &:hover {
-        color: #ff4400;
     }
 `;
 
