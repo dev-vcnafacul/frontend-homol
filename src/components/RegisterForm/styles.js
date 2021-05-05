@@ -13,6 +13,7 @@ export const Wrap = styled(Container)`
 
 export const Title = styled(SectionTitle)`
     margin-bottom: 30px;
+    line-height: normal;
     @media (max-width: 1200px) {
         margin-bottom: 20px;
     }

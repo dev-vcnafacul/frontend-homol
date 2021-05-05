@@ -5,7 +5,6 @@ import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv } f
 import { Loading } from "../../styles/common";
 import { API_URL } from "../../constants";
 import successIconFile from "../../assets/icons/check-circle.svg";
-import { LOGIN_PATH } from "../../routing/paths";
 
 function RegisterForm({ className }) {
     const [data, setData] = useState({});
