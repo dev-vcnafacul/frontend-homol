@@ -35,7 +35,7 @@ function Account() {
     return (
         <>
             {isLoading && <Loading />}
-            <Header solid itemsMenu={[{ link: ACCOUNT_PATH, name: "Meu Perfil" }]} />
+            <Header solid itemsMenu={[{ link: ACCOUNT_PATH, name: "Meu Perfil", internal: true }]} />
             <Wrap>
                 <TriangleGreen className="graphism triangle-green" />
                 <TriangleYellow className="graphism triangle-yellow" />
