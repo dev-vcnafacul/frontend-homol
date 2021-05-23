@@ -1,10 +1,19 @@
 import { FormField, InputLabel, Input, FormError } from "components/atoms";
 
-function Field({ id, label, type, error, value, onChange, onBlur, className }) {
+function Field({ id, label, type, error, value, children, onChange, onBlur, className }) {
     return (
         <FormField className={className}>
             <InputLabel htmlFor={id}>{label}</InputLabel>
-            <Input id={id} type={type} value={value} onChange={onChange} onBlur={onBlur} />
+            <Input
+                as={type === "select" ? "select" : "input"}
+                id={id}
+                type={type}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+            >
+                {children}
+            </Input>
             <FormError>{error}</FormError>
         </FormField>
     );
