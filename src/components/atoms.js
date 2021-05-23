@@ -62,6 +62,7 @@ export const InputLabel = styled.label`
     top: 6px;
     left: 11px;
     font-size: 12px;
+    font-weight: bold;
 
     @media (min-width: 1200px) {
         top: 9px;
