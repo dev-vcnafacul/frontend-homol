@@ -1,8 +1,12 @@
-import data from "../Home/data";
+import data from "pages/Home/data";
+import { ACCOUNT_PATH } from "routing/paths";
 
-import LoginForm from "../../components/LoginForm";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import LoginForm from "components/LoginForm";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import { Redirect } from "react-router";
+
+import { useSelector } from "react-redux";
 
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
@@ -10,15 +14,23 @@ import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-ye
 import { Wrap } from "./styles";
 
 function Login() {
+    const isLogged = useSelector((state) => state.auth.token);
+
     return (
         <>
-            <Header solid {...data.header} />
-            <Wrap>
-                <TriangleGreen className="graphism triangle-green" />
-                <TriangleYellow className="graphism triangle-yellow" />
-                <LoginForm />
-            </Wrap>
-            <Footer {...data.footer} />
+            {isLogged ? (
+                <Redirect to={ACCOUNT_PATH} />
+            ) : (
+                <>
+                    <Header solid {...data.header} />
+                    <Wrap>
+                        <TriangleGreen className="graphism triangle-green" />
+                        <TriangleYellow className="graphism triangle-yellow" />
+                        <LoginForm />
+                    </Wrap>
+                    <Footer {...data.footer} />
+                </>
+            )}
         </>
     );
 }
