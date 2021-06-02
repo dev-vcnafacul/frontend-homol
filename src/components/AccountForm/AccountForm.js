@@ -39,7 +39,7 @@ function AccountForm({ initialValues, onSubmit }) {
                 return { ...errors, [field]: "*Data inválida" };
             });
             return false;
-        } else if (field === "phone" && value.length < 15) {
+        } else if (field === "phone" && value.length < 14) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Telefone inválido" };
             });
