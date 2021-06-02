@@ -127,8 +127,8 @@ const data = {
             { name: "Localize um Cursinho", link: "/#map" },
             { name: "Apoiadores", link: "/#supporters" },
         ],
-        signInLink: REGISTER_PATH,
-        signUpLink: LOGIN_PATH,
+        signInLink: LOGIN_PATH,
+        signUpLink: REGISTER_PATH,
         socialLinks: {
             facebook: "https://www.facebook.com/vcnafacul/",
             linkedin: "https://www.linkedin.com/company/vcnafacul/",

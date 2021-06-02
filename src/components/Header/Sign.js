@@ -11,20 +11,20 @@ function Sign({ signInLink, solid, signUpLink, className }) {
                 <AccountCircleButton onClick={() => setOpen(true)}>
                     <UserIcon />
                 </AccountCircleButton>
-                <SignInButton solid={solid} to={signInLink}>
+                <SignUpButton solid={solid} to={signUpLink}>
                     Cadastrar
-                </SignInButton>
-                <SignUpButton to={signUpLink}>
+                </SignUpButton>
+                <SignInButton to={signInLink}>
                     <UserIcon />
                     Login
-                </SignUpButton>
+                </SignInButton>
             </SignContainer>
             <SignMenu open={open}>
                 <AccountCircleButton onClick={() => setOpen(false)}>
                     <UserIcon />
                 </AccountCircleButton>
-                <SignMenuItem to={signInLink}>Cadastrar</SignMenuItem>
-                <SignMenuItem to={signUpLink}>Login</SignMenuItem>
+                <SignMenuItem to={signUpLink}>Cadastrar</SignMenuItem>
+                <SignMenuItem to={signInLink}>Login</SignMenuItem>
             </SignMenu>
         </>
     );

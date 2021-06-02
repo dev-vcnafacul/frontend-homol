@@ -59,7 +59,7 @@ export const MenuItem = styled.a`
     }
 `;
 
-export const SignUpButton = styled(Link)`
+export const SignInButton = styled(Link)`
     display: none;
 
     @media (min-width: 1200px) {
@@ -107,7 +107,7 @@ export const AccountCircleButton = styled.div`
     }
 `;
 
-export const SignInButton = styled(Link)`
+export const SignUpButton = styled(Link)`
     display: none;
 
     @media (min-width: 1200px) {
