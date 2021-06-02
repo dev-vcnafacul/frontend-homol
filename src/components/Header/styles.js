@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Container } from "../../styles/common";
 
 export const FlexContainer = styled(Container)`
@@ -58,7 +59,7 @@ export const MenuItem = styled.a`
     }
 `;
 
-export const SignUpButton = styled.a`
+export const SignInButton = styled(Link)`
     display: none;
 
     @media (min-width: 1200px) {
@@ -106,7 +107,7 @@ export const AccountCircleButton = styled.div`
     }
 `;
 
-export const SignInButton = styled.a`
+export const SignUpButton = styled(Link)`
     display: none;
 
     @media (min-width: 1200px) {
@@ -167,7 +168,7 @@ export const SignMenu = styled.div`
     }
 `;
 
-export const SignMenuItem = styled.a`
+export const SignMenuItem = styled(Link)`
     font-size: 20px;
     color: ${(props) => props.theme.colors.marine};
     font-weight: 700;

@@ -1,8 +1,10 @@
 import { useState } from "react";
 
+import { LOGIN_PATH } from "routing/paths";
+
 import { Input, InputLabel, FormField, FormError } from "../atoms";
-import { SubmitBtn } from "./styles";
-import PasswordForm from "../PasswordForm";
+import { Description, LinkLogin, SubmitBtn } from "./styles";
+import PasswordForm from "components/PasswordForm";
 
 function Step1({ goNextStep }) {
     const [email, setEmail] = useState("");
@@ -53,6 +55,9 @@ function Step1({ goNextStep }) {
                 <PasswordForm onChange={setPassword} />
                 <SubmitBtn as="input" type="submit" value="Continuar" />
             </form>
+            <Description>
+                Você já tem conta? Faça <LinkLogin to={LOGIN_PATH}>Login</LinkLogin>
+            </Description>
         </>
     );
 }
