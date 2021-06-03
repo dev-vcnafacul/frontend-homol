@@ -13,8 +13,9 @@ export function updateAccount(data, userToken) {
             throw new Error("Error");
         } else {
             const responseJSON = await response.json();
-            const birthday = new Date(responseJSON.user.birthday);
+            const birthday = new Date(responseJSON.user.birthday.replace("Z", ""));
             const monthBirthday = birthday.getMonth() + 1 < 10 ? `0${birthday.getMonth() + 1}` : birthday.getMonth();
+            const dayBirthday = birthday.getDate() < 10 ? `0${birthday.getDate()}` : birthday.getDate();
             dispatch({
                 type: UPDATE_ACCOUNT_SUCCESS,
                 payload: {
@@ -22,7 +23,7 @@ export function updateAccount(data, userToken) {
                     firstName: responseJSON.user.first_name,
                     lastName: responseJSON.user.last_name,
                     gender: responseJSON.user.gender,
-                    birthday: `${birthday.getDate() + 1}/${monthBirthday}/${birthday.getFullYear()}`,
+                    birthday: `${dayBirthday}/${monthBirthday}/${birthday.getFullYear()}`,
                     phone: responseJSON.user.phone,
                     state: responseJSON.user.state,
                     city: responseJSON.user.city,
