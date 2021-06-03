@@ -15,7 +15,25 @@ export function doAuth(email, password) {
             throw new Error("User not found");
         } else {
             const responseJSON = await response.json();
-            dispatch({ type: AUTH_SUCCESS, payload: responseJSON });
+            const birthday = new Date(responseJSON.user.birthday.replace("Z", ""));
+            const monthBirthday = birthday.getMonth() + 1 < 10 ? `0${birthday.getMonth() + 1}` : birthday.getMonth();
+            const dayBirthday = birthday.getDate() < 10 ? `0${birthday.getDate()}` : birthday.getDate();
+            dispatch({
+                type: AUTH_SUCCESS,
+                payload: {
+                    token: responseJSON.token.token,
+                    user: {
+                        email: responseJSON.user.email,
+                        firstName: responseJSON.user.first_name,
+                        lastName: responseJSON.user.last_name,
+                        gender: responseJSON.user.gender,
+                        birthday: `${dayBirthday}/${monthBirthday}/${birthday.getFullYear()}`,
+                        phone: responseJSON.user.phone,
+                        state: responseJSON.user.state,
+                        city: responseJSON.user.city,
+                    },
+                },
+            });
         }
     };
 }

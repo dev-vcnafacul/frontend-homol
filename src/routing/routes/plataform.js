@@ -1,10 +1,12 @@
 import { Route } from "react-router-dom";
-import { LOGIN_PATH, FORGOT_PASSWORD_PATH, REGISTER_PATH, RESET_PASSWORD_PATH } from "../paths";
+import PrivateRoute from "../../components/PrivateRoute";
+import { LOGIN_PATH, FORGOT_PASSWORD_PATH, REGISTER_PATH, RESET_PASSWORD_PATH, ACCOUNT_PATH } from "../paths";
 
-import Login from "../../pages/Login";
-import ForgotPassword from "../../pages/ForgotPassword";
-import Register from "../../pages/Register";
-import ResetPassword from "../../pages/ResetPassword";
+import Login from "pages/Login";
+import ForgotPassword from "pages/ForgotPassword";
+import Register from "pages/Register";
+import ResetPassword from "pages/ResetPassword";
+import Account from "pages/Account";
 
 function Plataform() {
     return (
@@ -21,6 +23,9 @@ function Plataform() {
             <Route path={RESET_PASSWORD_PATH}>
                 <ResetPassword />
             </Route>
+            <PrivateRoute path={ACCOUNT_PATH}>
+                <Account />
+            </PrivateRoute>
         </>
     );
 }

@@ -7,7 +7,9 @@ import Menu from "./Menu";
 import Sign from "./Sign";
 import { Link } from "react-router-dom";
 
-function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
+import { HOME_PATH } from "routing/paths";
+
+function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
     const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -34,7 +36,7 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                     {!openMenu && <MenuIcon className="menuIcon" onClick={() => setOpenMenu(true)} />}
                     {openMenu && <CloseIcon onClick={() => setOpenMenu(false)} />}
                 </MenuButtons>
-                <Link to={homeLink}>
+                <Link to={HOME_PATH}>
                     <LogoContainer>
                         <Logo />
                         <Brand openMenu={openMenu} dark={backgroundSolid}>
@@ -49,7 +51,9 @@ function Header({ homeLink, itemsMenu, socialLinks, signInLink, signUpLink, clas
                     open={openMenu}
                     openFunction={setOpenMenu}
                 />
-                <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
+                {(signInLink || signUpLink) && (
+                    <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
+                )}
             </FlexContainer>
         </Bar>
     );
