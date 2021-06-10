@@ -2,7 +2,7 @@ import { useState } from "react";
 import Field from "components/Field";
 import { SubmitButton } from "./styles";
 
-function AccountForm({ initialValues, onSubmit }) {
+function AccountForm({ initialValues, onSubmit, className }) {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
 
@@ -64,7 +64,7 @@ function AccountForm({ initialValues, onSubmit }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} noValidate className={className}>
             <Field
                 id="email"
                 type="email"
