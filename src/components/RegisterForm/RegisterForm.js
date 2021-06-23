@@ -29,19 +29,19 @@ function RegisterForm({ className }) {
             email: data.email,
             password: data.password,
             password_confirmation: data.password,
-            first_name: data.firstName,
-            last_name: data.lastName,
-            gender: data.gender,
-            birthday: `${birthdayParts[2]}-${birthdayParts[1]}-${birthdayParts[0]}`,
-            phone: data.phone,
-            state: data.state,
-            city: data.city,
-            is_teacher: false,
+            nome: data.firstName,
+            sobrenome: data.lastName,
+            genero: data.gender,
+            nascimento: `${birthdayParts[2]}-${birthdayParts[1]}-${birthdayParts[0]}`,
+            telefone: data.phone,
+            estado: data.state,
+            cidade: data.city,
+            professor: false,
         };
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/register`, {
+            const response = await fetch(`${API_URL}/cadastro`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user),
