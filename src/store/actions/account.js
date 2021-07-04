@@ -4,8 +4,8 @@ import { API_URL } from "../../constants";
 export function updateAccount(data, userToken) {
     return async (dispatch) => {
         const response = await fetch(`${API_URL}/patchme`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json", Authorization: `Baerer ${userToken}` },
+            method: "PUT",
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
             body: JSON.stringify(data),
         });
 

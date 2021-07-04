@@ -25,8 +25,10 @@ function Account() {
     async function handleSubmit(values) {
         try {
             await dispatch(updateAccount(values, userToken));
-        } catch {
+        } catch (e) {
             setErrorMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
+            console.log("vixi");
+            console.log(e);
         } finally {
             setIsLoading(false);
         }
