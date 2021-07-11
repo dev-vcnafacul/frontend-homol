@@ -25,10 +25,16 @@ function Account() {
     async function handleSubmit(values) {
         try {
             await dispatch(updateAccount(values, userToken));
-        } catch {
+        } catch (e) {
+            if (e.message.indexOf("Token error") >= 0) {
+                setErrorMessage(
+                    "Ops, ocorreu um problema na requisição. Recarregue a página e faça login para tentar novamente!"
+                );
+            }
             setErrorMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
         } finally {
             setIsLoading(false);
+            setErrorMessage("Suas informações foram atualizadas!");
         }
     }
 
