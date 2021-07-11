@@ -22,7 +22,7 @@ function ResetPasswordForm() {
             try {
                 setLoading(true);
                 const response = await fetch(`${API_URL}/reset`, {
-                    method: "POST",
+                    method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
                 });

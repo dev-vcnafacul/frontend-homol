@@ -18,6 +18,7 @@ function LoginForm() {
     function handleLogin(e) {
         e.preventDefault();
         fetchData();
+        console.log(error);
     }
 
     return (

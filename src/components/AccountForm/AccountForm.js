@@ -34,12 +34,12 @@ function AccountForm({ initialValues, onSubmit, className }) {
                 return { ...errors, [field]: "*Campo obrigatório" };
             });
             return false;
-        } else if (field === "birthday" && value.length < 10) {
+        } else if (field === "nascimento" && value.length < 10) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Data inválida" };
             });
             return false;
-        } else if (field === "phone" && value.length < 14) {
+        } else if (field === "telefone" && value.length < 14) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Telefone inválido" };
             });
@@ -55,7 +55,7 @@ function AccountForm({ initialValues, onSubmit, className }) {
     function handleSubmit(e) {
         e.preventDefault();
         let validate = true;
-        const fields = ["email", "firstName", "lastName", "gender", "birthday", "phone", "state", "city"];
+        const fields = ["email", "nome", "sobrenome", "genero", "nascimento", "telefone", "estado", "cidade"];
         fields.forEach((field) => {
             if (!validateField(field)) validate = false;
         });
@@ -75,63 +75,63 @@ function AccountForm({ initialValues, onSubmit, className }) {
                 onBlur={() => validateField("email")}
             />
             <Field
-                id="firstName"
+                id="nome"
                 type="text"
                 label="Nome"
-                value={values.firstName || ""}
-                error={errors.firstName}
-                onChange={(e) => handleChangeField("firstName", e.target.value)}
-                onBlur={() => validateField("firstName")}
+                value={values.nome || ""}
+                error={errors.nome}
+                onChange={(e) => handleChangeField("nome", e.target.value)}
+                onBlur={() => validateField("nome")}
             />
             <Field
-                id="lastName"
+                id="sobrenome"
                 type="text"
                 label="Sobrenome"
-                value={values.lastName || ""}
-                error={errors.lastName}
-                onChange={(e) => handleChangeField("lastName", e.target.value)}
-                onBlur={() => validateField("lastName")}
+                value={values.sobrenome || ""}
+                error={errors.sobrenome}
+                onChange={(e) => handleChangeField("sobrenome", e.target.value)}
+                onBlur={() => validateField("sobrenome")}
             />
             <Field
-                id="gender"
+                id="genero"
                 type="select"
                 label="Gênero"
-                value={values.gender || ""}
-                error={errors.gender}
-                onChange={(e) => handleChangeField("gender", e.target.value)}
-                onBlur={() => validateField("gender")}
+                value={values.genero || ""}
+                error={errors.genero}
+                onChange={(e) => handleChangeField("genero", e.target.value)}
+                onBlur={() => validateField("genero")}
             >
                 <option value=""></option>
-                <option value="Female">Feminino</option>
-                <option value="Male">Masculino</option>
-                <option value="Others">Outro</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
             </Field>
             <Field
-                id="birthday"
+                id="nascimento"
                 type="tel"
                 label="Data de Nascimento"
-                value={values.birthday || ""}
-                error={errors.birthday}
-                onChange={(e) => handleChangeField("birthday", formatDateInput(e.target.value))}
-                onBlur={() => validateField("birthday")}
+                value={values.nascimento || ""}
+                error={errors.nascimento}
+                onChange={(e) => handleChangeField("nascimento", formatDateInput(e.target.value))}
+                onBlur={() => validateField("nascimento")}
             />
             <Field
-                id="phone"
+                id="telefone"
                 type="tel"
                 label="Telefone"
-                value={values.phone || ""}
-                error={errors.phone}
-                onChange={(e) => handleChangeField("phone", formatPhoneInput(e.target.value))}
-                onBlur={() => validateField("phone")}
+                value={values.telefone || ""}
+                error={errors.telefone}
+                onChange={(e) => handleChangeField("telefone", formatPhoneInput(e.target.value))}
+                onBlur={() => validateField("telefone")}
             />
             <Field
-                id="state"
+                id="estado"
                 type="select"
                 label="Estado"
-                value={values.state || ""}
-                error={errors.state}
-                onChange={(e) => handleChangeField("state", e.target.value)}
-                onBlur={() => validateField("state")}
+                value={values.estado || ""}
+                error={errors.estado}
+                onChange={(e) => handleChangeField("estado", e.target.value)}
+                onBlur={() => validateField("estado")}
             >
                 <option value=""></option>
                 <option value="AC">Acre</option>
@@ -163,13 +163,13 @@ function AccountForm({ initialValues, onSubmit, className }) {
                 <option value="TO">Tocantins</option>
             </Field>
             <Field
-                id="city"
+                id="cidade"
                 type="text"
                 label="Cidade"
-                value={values.city || ""}
-                error={errors.city}
-                onChange={(e) => handleChangeField("city", e.target.value)}
-                onBlur={() => validateField("city")}
+                value={values.cidade || ""}
+                error={errors.cidade}
+                onChange={(e) => handleChangeField("cidade", e.target.value)}
+                onBlur={() => validateField("cidade")}
             />
             <SubmitButton as="button" type="submit">
                 Salvar alterações

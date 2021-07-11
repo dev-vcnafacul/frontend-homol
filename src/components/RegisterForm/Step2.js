@@ -207,9 +207,9 @@ function Step2({ goNextStep }) {
                     value={data.gender ? data.gender : ""}
                 >
                     <option value=""></option>
-                    <option value="Female">Feminino</option>
-                    <option value="Male">Masculino</option>
-                    <option value="Others">Outro</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Outros">Outro</option>
                 </Input>
                 <FormError>{errors.gender}</FormError>
             </FormField>
