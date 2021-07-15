@@ -55,7 +55,7 @@ export function logoff() {
         dispatch({
             type: LOGOFF,
         });
-    }
+    };
 }
 
 export function register(email, password, history) {
