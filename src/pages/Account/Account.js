@@ -66,7 +66,7 @@ function Account() {
                         className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"}
                     />
                     <ChangePasswordForm
-                        token={userToken || {}}
+                        userToken={userToken || {}}
                         className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"}
                     />
                     <Error>{errorMessage}</Error>
