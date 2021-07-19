@@ -42,10 +42,12 @@ export function doAuth(email, password) {
 
 export function updateAuthByLocalStorage() {
     return async (dispatch) => {
-        dispatch({
-            type: AUTH_CHECK_FROM_LS,
-            payload: JSON.parse(window.localStorage.getItem("sessionData")),
-        });
+        if (window.localStorage.getItem("sessionData") !== null) {
+            dispatch({
+                type: AUTH_CHECK_FROM_LS,
+                payload: JSON.parse(window.localStorage.getItem("sessionData")),
+            });
+        }
     };
 }
 
