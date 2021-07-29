@@ -1,6 +1,14 @@
 import { Route } from "react-router-dom";
 import PrivateRoute from "../../components/PrivateRoute";
-import { LOGIN_PATH, FORGOT_PASSWORD_PATH, REGISTER_PATH, RESET_PASSWORD_PATH, ACCOUNT_PATH } from "../paths";
+import LogoffRoute from "../../components/LogoffRoute";
+import {
+    LOGIN_PATH,
+    FORGOT_PASSWORD_PATH,
+    REGISTER_PATH,
+    RESET_PASSWORD_PATH,
+    ACCOUNT_PATH,
+    LOGOFF_PATH,
+} from "../paths";
 
 import Login from "pages/Login";
 import ForgotPassword from "pages/ForgotPassword";
@@ -37,6 +45,9 @@ function Plataform() {
             <PrivateRoute path={ACCOUNT_PATH}>
                 <Account />
             </PrivateRoute>
+            <Route path={LOGOFF_PATH}>
+                <LogoffRoute />
+            </Route>
         </>
     );
 }

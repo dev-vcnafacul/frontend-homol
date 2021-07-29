@@ -1,5 +1,5 @@
 import data from "pages/Home/data";
-import { ACCOUNT_PATH } from "routing/paths";
+import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
 
 import Header from "components/Header";
 import Footer from "components/Footer";
@@ -46,7 +46,13 @@ function Account() {
     return (
         <>
             {isLoading && <Loading />}
-            <Header solid itemsMenu={[{ link: ACCOUNT_PATH, name: "Meu Perfil", internal: true }]} />
+            <Header
+                solid
+                itemsMenu={[
+                    { link: ACCOUNT_PATH, name: "Meu Perfil", internal: true },
+                    { link: LOGOFF_PATH, name: "Sair" },
+                ]}
+            />
             <Wrap>
                 <TriangleGreen className="graphism triangle-green" />
                 <TriangleYellow className="graphism triangle-yellow" />
