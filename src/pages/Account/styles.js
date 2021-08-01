@@ -47,6 +47,9 @@ export const Wrap = styled.div`
 export const Content = styled(Container)`
     max-width: 500px;
     margin: 0 auto;
+    form.tabDisplayNone {
+        display: none;
+    }
 `;
 
 export const Title = styled(SectionTitle)`

@@ -8,7 +8,18 @@ import Register from "pages/Register";
 import ResetPassword from "pages/ResetPassword";
 import Account from "pages/Account";
 
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateAuthByLocalStorage } from "../../store/actions/auth";
+
 function Plataform() {
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.auth.token);
+    useEffect(() => {
+        if (!token) {
+            dispatch(updateAuthByLocalStorage());
+        }
+    });
     return (
         <>
             <Route exact path={LOGIN_PATH}>
