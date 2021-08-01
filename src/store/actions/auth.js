@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS, REGISTER_SUCCESS, AUTH_CHECK_FROM_LS } from "./auth.types";
+import { AUTH_SUCCESS, REGISTER_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "./auth.types";
 import { HOME_PATH } from "../../routing/paths";
 import { API_URL } from "../../constants";
 
@@ -42,10 +42,20 @@ export function doAuth(email, password) {
 
 export function updateAuthByLocalStorage() {
     return async (dispatch) => {
-        console.log("dentro da action");
+        if (window.localStorage.getItem("sessionData") !== null) {
+            dispatch({
+                type: AUTH_CHECK_FROM_LS,
+                payload: JSON.parse(window.localStorage.getItem("sessionData")),
+            });
+        }
+    };
+}
+
+export function logoff() {
+    return async (dispatch) => {
+        window.localStorage.removeItem("sessionData");
         dispatch({
-            type: AUTH_CHECK_FROM_LS,
-            payload: JSON.parse(window.localStorage.getItem("sessionData")),
+            type: LOGOFF,
         });
     };
 }
