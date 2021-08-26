@@ -1,5 +1,5 @@
 import { Title, SubmitBtn, Wrap, Error } from "./styles";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
@@ -11,7 +11,12 @@ function ResetPasswordForm() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState();
     const [loading, setLoading] = useState(false);
+    const [temporizer, setTemporizer] = useState();
     const history = useHistory();
+
+    useEffect(() => {
+        return () => clearInterval(temporizer);
+    }, [temporizer]);
 
     async function resetPassword(event) {
         event.preventDefault();
@@ -29,14 +34,17 @@ function ResetPasswordForm() {
                 });
 
                 if ((response.status === 204) | (response.status === 200)) {
+                    let timer = 5;
+                    const intervalSetter = setInterval(() => {
+                        setMessage(
+                            "Senha alterada com sucesso. Redirecionando para o login em " + timer + " segundos!"
+                        );
+                        timer--;
+                    }, 1000);
+                    setTemporizer(intervalSetter);
                     setTimeout(() => {
                         history.push("/login");
                     }, 5000);
-                    let timer = 5;
-                    window.setInterval(() => {
-                        setMessage("Senha alterada com sucesso. Redirecionando para o login em " + timer + "segundos!");
-                        timer--;
-                    }, 1000);
                 } else if (response.status === 400) {
                     setMessage("Link de redefinição de senha expirou. Tente novamente!");
                 } else {
