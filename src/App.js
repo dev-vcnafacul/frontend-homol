@@ -12,6 +12,8 @@ import GlobalStyle from "./styles/globalStyle";
 import "./styles/normalize.css";
 import { useEffect } from "react";
 import LogRocket from "logrocket";
+import CookieBar from "./components/CookieBar";
+import data from "./pages/Home/data";
 
 function App() {
     useEffect(() => {
@@ -21,6 +23,7 @@ function App() {
         <Provider store={store}>
             <GlobalStyle />
             <ThemeProvider theme={theme}>
+                <CookieBar {...data.lgpd} />
                 <BrowserRouter>
                     <Switch>
                         <>
