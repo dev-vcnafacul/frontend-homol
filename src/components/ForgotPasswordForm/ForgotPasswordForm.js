@@ -16,13 +16,13 @@ function ForgotPasswordForm() {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/forgot`, {
+            const response = await fetch(`${API_URL}/esqueci-minha-senha`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
 
-            if (response.status === 204) {
+            if ((response.status === 204) | (response.status === 200)) {
                 setMessage(
                     "Enviamos um e-mail com instruções para redefinição da senha. Verifique sua caixa de entrada, por favor."
                 );
