@@ -1,7 +1,8 @@
 import { Route } from "react-router-dom";
-import { HOME_PATH } from "../paths";
+import { HOME_PATH, NEWS_PATH } from "../paths";
 
 import Home from "../../pages/Home";
+import News from "../../pages/News";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,6 +20,9 @@ function Website() {
         <>
             <Route exact path={HOME_PATH}>
                 <Home />
+            </Route>
+            <Route exact path={NEWS_PATH}>
+                <News />
             </Route>
         </>
     );
