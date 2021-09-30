@@ -1,5 +1,5 @@
 import { Title, SubmitBtn, Wrap, Error } from "./styles";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
@@ -46,9 +46,13 @@ function ResetPasswordForm() {
                         history.push("/login");
                     }, 5000);
                 } else if (response.status === 400) {
-                    setMessage("Link de redefinição de senha expirou. Tente novamente!");
+                    setMessage("Link de redefinição de senha expirou. Por favor, refaça o processo.");
+                } else if (response.status === 404) {
+                    setMessage(
+                        "Houve um problema com o seu link de redefinição de senha. Por favor, refaça o processo."
+                    );
                 } else {
-                    setMessage("Link de redefinição de senha inválido. Tente novamente!");
+                    setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
                 }
             } catch {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

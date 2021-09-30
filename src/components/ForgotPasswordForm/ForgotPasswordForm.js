@@ -26,8 +26,10 @@ function ForgotPasswordForm() {
                 setMessage(
                     "Enviamos um e-mail com instruções para redefinição da senha. Verifique sua caixa de entrada, por favor."
                 );
-            } else {
+            } else if (response.status === 404) {
                 setMessage("E-mail não encontrado na base de usuários.");
+            } else {
+                setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
             }
         } catch {
             setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

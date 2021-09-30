@@ -54,6 +54,12 @@ function RegisterForm({ className }) {
                 if (errors[0]["rule"] === "unique" && errors[0]["field"] === "email") {
                     setMessage("Esse e-mail já existe em nossa base de dados. Tente novamente!");
                 }
+                if (errors[0]["rule"] === "required") {
+                    setMessage("O campo " + errors[0]["field"] + " não pode estar vazio");
+                }
+                if (errors[0]["rule"] === "confirmed" && errors[0]["field"] === "password_confirmation") {
+                    setMessage("A senha e a confirmação de senha não batem!");
+                }
             } else {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
             }
