@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input, InputLabel, FormField, ToggleVisibility, FormError } from "../atoms";
 import { PasswordSteps, StepsWrap, Step } from "./styles";
 
-function PasswordForm({ onChange, className }) {
+function PasswordForm({ onChange, className, passwordLabel, passwordConfirmLabel }) {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState({
         error: false,
@@ -90,7 +90,7 @@ function PasswordForm({ onChange, className }) {
     return (
         <div className={className}>
             <FormField>
-                <InputLabel htmlFor="password">Senha</InputLabel>
+                <InputLabel htmlFor="password">{passwordLabel ? passwordLabel : "Senha"}</InputLabel>
                 <Input
                     id="password"
                     error={passwordError.error !== false ? true : false}
@@ -113,7 +113,9 @@ function PasswordForm({ onChange, className }) {
                 </StepsWrap>
             </PasswordSteps>
             <FormField>
-                <InputLabel htmlFor="password">Confirmar senha</InputLabel>
+                <InputLabel htmlFor="password">
+                    {passwordConfirmLabel ? passwordConfirmLabel : "Confirmar senha"}
+                </InputLabel>
                 <Input
                     id="passwordConfirm"
                     error={passwordConfirmError !== false ? true : false}

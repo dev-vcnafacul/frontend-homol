@@ -18,7 +18,6 @@ function LoginForm() {
     function handleLogin(e) {
         e.preventDefault();
         fetchData();
-        console.log("error trying to handle login", error);
     }
 
     return (

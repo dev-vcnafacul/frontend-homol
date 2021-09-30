@@ -1,15 +1,22 @@
 import { Title, SubmitBtn, Wrap, Error } from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function ResetPasswordForm() {
     const location = useLocation();
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState();
     const [loading, setLoading] = useState(false);
+    const [temporizer, setTemporizer] = useState();
+    const history = useHistory();
+
+    useEffect(() => {
+        return () => clearInterval(temporizer);
+    }, [temporizer]);
 
     async function resetPassword(event) {
         event.preventDefault();
@@ -18,7 +25,6 @@ function ResetPasswordForm() {
 
         if (password !== "") {
             const data = { token, password };
-
             try {
                 setLoading(true);
                 const response = await fetch(`${API_URL}/reset`, {
@@ -27,8 +33,18 @@ function ResetPasswordForm() {
                     body: JSON.stringify(data),
                 });
 
-                if (response.status === 200) {
-                    setMessage("Senha alterada com sucesso. Por favor, faça login.");
+                if ((response.status === 204) | (response.status === 200)) {
+                    let timer = 5;
+                    const intervalSetter = setInterval(() => {
+                        setMessage(
+                            "Senha alterada com sucesso. Redirecionando para o login em " + timer + " segundos!"
+                        );
+                        timer--;
+                    }, 1000);
+                    setTemporizer(intervalSetter);
+                    setTimeout(() => {
+                        history.push("/login");
+                    }, 5000);
                 } else if (response.status === 400) {
                     setMessage("Link de redefinição de senha expirou. Por favor, refaça o processo.");
                 } else if (response.status === 404) {

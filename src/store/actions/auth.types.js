@@ -1,2 +1,4 @@
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const AUTH_CHECK_FROM_LS = "AUTH_CHECK_FROM_LS";
+export const LOGOFF = "LOGOFF";

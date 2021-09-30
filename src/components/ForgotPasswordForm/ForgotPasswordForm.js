@@ -22,7 +22,7 @@ function ForgotPasswordForm() {
                 body: JSON.stringify(data),
             });
 
-            if (response.status === 204 || response.status === 200) {
+            if ((response.status === 204) | (response.status === 200)) {
                 setMessage(
                     "Enviamos um e-mail com instruções para redefinição da senha. Verifique sua caixa de entrada, por favor."
                 );
