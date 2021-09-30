@@ -10,9 +10,21 @@ export function doAuth(email, password) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         });
-
+        const payloadReceived = await response.json();
         if (response.status === 400) {
-            throw new Error("User not found");
+            throw new Error("A senha informada está incorreta!");
+        } else if (response.status === 404) {
+            throw new Error("Esse e-mail não foi cadastrado em nossa plataforma!");
+        } else if (response.status === 422) {
+            let errorField = "";
+            switch (payloadReceived["errors"][0]["field"]) {
+                case "password":
+                    errorField = "senha";
+                    break;
+                default:
+                    errorField = payloadReceived["errors"][0]["field"];
+            }
+            throw new Error("Preencha corretamente o campo de " + errorField + " e tente novamente!");
         } else {
             const responseJSON = await response.json();
             const birthday = new Date(responseJSON.user.nascimento.replace("Z", ""));

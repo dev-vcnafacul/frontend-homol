@@ -27,12 +27,16 @@ function ResetPasswordForm() {
                     body: JSON.stringify(data),
                 });
 
-                if (response.status === 204) {
+                if (response.status === 200) {
                     setMessage("Senha alterada com sucesso. Por favor, faça login.");
                 } else if (response.status === 400) {
-                    setMessage("Link de redefinição de senha expirou.");
+                    setMessage("Link de redefinição de senha expirou. Por favor, refaça o processo.");
+                } else if (response.status === 404) {
+                    setMessage(
+                        "Houve um problema com o seu link de redefinição de senha. Por favor, refaça o processo."
+                    );
                 } else {
-                    setMessage("Link de redefinição de senha inválido.");
+                    setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
                 }
             } catch {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

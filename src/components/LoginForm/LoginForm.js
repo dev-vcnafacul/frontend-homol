@@ -18,7 +18,7 @@ function LoginForm() {
     function handleLogin(e) {
         e.preventDefault();
         fetchData();
-        console.log(error);
+        console.log("error trying to handle login", error);
     }
 
     return (
@@ -26,7 +26,7 @@ function LoginForm() {
             {isLoading && <Loading />}
             <Title>Entre na sua conta</Title>
             <Description>Entre com seu e-mail e senha para acessar a plataforma</Description>
-            {error && <Error>E-mail e/ou senha incorreto.</Error>}
+            {error && <Error>{error.message}</Error>}
             <form onSubmit={handleLogin} noValidate>
                 <FormField>
                     <InputLabel htmlFor="email">E-mail</InputLabel>
