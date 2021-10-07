@@ -26,21 +26,20 @@ export function doAuth(email, password) {
             }
             throw new Error("Preencha corretamente o campo de " + errorField + " e tente novamente!");
         } else {
-            const responseJSON = await response.json();
-            const birthday = new Date(responseJSON.user.nascimento.replace("Z", ""));
+            const birthday = new Date(payloadReceived.user.nascimento.replace("Z", ""));
             const monthBirthday = birthday.getMonth() + 1 < 10 ? `0${birthday.getMonth() + 1}` : birthday.getMonth();
             const dayBirthday = birthday.getDate() < 10 ? `0${birthday.getDate()}` : birthday.getDate();
             const payload = {
-                token: responseJSON.token.token,
+                token: payloadReceived.token.token,
                 user: {
-                    email: responseJSON.user.email,
-                    nome: responseJSON.user.nome,
-                    sobrenome: responseJSON.user.sobrenome,
-                    genero: responseJSON.user.genero,
+                    email: payloadReceived.user.email,
+                    nome: payloadReceived.user.nome,
+                    sobrenome: payloadReceived.user.sobrenome,
+                    genero: payloadReceived.user.genero,
                     nascimento: `${dayBirthday}/${monthBirthday}/${birthday.getFullYear()}`,
-                    telefone: responseJSON.user.telefone,
-                    estado: responseJSON.user.estado,
-                    cidade: responseJSON.user.cidade,
+                    telefone: payloadReceived.user.telefone,
+                    estado: payloadReceived.user.estado,
+                    cidade: payloadReceived.user.cidade,
                 },
             };
             window.localStorage.setItem("sessionData", JSON.stringify(payload));
