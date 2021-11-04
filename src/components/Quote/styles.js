@@ -17,6 +17,10 @@ export const QuoteWrapper = styled.div`
         width: 58%;
         max-width: 580px;
     }
+    @media (min-width: 1366px) {
+        position: static;
+        margin-right: 0;
+    }
 `;
 
 export const SideWrapper = styled.p`
