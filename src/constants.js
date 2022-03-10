@@ -1,1 +1,2 @@
-export const API_URL = "http://134.209.170.203:80";
+// export const API_URL = "https://api.vcnafacul.com.br";
+export const API_URL = "http://localhost:3333";

@@ -1,11 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TileLayer, Marker } from "react-leaflet";
 import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button } from "./styles";
 import Geolocation from "./Geolocation";
+import { API_URL } from "../../constants";
 import { Anchor } from "./../atoms";
 
-function Map({ markers, ctaLink, className }) {
+function Map({ ctaLink, className }) {
     const [markerActive, setMarkerActive] = useState(0);
+    const [markers, setMarkers] = useState([]);
+    const [mapCenter, setMapCenter] = useState([-21.4712828, -47.0439503]);
     const boxRef = useRef(null);
 
     function handleClickMarker(index) {
@@ -13,11 +16,32 @@ function Map({ markers, ctaLink, className }) {
         setMarkerActive(index);
     }
 
+    async function handleLoadMakers() {
+        const response = await fetch(`${API_URL}/geolocations`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+
+        if (response.status === 200) {
+            const updatedMarkers = await response.json();
+            setMarkers(updatedMarkers);
+            const center = updatedMarkers.reduce(
+                (acc, coord, i, arr) => [acc[0] + coord.latitude / arr.length, acc[1] + coord.longitude / arr.length],
+                [0.0, 0.0]
+            );
+            setMapCenter(center);
+        }
+    }
+
+    useEffect(() => {
+        handleLoadMakers();
+    }, []);
+
     return (
         <>
             <Anchor id="map"></Anchor>
             <Section className={className}>
-                <MapBox center={[-15.7745457, -48.3575684]} zoom={4} scrollWheelZoom={false}>
+                <MapBox center={mapCenter} zoom={4} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
