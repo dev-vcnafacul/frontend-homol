@@ -30,6 +30,8 @@ function Map({ ctaLink, className }) {
                 [0.0, 0.0]
             );
             setMapCenter(center);
+        } else {
+            setMarkers([]);
         }
     }
 
@@ -63,7 +65,10 @@ function Map({ ctaLink, className }) {
                     <BoxContainer>
                         <Title>Localiza Cursinho</Title>
                         <Paragraph>{markers[markerActive]?.name}</Paragraph>
-                        <Paragraph>{markers[markerActive]?.address}</Paragraph>
+                        <Paragraph>
+                            {markers[markerActive]?.street}, {markers[markerActive]?.number}
+                        </Paragraph>
+                        <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
                         <Subtitle>Conhece um cursinho popular?</Subtitle>
                         <Button target="_blank" href={ctaLink}>
                             Cadastrar um Cursinho

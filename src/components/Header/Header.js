@@ -54,10 +54,11 @@ function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, sol
                     open={openMenu}
                     openFunction={setOpenMenu}
                 />
-                {(signInLink || signUpLink) && !userData && (
+                {/* {(signInLink || signUpLink) && !userData && (
                     <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
                 )}
-                {userData && <Avatar userName={userData.nome} solid={backgroundSolid}></Avatar>}
+                {userData && <Avatar userName={userData.nome} solid={backgroundSolid}></Avatar>} */}
+                <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
             </FlexContainer>
         </Bar>
     );
