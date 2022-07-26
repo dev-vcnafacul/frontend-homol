@@ -63,7 +63,7 @@ function Map({ ctaLink, className }) {
                     <BoxContainer>
                         <Title>Localiza Cursinho</Title>
                         <Paragraph>{markers[markerActive]?.name}</Paragraph>
-                        <Paragraph>{markers[markerActive]?.address}</Paragraph>
+                        <Paragraph>{markers[markerActive]?.street}</Paragraph>
                         <Subtitle>Conhece um cursinho popular?</Subtitle>
                         <Button target="_blank" href={ctaLink}>
                             Cadastrar um Cursinho
