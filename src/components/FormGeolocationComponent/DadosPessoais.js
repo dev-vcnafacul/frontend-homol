@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
-import { Description, SubmitBtn } from "./styles";
+import { SubmitBtn } from "./styles";
 
 function DadosPessoais({ goNextStep }) {
     const [email, setEmail] = useState("");

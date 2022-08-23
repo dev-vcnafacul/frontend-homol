@@ -1,23 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BRASIL_API_URL } from "../../constants";
 
+import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
-// import { CheckboxWrapper, CheckboxText } from "./styles";
-import { Description, LinkLogin, SubmitBtn } from "./styles";
+import { SubmitBtn } from "./styles";
 
 function EnderecoCursinho({ goNextStep }) {
     const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [valueOfCep, setValueOfCep] = useState("");
+    const [valueOfStreet, setValueOfStreet] = useState("");
+    const [valueOfNeighborhood, setValueOfNeighborhood] = useState("");
+    const [valueOfCity, setValueOfCity] = useState("");
+    const [valueOfState, setValueOfState] = useState("");
+
+    useEffect(() => {
+        getCepData(valueOfCep);
+    }, [valueOfCep]);
 
     const invalidCEP = (value) => {
         if (value.length < 9) {
             return "Digite o CEP no formato XXXXX-XXX";
         }
-        // const cep = value.substring(0, 2); formatação do cep?
         let regex = /[0-9]{5}-[\d]{3}/;
-        if (regex.test(value)) {
-            return null; //Não entendi porque retornar null some com o campo
+        if (regex.test(value) && value.length === 9) {
+            return null;
         } else {
-            return "O número digitado é maior que o código de CEP"; //É preciso limitar o número máximo de caracteres que podem ser inseridos nesse campo
+            return "O número digitado é maior que o código de CEP";
+        }
+    };
+
+    async function getCepData(cep) {
+        try {
+            setLoading(true);
+            if (cep.length === 9) {
+                const response = await fetch(`${BRASIL_API_URL + cep}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                const responsePayload = await response.json();
+
+                if (response.status === 200 || response.status === 204) {
+                    setData({
+                        ...data,
+                        latitude: responsePayload.location.coordinates.latitude,
+                        longitude: responsePayload.location.coordinates.longitude,
+                        courseStreet: responsePayload.street,
+                        courseNeighborhood: responsePayload.neighborhood,
+                        courseCity: responsePayload.city,
+                        courseState: responsePayload.state,
+                    });
+
+                    setValueOfStreet(responsePayload.street);
+                    isValidField("courseStreet", responsePayload.street);
+
+                    setValueOfNeighborhood(responsePayload.neighborhood);
+                    isValidField("courseNeighborhood", responsePayload.neighborhood);
+
+                    setValueOfCity(responsePayload.city);
+                    isValidField("courseCity", responsePayload.city);
+
+                    setValueOfState(responsePayload.state);
+                    isValidField("courseCity", responsePayload.state);
+                }
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    const autofill = (value) => {
+        const cep = value;
+        if (!invalidCEP(cep)) {
+            setValueOfCep(cep);
         }
     };
 
@@ -28,7 +89,6 @@ function EnderecoCursinho({ goNextStep }) {
             });
             return false;
         } else if (field === "cep" && invalidCEP(value)) {
-            //Não entendi por que invalidCEP() retornar false o ReactJS ainda entra nesse bloco de código
             setErrors((errors) => {
                 return { ...errors, [field]: "*CEP inválido: " + invalidCEP(value) };
             });
@@ -49,12 +109,15 @@ function EnderecoCursinho({ goNextStep }) {
             if (!isValidField(field, data[field])) validate = false;
         });
 
-        if (validate) goNextStep(data);
+        if (validate) {
+            goNextStep(data);
+        }
     }
 
     return (
         <>
             <form onSubmit={handleForm}>
+                {loading && <Loading />}
                 <FormField>
                     <InputLabel htmlFor="cep">CEP</InputLabel>
                     <Input
@@ -64,6 +127,9 @@ function EnderecoCursinho({ goNextStep }) {
                         onChange={(e) => {
                             setData({ ...data, cep: e.target.value });
                             isValidField("cep", e.target.value);
+                        }}
+                        onBlur={(e) => {
+                            autofill(e.target.value);
                         }}
                         value={data.cep ? data.cep : ""}
                     />
@@ -78,9 +144,10 @@ function EnderecoCursinho({ goNextStep }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, courseStreet: e.target.value });
+                            setValueOfStreet(e.target.value);
                             isValidField("courseStreet", e.target.value);
                         }}
-                        value={data.courseStreet ? data.courseStreet : ""}
+                        value={data.courseStreet ? data.courseStreet : valueOfStreet}
                     />
                     <FormError>{errors.courseStreet}</FormError>
                 </FormField>
@@ -108,7 +175,6 @@ function EnderecoCursinho({ goNextStep }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, courseAddress: e.target.value });
-                            // isValidField("courseAddress", e.target.value);
                         }}
                         value={data.courseAddress ? data.courseAddress : ""}
                     />
@@ -122,9 +188,10 @@ function EnderecoCursinho({ goNextStep }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, courseNeighborhood: e.target.value });
+                            setValueOfNeighborhood(e.target.value);
                             isValidField("courseNeighborhood", e.target.value);
                         }}
-                        value={data.courseNeighborhood ? data.courseNeighborhood : ""}
+                        value={data.courseNeighborhood ? data.courseNeighborhood : valueOfNeighborhood}
                     />
                     <FormError>{errors.courseNeighborhood}</FormError>
                 </FormField>
@@ -137,9 +204,10 @@ function EnderecoCursinho({ goNextStep }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, courseCity: e.target.value });
+                            setValueOfCity(e.target.value);
                             isValidField("courseCity", e.target.value);
                         }}
-                        value={data.courseCity ? data.courseCity : ""}
+                        value={data.courseCity ? data.courseCity : valueOfCity}
                     />
                     <FormError>{errors.courseCity}</FormError>
                 </FormField>
@@ -153,9 +221,10 @@ function EnderecoCursinho({ goNextStep }) {
                         error={errors.courseState}
                         onChange={(e) => {
                             setData({ ...data, courseState: e.target.value });
+                            setValueOfState(e.target.value);
                             isValidField("courseState", e.target.value);
                         }}
-                        value={data.courseState ? data.courseState : ""}
+                        value={data.courseState ? data.courseState : valueOfState}
                     >
                         <option value=""></option>
                         <option value="AC">Acre</option>

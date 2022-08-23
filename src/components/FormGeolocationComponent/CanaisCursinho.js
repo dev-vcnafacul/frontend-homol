@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-import { Input, InputLabel, FormField, FormError } from "../atoms";
-// import { CheckboxWrapper, CheckboxText } from "./styles";
-import { Description, LinkLogin, SubmitBtn } from "./styles";
+import { Input, InputLabel, FormField } from "../atoms";
+import { SubmitBtn } from "./styles";
 
 function CanaisCursinho({ goNextStep }) {
     const [data, setData] = useState({});
