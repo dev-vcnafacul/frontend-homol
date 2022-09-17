@@ -125,3 +125,9 @@ export const Montserrat18 = styled(SectionSubtitle)`
         margin-top: 18px;
     }
 `;
+
+export const Footer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+`;

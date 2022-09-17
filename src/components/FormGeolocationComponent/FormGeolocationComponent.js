@@ -6,8 +6,7 @@ import DadosCursinho from "./DadosCursinho";
 import EnderecoCursinho from "./EnderecoCursinho";
 import ContatosCursinho from "./ContatosCursinho";
 import CanaisCursinho from "./CanaisCursinho";
-import { Title, Wrap, Success, SuccessIcon, LoginShortcut, SuccessDiv, Montserrat18 } from "./styles";
-// import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv, Montserrat18 } from "./styles";
+import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv, Montserrat18 } from "./styles";
 import successIconFile from "../../assets/icons/check-circle.svg";
 import { Loading } from "../../styles/common";
 import { API_URL } from "../../constants";
@@ -21,18 +20,28 @@ function FormGeolocationComponent() {
     const [message, setMessage] = useState("");
 
     function goNextStep(newData) {
-        const userData = { ...data, ...newData };
-        setData(userData);
+        const courseData = { ...data, ...newData };
+        setData(courseData);
+        //debugger;
         setMessage("");
 
         if (step === 5) {
-            registerUser(userData);
+            registerCourse(courseData);
         } else {
             setStep((step) => step + 1);
         }
     }
 
-    async function registerUser(data) {
+    function goBackStep(newData) {
+        const courseData = { ...data, ...newData };
+        setData(courseData);
+        //debugger;
+        setMessage("");
+
+        setStep((step) => step - 1);
+    }
+
+    async function registerCourse(data) {
         const course = {
             latitude: data.latitude,
             longitude: data.longitude,
@@ -43,18 +52,18 @@ function FormGeolocationComponent() {
             neighborhood: data.courseNeighborhood,
             street: data.courseStreet,
             number: data.courseNumber,
-            // "complement": schema.string.optional(),
+            complement: data.courseAddress,
             phone: data.data.coursePhone,
-            // "whatsapp": schema.string.optional(),
-            email: data.email,
+            whatsapp: data.data.coursePhone,
+            email: data.courseEmail,
             category: data.courseType,
             site: data.courseSite,
-            // "linkedin": schema.string.optional(),
+            linkedin: data.courseLinkedin,
             youtube: data.courseYoutube,
-            // "facebook": schema.string.optional(),
+            facebook: data.courseFacebook,
             instagram: data.courseInstagram,
-            // "twitter": schema.string.optional(),
-            // "tiktok": schema.string.optional()
+            twitter: data.courseTwitter,
+            tiktok: data.courseTiktok,
         };
 
         try {
@@ -72,14 +81,8 @@ function FormGeolocationComponent() {
             if (response.status === 200 || response.status === 204) {
                 setStep((step) => step + 1);
             } else if (response.status === 422) {
-                if (errors[0]["rule"] === "unique" && errors[0]["field"] === "email") {
-                    setMessage("Esse e-mail já existe em nossa base de dados. Tente novamente!");
-                }
                 if (errors[0]["rule"] === "required") {
                     setMessage("O campo " + errors[0]["field"] + " não pode estar vazio");
-                }
-                if (errors[0]["rule"] === "confirmed" && errors[0]["field"] === "password_confirmation") {
-                    setMessage("A senha e a confirmação de senha não batem!");
                 }
             } else {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
@@ -103,7 +106,6 @@ function FormGeolocationComponent() {
     return (
         <Wrap>
             {loading && <Loading />}
-
             {step === 1 && (
                 <div>
                     <Title>Dados Pessoais</Title>
@@ -120,21 +122,21 @@ function FormGeolocationComponent() {
                     <Montserrat18>
                         Precisamos saber o maior número de informações possível sobre este cursinho.
                     </Montserrat18>
-                    <DadosCursinho goNextStep={goNextStep} />
+                    <DadosCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
                 </div>
             )}
 
             {step === 3 && (
                 <div>
                     <Title>Endereço do Cursinho</Title>
-                    <EnderecoCursinho goNextStep={goNextStep} />
+                    <EnderecoCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
                 </div>
             )}
 
             {step === 4 && (
                 <div>
                     <Title>Contatos do Cursinho</Title>
-                    <ContatosCursinho goNextStep={goNextStep} />
+                    <ContatosCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
                 </div>
             )}
             {step === 5 && (
@@ -144,7 +146,8 @@ function FormGeolocationComponent() {
                         Gostariamos de saber em quais redes sociais o cursinho já é divulgado. Você poderia colocar o
                         link?
                     </Montserrat18>
-                    <CanaisCursinho goNextStep={goNextStep} />
+                    <Error>{message}</Error>
+                    <CanaisCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
                 </div>
             )}
             {step === 6 && (

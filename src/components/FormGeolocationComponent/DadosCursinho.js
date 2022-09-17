@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
-import { SubmitBtn } from "./styles";
+import { SubmitBtn, Footer } from "./styles";
 
-function DadosCursinho({ goNextStep }) {
+function DadosCursinho({ goNextStep, goBackStep }) {
     const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
 
@@ -31,6 +31,11 @@ function DadosCursinho({ goNextStep }) {
         });
 
         if (validate) goNextStep(data);
+    }
+
+    function handleBack(e) {
+        e.preventDefault();
+        goBackStep(data);
     }
 
     return (
@@ -71,7 +76,11 @@ function DadosCursinho({ goNextStep }) {
                     </Input>
                     <FormError>{errors.courseType}</FormError>
                 </FormField>
-                <SubmitBtn as="input" type="submit" value="Continuar" />
+
+                <Footer>
+                    <SubmitBtn as="input" value="Voltar" onClick={handleBack} />
+                    <SubmitBtn as="input" type="submit" value="Continuar" />
+                </Footer>
             </form>
         </>
     );

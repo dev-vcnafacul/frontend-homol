@@ -15,7 +15,7 @@ function ChangePasswordForm({ userToken, className, resetCallback }) {
         };
 
         try {
-            const response = await fetch(`${API_URL}/patchme`, {
+            const response = await fetch(`${API_URL}/user`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
                 body: JSON.stringify(payload),

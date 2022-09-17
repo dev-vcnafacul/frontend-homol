@@ -3,9 +3,9 @@ import { BRASIL_API_URL } from "../../constants";
 
 import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
-import { SubmitBtn } from "./styles";
+import { SubmitBtn, Footer } from "./styles";
 
-function EnderecoCursinho({ goNextStep }) {
+function EnderecoCursinho({ goNextStep, goBackStep }) {
     const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
@@ -112,6 +112,11 @@ function EnderecoCursinho({ goNextStep }) {
         if (validate) {
             goNextStep(data);
         }
+    }
+
+    function handleBack(e) {
+        e.preventDefault();
+        goBackStep(data);
     }
 
     return (
@@ -257,7 +262,11 @@ function EnderecoCursinho({ goNextStep }) {
                     </Input>
                     <FormError>{errors.courseState}</FormError>
                 </FormField>
-                <SubmitBtn as="input" type="submit" value="Continuar" />
+
+                <Footer>
+                    <SubmitBtn as="input" value="Voltar" onClick={handleBack} />
+                    <SubmitBtn as="input" type="submit" value="Continuar" />
+                </Footer>
             </form>
         </>
     );

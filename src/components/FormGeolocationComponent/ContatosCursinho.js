@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { Input, InputLabel, FormField, FormError } from "../atoms";
-import { SubmitBtn } from "./styles";
+import { SubmitBtn, Footer } from "./styles";
 
-function ContatosCursinho({ goNextStep }) {
+function ContatosCursinho({ goNextStep, goBackStep }) {
     const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
     const [courseEmail, setCourseEmail] = useState("");
@@ -141,12 +141,30 @@ function ContatosCursinho({ goNextStep }) {
         }
     }
 
+    function handleBack(e) {
+        e.preventDefault();
+        goBackStep(data);
+    }
+
+    // function componentDidMount() {
+    //     checkInputValues();
+    //      Eu estava tentando uma solução para recuperar os dados da variável data (FormGeolocationComponent.js)
+    //      e repassar como um novo value para cada input, mas não deu certo.
+    // }
+    // function checkInputValues(e) {
+    //      debugger;
+    //     if (data.coursePhone) {
+    //         debugger;
+    //     }
+    // }
+
     return (
         <>
             <form onSubmit={handleForm}>
                 <FormField>
                     <InputLabel htmlFor="coursePhone">Telefone</InputLabel>
                     <Input
+                        // onLoad={() => componentDidMount()}
                         id="coursePhone"
                         error={errors.coursePhone}
                         type="text"
@@ -157,6 +175,20 @@ function ContatosCursinho({ goNextStep }) {
                         value={data.coursePhone ? data.coursePhone : ""}
                     />
                     <FormError>{errors.coursePhone}</FormError>
+                </FormField>
+
+                <FormField>
+                    <InputLabel htmlFor="courseWhatsapp">Whatsapp</InputLabel>
+                    <Input
+                        id="courseWhatsapp"
+                        error={errors.courseWhatsapp}
+                        type="text"
+                        onChange={(e) => {
+                            setData({ ...data, courseWhatsapp: formatPhoneInput(e.target.value) });
+                        }}
+                        value={data.courseWhatsapp ? data.courseWhatsapp : ""}
+                    />
+                    <FormError>{errors.courseWhatsapp}</FormError>
                 </FormField>
 
                 <FormField>
@@ -173,7 +205,11 @@ function ContatosCursinho({ goNextStep }) {
                     />
                     <FormError>{emailError}</FormError>
                 </FormField>
-                <SubmitBtn as="input" type="submit" value="Continuar" />
+
+                <Footer>
+                    <SubmitBtn as="input" value="Voltar" onClick={handleBack} />
+                    <SubmitBtn as="input" type="submit" value="Continuar" />
+                </Footer>
             </form>
         </>
     );
