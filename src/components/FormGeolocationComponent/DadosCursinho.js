@@ -4,8 +4,8 @@ import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
 import { SubmitBtn, Footer } from "./styles";
 
-function DadosCursinho({ goNextStep, goBackStep }) {
-    const [data, setData] = useState({});
+function DadosCursinho({ goNextStep, goBackStep, oldData }) {
+    const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
 
     const isValidField = (field, value) => {

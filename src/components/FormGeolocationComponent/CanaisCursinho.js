@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Input, InputLabel, FormField } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-function CanaisCursinho({ goNextStep, goBackStep }) {
-    const [data, setData] = useState({});
+function CanaisCursinho({ goNextStep, goBackStep, oldData }) {
+    const [data, setData] = useState(oldData);
     // const [errors, setErrors] = useState({});
 
     function handleForm(e) {

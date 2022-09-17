@@ -111,7 +111,7 @@ function FormGeolocationComponent() {
                     <Montserrat18>
                         Nos conte um pouco sobre você e sua relação com o cursinho que está cadastrando
                     </Montserrat18>
-                    <DadosPessoais goNextStep={goNextStep} />
+                    <DadosPessoais goNextStep={goNextStep} oldData={data} />
                 </div>
             )}
 
@@ -121,21 +121,21 @@ function FormGeolocationComponent() {
                     <Montserrat18>
                         Precisamos saber o maior número de informações possível sobre este cursinho.
                     </Montserrat18>
-                    <DadosCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
+                    <DadosCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
 
             {step === 3 && (
                 <div>
                     <Title>Endereço do Cursinho</Title>
-                    <EnderecoCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
+                    <EnderecoCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
 
             {step === 4 && (
                 <div>
                     <Title>Contatos do Cursinho</Title>
-                    <ContatosCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
+                    <ContatosCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
             {step === 5 && (
@@ -146,7 +146,7 @@ function FormGeolocationComponent() {
                         link?
                     </Montserrat18>
                     <Error>{message}</Error>
-                    <CanaisCursinho goNextStep={goNextStep} goBackStep={goBackStep} />
+                    <CanaisCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
             {step === 6 && (

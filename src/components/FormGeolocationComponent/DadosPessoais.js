@@ -4,10 +4,10 @@ import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
 import { SubmitBtn } from "./styles";
 
-function DadosPessoais({ goNextStep }) {
+function DadosPessoais({ goNextStep, oldData }) {
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState(false);
-    const [data, setData] = useState({});
+    const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
 
     const validateEmail = (email) => {

@@ -4,8 +4,8 @@ import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-function EnderecoCursinho({ goNextStep, goBackStep }) {
-    const [data, setData] = useState({});
+function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
+    const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [valueOfCep, setValueOfCep] = useState("");
@@ -34,7 +34,7 @@ function EnderecoCursinho({ goNextStep, goBackStep }) {
         try {
             setLoading(true);
             if (cep.length === 9) {
-                const response = await fetch(`${process.env.BRASIL_API_URL + cep}`, {
+                const response = await fetch(`${process.env.REACT_APP_BRASIL_API_URL}/${cep}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -68,7 +68,8 @@ function EnderecoCursinho({ goNextStep, goBackStep }) {
                 }
             }
         } catch (error) {
-            throw new Error(error.message);
+            console.log(error);
+            throw error;
         } finally {
             setLoading(false);
         }

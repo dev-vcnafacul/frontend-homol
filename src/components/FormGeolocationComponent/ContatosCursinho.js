@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-function ContatosCursinho({ goNextStep, goBackStep }) {
-    const [data, setData] = useState({});
+function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
+    const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
     const [courseEmail, setCourseEmail] = useState("");
     const [emailError, setEmailError] = useState(false);

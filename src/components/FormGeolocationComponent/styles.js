@@ -27,6 +27,8 @@ export const SubmitBtn = styled(Button)`
         font-size: 19px;
         padding: 17px 0;
     }
+
+    text-align: center;
 `;
 
 export const Error = styled.p`
