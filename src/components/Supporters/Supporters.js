@@ -2,7 +2,7 @@ import { useState } from "react";
 import HighlightSelector from "../HighlightSelector";
 import { Section, FlexContainer, SupportersTitle, SupportersSubtitle, SectionContent } from "./styles";
 import Sponsors from "./Sponsors";
-import Volunteers from "./Volunteers";
+// import Volunteers from "./Volunteers";
 import { Anchor } from "./../atoms";
 
 function Supporters({ sponsors, volunteers, tabTexts, className }) {
@@ -26,7 +26,7 @@ function Supporters({ sponsors, volunteers, tabTexts, className }) {
                         liMargin="0 16px"
                     ></HighlightSelector>
                     <Sponsors sponsors={sponsors} className={tabIndex === 0 ? "tabActive" : "tabDisplayNone"} />
-                    <Volunteers volunteers={volunteers} className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"} />
+                    {/* <Volunteers volunteers={volunteers} className={tabIndex === 1 ? "tabActive" : "tabDisplayNone"} /> */}
                 </FlexContainer>
             </Section>
         </>

@@ -346,7 +346,7 @@ const data = {
         ],
     },
     supporters: {
-        tabTexts: ["Empresas", "Voluntários"],
+        tabTexts: ["Empresas" /*, "Voluntários"*/],
         sponsors: [
             {
                 image: raccoonLogo,
@@ -364,6 +364,7 @@ const data = {
                 link: "https://coworkingsaocarlos.com/",
             },
         ],
+        /*
         volunteers: [
             {
                 image: "/volunteers/Vitor de Melo.png",
@@ -485,7 +486,7 @@ const data = {
                 name: "Vivi Alves",
                 alt: "Vivi Alves",
             },
-        ],
+        ],*/
     },
     lgpd: {
         headerText: "Cookies e Privacidade",
