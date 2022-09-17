@@ -7,7 +7,7 @@ function Sign({ signInLink, solid, signUpLink, className }) {
 
     return (
         <>
-            <SignContainer className={className}>
+            {/* <SignContainer className={className}>
                 <AccountCircleButton onClick={() => setOpen(true)}>
                     <UserIcon />
                 </AccountCircleButton>
@@ -25,7 +25,7 @@ function Sign({ signInLink, solid, signUpLink, className }) {
                 </AccountCircleButton>
                 <SignMenuItem to={signUpLink}>Cadastrar</SignMenuItem>
                 <SignMenuItem to={signInLink}>Login</SignMenuItem>
-            </SignMenu>
+            </SignMenu> */}
         </>
     );
 }
