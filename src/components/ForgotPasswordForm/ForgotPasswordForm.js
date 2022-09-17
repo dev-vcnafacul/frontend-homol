@@ -1,7 +1,6 @@
 import { Input, InputLabel, FormField } from "../atoms";
 import { Title, Description, SubmitBtn, Wrap, Error } from "./styles";
 import { useState } from "react";
-import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 
 function ForgotPasswordForm() {
@@ -16,7 +15,7 @@ function ForgotPasswordForm() {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/esqueci-minha-senha`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/esqueci-minha-senha`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

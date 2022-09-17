@@ -3,7 +3,6 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv } from "./styles";
 import { Loading } from "../../styles/common";
-import { API_URL } from "../../constants";
 import successIconFile from "../../assets/icons/check-circle.svg";
 
 function RegisterForm({ className }) {
@@ -41,7 +40,7 @@ function RegisterForm({ className }) {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/user`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/user`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user),

@@ -9,7 +9,6 @@ import CanaisCursinho from "./CanaisCursinho";
 import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv, Montserrat18 } from "./styles";
 import successIconFile from "../../assets/icons/check-circle.svg";
 import { Loading } from "../../styles/common";
-import { API_URL } from "../../constants";
 
 function FormGeolocationComponent() {
     const [loading, setLoading] = useState(false);
@@ -68,7 +67,7 @@ function FormGeolocationComponent() {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/geolocations`, {
+            const response = await fetch(`${process.env.API_URL}/geolocations`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

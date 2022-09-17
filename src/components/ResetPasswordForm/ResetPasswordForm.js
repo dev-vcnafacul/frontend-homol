@@ -1,6 +1,5 @@
 import { Title, SubmitBtn, Wrap, Error } from "./styles";
 import { useState, useEffect } from "react";
-import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
 import { useLocation } from "react-router-dom";
@@ -27,7 +26,7 @@ function ResetPasswordForm() {
             const data = { token, password };
             try {
                 setLoading(true);
-                const response = await fetch(`${API_URL}/reset`, {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/reset`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),

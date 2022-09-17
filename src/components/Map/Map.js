@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { TileLayer, Marker } from "react-leaflet";
 import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button } from "./styles";
 import Geolocation from "./Geolocation";
-import { API_URL } from "../../constants";
 import { Anchor } from "./../atoms";
 
 function Map({ ctaLink, className }) {
@@ -17,7 +16,7 @@ function Map({ ctaLink, className }) {
     }
 
     async function handleLoadMakers() {
-        const response = await fetch(`${API_URL}/geolocations`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });

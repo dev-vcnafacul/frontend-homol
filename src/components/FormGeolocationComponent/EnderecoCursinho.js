@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { BRASIL_API_URL } from "../../constants";
 
 import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
@@ -35,7 +34,7 @@ function EnderecoCursinho({ goNextStep, goBackStep }) {
         try {
             setLoading(true);
             if (cep.length === 9) {
-                const response = await fetch(`${BRASIL_API_URL + cep}`, {
+                const response = await fetch(`${process.env.BRASIL_API_URL + cep}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
