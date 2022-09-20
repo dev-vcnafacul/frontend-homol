@@ -15,6 +15,9 @@ import LogRocket from "logrocket";
 import CookieBar from "./components/CookieBar";
 import data from "./pages/Home/data";
 
+export const API_URL = process.env.REACT_APP_BASE_URL;
+export const BRASIL_API_URL = process.env.REACT_APP_BRASIL_API_URL;
+
 function App() {
     useEffect(() => {
         LogRocket.init("8eldie/vcnafacul");
