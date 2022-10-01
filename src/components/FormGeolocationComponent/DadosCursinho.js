@@ -4,30 +4,18 @@ import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
 import { SubmitBtn, Footer } from "./styles";
 
+import { isValidField } from "../../Utils/ValidateContato";
+
 function DadosCursinho({ goNextStep, goBackStep, oldData }) {
     const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
-
-    const isValidField = (field, value) => {
-        if (!value || (typeof value === "string" && value.trim() === "")) {
-            setErrors((errors) => {
-                return { ...errors, [field]: "*Campo obrigatório" };
-            });
-            return false;
-        } else {
-            setErrors((errors) => {
-                return { ...errors, [field]: undefined };
-            });
-            return true;
-        }
-    };
 
     function handleForm(e) {
         e.preventDefault();
         let validate = true;
         const fields = ["courseName", "courseType"];
         fields.forEach((field) => {
-            if (!isValidField(field, data[field])) validate = false;
+            if (!isValidField(field, data[field], setErrors)) validate = false;
         });
 
         if (validate) goNextStep(data);
@@ -49,7 +37,7 @@ function DadosCursinho({ goNextStep, goBackStep, oldData }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, courseName: e.target.value });
-                            isValidField("courseName", e.target.value);
+                            isValidField("courseName", e.target.value, setErrors);
                         }}
                         value={data.courseName ? data.courseName : ""}
                     />
@@ -65,7 +53,7 @@ function DadosCursinho({ goNextStep, goBackStep, oldData }) {
                         error={errors.courseType}
                         onChange={(e) => {
                             setData({ ...data, courseType: e.target.value });
-                            isValidField("courseType", e.target.value);
+                            isValidField("courseType", e.target.value, setErrors);
                         }}
                         value={data.courseType ? data.courseType : ""}
                     >
