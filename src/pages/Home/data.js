@@ -26,7 +26,7 @@ import feature2 from "../../assets/images/home/2-Conteudos pre-vestibular - comp
 import feature3 from "../../assets/images/home/3-Redaçoes corrigidas - comp.png";
 import feature4 from "../../assets/images/home/4-Exercicios e Simulados online - comp.png";
 import feature5 from "../../assets/images/home/5-Forum de duvidas - comp.png";
-import { LOGIN_PATH, REGISTER_PATH } from "../../routing/paths";
+import { LOGIN_PATH, REGISTER_PATH, FORM_GEOLOCATION } from "../../routing/paths";
 
 const data = {
     hero: {
@@ -136,8 +136,7 @@ const data = {
         },
     },
     map: {
-        ctaLink:
-            "https://docs.google.com/forms/d/e/1FAIpQLSf-VaK8qrxYx6qd-6WHV8aaaiOnR5cxMsQUaKhU3L1N3jNx0w/viewform?usp=sf_link",
+        ctaLink: FORM_GEOLOCATION,
     },
     footer: {
         sitemapLinks: [
