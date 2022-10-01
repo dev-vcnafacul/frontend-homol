@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { SubmitButton, Error } from "./styles";
 import PasswordForm from "components/PasswordForm";
-import { API_URL } from "../../constants";
 
 function ChangePasswordForm({ userToken, className, resetCallback }) {
     const [message, setMessage] = useState();
@@ -15,7 +14,7 @@ function ChangePasswordForm({ userToken, className, resetCallback }) {
         };
 
         try {
-            const response = await fetch(`${API_URL}/patchme`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/user`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
                 body: JSON.stringify(payload),

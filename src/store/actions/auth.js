@@ -1,11 +1,10 @@
 import { AUTH_SUCCESS, REGISTER_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "./auth.types";
 import { HOME_PATH } from "../../routing/paths";
-import { API_URL } from "../../constants";
 
 export function doAuth(email, password) {
     return async (dispatch) => {
         const data = { email, password };
-        const response = await fetch(`${API_URL}/login`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

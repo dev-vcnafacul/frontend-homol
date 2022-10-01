@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { TileLayer, Marker } from "react-leaflet";
 import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button } from "./styles";
 import Geolocation from "./Geolocation";
-import { API_URL } from "../../constants";
 import { Anchor } from "./../atoms";
 
 function Map({ ctaLink, className }) {
@@ -17,7 +16,7 @@ function Map({ ctaLink, className }) {
     }
 
     async function handleLoadMakers() {
-        const response = await fetch(`${API_URL}/geolocations`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
@@ -30,6 +29,8 @@ function Map({ ctaLink, className }) {
                 [0.0, 0.0]
             );
             setMapCenter(center);
+        } else {
+            setMarkers([]);
         }
     }
 
@@ -63,7 +64,10 @@ function Map({ ctaLink, className }) {
                     <BoxContainer>
                         <Title>Localiza Cursinho</Title>
                         <Paragraph>{markers[markerActive]?.name}</Paragraph>
-                        <Paragraph>{markers[markerActive]?.address}</Paragraph>
+                        <Paragraph>
+                            {markers[markerActive]?.street}, {markers[markerActive]?.number}
+                        </Paragraph>
+                        <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
                         <Subtitle>Conhece um cursinho popular?</Subtitle>
                         <Button target="_blank" href={ctaLink}>
                             Cadastrar um Cursinho

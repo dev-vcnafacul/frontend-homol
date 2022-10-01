@@ -1,9 +1,8 @@
 import { UPDATE_ACCOUNT_SUCCESS } from "./account.types";
-import { API_URL } from "../../constants";
 
 export function updateAccount(data, userToken) {
     return async (dispatch) => {
-        const response = await fetch(`${API_URL}/patchme`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/patchme`, {
             method: "PUT",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
             body: JSON.stringify(data),
