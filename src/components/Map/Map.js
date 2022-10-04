@@ -69,9 +69,7 @@ function Map({ ctaLink, className }) {
                         </Paragraph>
                         <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
                         <Subtitle>Conhece um cursinho popular?</Subtitle>
-                        <Button target="_blank" href={ctaLink}>
-                            Cadastrar um Cursinho
-                        </Button>
+                        <Button to={ctaLink}>Cadastrar um Cursinho</Button>
                     </BoxContainer>
                 </Box>
             </Section>

@@ -67,7 +67,7 @@ function FormGeolocationComponent() {
 
         try {
             setLoading(true);
-            const response = await fetch(`${process.env.API_URL}/geolocations`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

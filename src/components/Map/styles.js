@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MapContainer } from "react-leaflet";
 import { Container } from "../../styles/common";
+import { Link } from "react-router-dom";
 
 export const Section = styled.section`
     position: relative;
@@ -64,7 +65,7 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const Button = styled.a`
+export const Button = styled(Link)`
     padding: 12px 25px;
     color: ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.orange};
