@@ -2,6 +2,7 @@
   "name": "vc-na-facul",
   "version": "0.1.0",
   "private": true,
+  "license": "GPL-3.0",
   "dependencies": {
     "leaflet": "^1.7.1",
     "logrocket": "^1.1.0",
