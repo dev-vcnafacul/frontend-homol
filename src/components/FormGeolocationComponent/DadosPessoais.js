@@ -29,7 +29,7 @@ function DadosPessoais({ goNextStep, oldData }) {
         <>
             <form onSubmit={handleForm}>
                 <FormField>
-                    <InputLabel htmlFor="fullName">Nome Completo</InputLabel>
+                    <InputLabel htmlFor="fullName">Nome Completo*</InputLabel>
                     <Input
                         id="fullName"
                         error={errors.fullName}
@@ -44,7 +44,7 @@ function DadosPessoais({ goNextStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="email">E-mail</InputLabel>
+                    <InputLabel htmlFor="email">E-mail*</InputLabel>
                     <Input
                         id="email"
                         error={emailError !== false ? true : false}
@@ -59,7 +59,7 @@ function DadosPessoais({ goNextStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="phone">Celular/Whatsapp</InputLabel>
+                    <InputLabel htmlFor="phone">Celular/Whatsapp*</InputLabel>
                     <Input
                         id="phone"
                         error={errors.phone}
@@ -74,7 +74,7 @@ function DadosPessoais({ goNextStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="occupation">Relaçao com o cursinho cadastrado:</InputLabel>
+                    <InputLabel htmlFor="occupation">Relaçao com o cursinho cadastrado:*</InputLabel>
                     <Input
                         as="select"
                         arrow={true}

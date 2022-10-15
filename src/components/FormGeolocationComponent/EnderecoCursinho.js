@@ -124,7 +124,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
             <form onSubmit={handleForm}>
                 {loading && <Loading />}
                 <FormField>
-                    <InputLabel htmlFor="cep">CEP</InputLabel>
+                    <InputLabel htmlFor="cep">CEP*</InputLabel>
                     <Input
                         id="cep"
                         error={errors.cep}
@@ -142,7 +142,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseStreet">Logradouro</InputLabel>
+                    <InputLabel htmlFor="courseStreet">Logradouro*</InputLabel>
                     <Input
                         id="courseStreet"
                         error={errors.courseStreet}
@@ -158,7 +158,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseNumber">Número</InputLabel>
+                    <InputLabel htmlFor="courseNumber">Número*</InputLabel>
                     <Input
                         id="courseNumber"
                         error={errors.courseNumber}
@@ -186,7 +186,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseNeighborhood">Bairro</InputLabel>
+                    <InputLabel htmlFor="courseNeighborhood">Bairro*</InputLabel>
                     <Input
                         id="courseNeighborhood"
                         error={errors.courseNeighborhood}
@@ -202,7 +202,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseCity">Município</InputLabel>
+                    <InputLabel htmlFor="courseCity">Município*</InputLabel>
                     <Input
                         id="courseCity"
                         error={errors.courseCity}
@@ -218,7 +218,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseState">Estado</InputLabel>
+                    <InputLabel htmlFor="courseState">Estado*</InputLabel>
                     <Input
                         as="select"
                         arrow={true}

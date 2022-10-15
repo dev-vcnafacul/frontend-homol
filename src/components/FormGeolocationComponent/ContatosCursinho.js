@@ -34,7 +34,7 @@ function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
         <>
             <form onSubmit={handleForm}>
                 <FormField>
-                    <InputLabel htmlFor="coursePhone">Telefone</InputLabel>
+                    <InputLabel htmlFor="coursePhone">Telefone*</InputLabel>
                     <Input
                         // onLoad={() => componentDidMount()}
                         id="coursePhone"
@@ -64,7 +64,7 @@ function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseEmail">E-mail</InputLabel>
+                    <InputLabel htmlFor="courseEmail">E-mail*</InputLabel>
                     <Input
                         id="courseEmail"
                         error={emailError !== false ? true : false}

@@ -30,7 +30,7 @@ function DadosCursinho({ goNextStep, goBackStep, oldData }) {
         <>
             <form onSubmit={handleForm}>
                 <FormField>
-                    <InputLabel htmlFor="courseName">Nome do cursinho</InputLabel>
+                    <InputLabel htmlFor="courseName">Nome do cursinho*</InputLabel>
                     <Input
                         id="courseName"
                         error={errors.courseName}
@@ -45,7 +45,7 @@ function DadosCursinho({ goNextStep, goBackStep, oldData }) {
                 </FormField>
 
                 <FormField>
-                    <InputLabel htmlFor="courseType">Tipo de cursinho</InputLabel>
+                    <InputLabel htmlFor="courseType">Tipo de cursinho*</InputLabel>
                     <Input
                         as="select"
                         arrow={true}

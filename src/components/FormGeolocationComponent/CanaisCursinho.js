@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Input, InputLabel, FormField } from "../atoms";
-import { SubmitBtn, Footer } from "./styles";
+import { SubmitBtn, SubmitCourseBtn, Footer } from "./styles";
 
 function CanaisCursinho({ goNextStep, goBackStep, oldData }) {
     const [data, setData] = useState(oldData);
@@ -121,7 +121,7 @@ function CanaisCursinho({ goNextStep, goBackStep, oldData }) {
 
                 <Footer>
                     <SubmitBtn as="input" value="Voltar" onClick={handleBack} />
-                    <SubmitBtn as="input" type="submit" value="Continuar" />
+                    <SubmitCourseBtn as="input" type="submit" value="Enviar cadastro" />
                 </Footer>
             </form>
         </>

@@ -6,7 +6,17 @@ import DadosCursinho from "./DadosCursinho";
 import EnderecoCursinho from "./EnderecoCursinho";
 import ContatosCursinho from "./ContatosCursinho";
 import CanaisCursinho from "./CanaisCursinho";
-import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv, Montserrat18 } from "./styles";
+import {
+    Title,
+    Wrap,
+    Error,
+    Success,
+    SuccessIcon,
+    LoginShortcut,
+    SuccessDiv,
+    Montserrat18,
+    Montserrat16,
+} from "./styles";
 import successIconFile from "../../assets/icons/check-circle.svg";
 import { Loading } from "../../styles/common";
 
@@ -111,6 +121,7 @@ function FormGeolocationComponent() {
                     <Montserrat18>
                         Nos conte um pouco sobre você e sua relação com o cursinho que está cadastrando
                     </Montserrat18>
+                    <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <DadosPessoais goNextStep={goNextStep} oldData={data} />
                 </div>
             )}
@@ -121,6 +132,7 @@ function FormGeolocationComponent() {
                     <Montserrat18>
                         Precisamos saber o maior número de informações possível sobre este cursinho.
                     </Montserrat18>
+                    <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <DadosCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
@@ -128,6 +140,7 @@ function FormGeolocationComponent() {
             {step === 3 && (
                 <div>
                     <Title>Endereço do Cursinho</Title>
+                    <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <EnderecoCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
@@ -135,6 +148,7 @@ function FormGeolocationComponent() {
             {step === 4 && (
                 <div>
                     <Title>Contatos do Cursinho</Title>
+                    <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <ContatosCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
             )}
@@ -145,6 +159,7 @@ function FormGeolocationComponent() {
                         Gostariamos de saber em quais redes sociais o cursinho já é divulgado. Você poderia colocar o
                         link?
                     </Montserrat18>
+                    <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <Error>{message}</Error>
                     <CanaisCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
                 </div>
@@ -154,13 +169,18 @@ function FormGeolocationComponent() {
                     <SuccessIcon src={successIconFile}></SuccessIcon>
                     <Title>Cadastro de cursinho concluído</Title>
                     <Success>
-                        {"O pré-cadastro foi realizado com sucesso!"}
+                        {"O cadastro do cursinho foi realizado com sucesso!"}
                         <br /> <br />
-                        {"Logo entraremos em contato."}
-                        {" Estamos construindo a nossa plataforma! Aguarde!"}
+                        {
+                            "Nossa equipe estará verificando as informações e liberando o cadastro para aparecer no mapa. Em caso de dúvidas entraremos em contato pelos canais que disponibilizou no começo do formulário."
+                        }
                     </Success>
-                    <LoginShortcut target="_blank" href="https://www.instagram.com/vcnafacul/">
-                        Veja nossos posts no instagram!
+                    <LoginShortcut
+                        onClick={() => {
+                            window.location.reload();
+                        }}
+                    >
+                        Cadastre um novo cursinho
                     </LoginShortcut>
                 </SuccessDiv>
             )}

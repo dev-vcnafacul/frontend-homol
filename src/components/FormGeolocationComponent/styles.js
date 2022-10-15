@@ -31,6 +31,24 @@ export const SubmitBtn = styled(Button)`
     text-align: center;
 `;
 
+export const SubmitCourseBtn = styled(Button)`
+    width: 100%;
+    background-color: ${(props) => props.theme.colors.lightGreen};
+
+    transition: background-color 250ms linear;
+
+    &:hover {
+        background-color: ${(props) => props.theme.colors.darkGreen};
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 19px;
+        padding: 17px 0;
+    }
+
+    text-align: center;
+`;
+
 export const Error = styled.p`
     color: ${(props) => props.theme.colors.redError};
     font-size: 16px;
@@ -119,6 +137,17 @@ export const LinkLogin = styled(Link)`
 `;
 
 export const Montserrat18 = styled(SectionSubtitle)`
+    text-align: center;
+    margin: 0;
+    margin-top: 12px;
+    @media only screen and (max-width: 1200px) {
+        padding: 0 11%;
+        margin-top: 18px;
+    }
+`;
+
+export const Montserrat16 = styled(SectionSubtitle)`
+    font-size: 1rem;
     text-align: center;
     margin: 0;
     margin-top: 12px;
