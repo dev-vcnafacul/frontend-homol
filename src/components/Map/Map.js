@@ -1,8 +1,21 @@
 import { useState, useRef, useEffect } from "react";
 import { TileLayer, Marker } from "react-leaflet";
-import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button } from "./styles";
+import {
+    FaLinkedin,
+    FaTiktok,
+    FaTwitterSquare,
+    FaInstagramSquare,
+    FaYoutubeSquare,
+    FaEnvelopeSquare,
+    FaWhatsappSquare,
+    FaFacebookSquare,
+    FaMapMarkerAlt,
+} from "react-icons/fa";
+import { MdOutlineTravelExplore } from "react-icons/md";
+import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button, SocialMedia } from "./styles";
 import Geolocation from "./Geolocation";
 import { Anchor } from "./../atoms";
+import { Link } from "react-router-dom";
 
 function Map({ ctaLink, className }) {
     const [markerActive, setMarkerActive] = useState(0);
@@ -62,12 +75,81 @@ function Map({ ctaLink, className }) {
                 </MapBox>
                 <Box ref={boxRef}>
                     <BoxContainer>
-                        <Title>Localiza Cursinho</Title>
+                        <Title>
+                            <FaMapMarkerAlt color={"red"} size={30} /> Localiza Cursinho
+                        </Title>
                         <Paragraph>{markers[markerActive]?.name}</Paragraph>
                         <Paragraph>
                             {markers[markerActive]?.street}, {markers[markerActive]?.number}
                         </Paragraph>
                         <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
+                        <SocialMedia>
+                            {markers[markerActive]?.whatsapp.length !== 0 && (
+                                <Link
+                                    to="#"
+                                    onClick={(e) => {
+                                        window.location.href = `tel:${markers[markerActive]?.whatsapp}`;
+                                        e.preventDefault();
+                                    }}
+                                >
+                                    <FaWhatsappSquare color={"#707070"} size={30} />
+                                </Link>
+                            )}
+
+                            {markers[markerActive]?.email.length !== 0 && (
+                                <Link
+                                    to="#"
+                                    onClick={(e) => {
+                                        window.location.href = `mailto:${markers[markerActive]?.email}`;
+                                        e.preventDefault();
+                                    }}
+                                >
+                                    <FaEnvelopeSquare color={"#707070"} size={30} />
+                                </Link>
+                            )}
+
+                            {markers[markerActive]?.site.length !== 0 && (
+                                <a href={markers[markerActive]?.site} target="_blank" rel="noreferrer">
+                                    <MdOutlineTravelExplore color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.linkedin.length !== 0 && (
+                                <a href={markers[markerActive]?.linkedin} target="_blank" rel="noreferrer">
+                                    <FaLinkedin color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.youtube.length !== 0 && (
+                                <a href={markers[markerActive]?.youtube} target="_blank" rel="noreferrer">
+                                    <FaYoutubeSquare color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.facebook.length !== 0 && (
+                                <a href={markers[markerActive]?.facebook} target="_blank" rel="noreferrer">
+                                    <FaFacebookSquare color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.instagram.length !== 0 && (
+                                <a href={markers[markerActive]?.instagram} target="_blank" rel="noreferrer">
+                                    <FaInstagramSquare color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.twitter.length !== 0 && (
+                                <a href={markers[markerActive]?.twitter} target="_blank" rel="noreferrer">
+                                    <FaTwitterSquare color={"#707070"} size={30} />
+                                </a>
+                            )}
+
+                            {markers[markerActive]?.tiktok.length !== 0 && (
+                                <a href={markers[markerActive]?.tiktok} target="_blank" rel="noreferrer">
+                                    <FaTiktok color={"#707070"} size={30} />
+                                </a>
+                            )}
+                        </SocialMedia>
                         <Subtitle>Conhece um cursinho popular?</Subtitle>
                         <Button to={ctaLink}>Cadastrar um Cursinho</Button>
                     </BoxContainer>

@@ -36,6 +36,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
             if (cep.length === 9) {
                 const response = await fetch(`${process.env.REACT_APP_BRASIL_API_URL}/${cep}`, {
                     method: "GET",
+                    //cache: "force-cache",
                     headers: {
                         "Content-Type": "application/json",
                     },

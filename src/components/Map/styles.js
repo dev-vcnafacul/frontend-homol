@@ -55,6 +55,14 @@ export const Box = styled.div`
     }
 `;
 
+export const SocialMedia = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const Subtitle = styled.p`
     color: ${(props) => props.theme.colors.marine};
     font-size: 14px;
