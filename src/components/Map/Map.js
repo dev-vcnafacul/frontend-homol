@@ -36,7 +36,15 @@ function Map({ ctaLink, className }) {
 
         if (response.status === 200) {
             const updatedMarkers = await response.json();
-            setMarkers(updatedMarkers);
+
+            setMarkers(
+                updatedMarkers.map((course) => {
+                    return {
+                        ...course,
+                        whatsapp: course.whatsapp.replace(/[^0-9]+/g, ""),
+                    };
+                })
+            );
             const center = updatedMarkers.reduce(
                 (acc, coord, i, arr) => [acc[0] + coord.latitude / arr.length, acc[1] + coord.longitude / arr.length],
                 [0.0, 0.0]
@@ -90,7 +98,7 @@ function Map({ ctaLink, className }) {
                                 <Link
                                     to="#"
                                     onClick={(e) => {
-                                        window.location.href = `tel:${markers[markerActive]?.whatsapp}`;
+                                        window.location.href = `https://api.whatsapp.com/send?phone=55${markers[markerActive]?.whatsapp}`;
                                         e.preventDefault();
                                     }}
                                 >
