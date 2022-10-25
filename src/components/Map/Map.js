@@ -82,7 +82,9 @@ function Map({ ctaLink, className }) {
                         <Paragraph>
                             {markers[markerActive]?.street}, {markers[markerActive]?.number}
                         </Paragraph>
+                        <Paragraph>{markers[markerActive]?.cep}</Paragraph>
                         <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
+                        <Paragraph>{markers[markerActive]?.phone}</Paragraph>
                         <SocialMedia>
                             {markers[markerActive]?.whatsapp.length !== 0 && (
                                 <Link
@@ -92,7 +94,7 @@ function Map({ ctaLink, className }) {
                                         e.preventDefault();
                                     }}
                                 >
-                                    <FaWhatsappSquare color={"#707070"} size={30} />
+                                    <FaWhatsappSquare color={"#707070"} size={40} />
                                 </Link>
                             )}
 
@@ -104,49 +106,49 @@ function Map({ ctaLink, className }) {
                                         e.preventDefault();
                                     }}
                                 >
-                                    <FaEnvelopeSquare color={"#707070"} size={30} />
+                                    <FaEnvelopeSquare color={"#707070"} size={40} />
                                 </Link>
                             )}
 
                             {markers[markerActive]?.site.length !== 0 && (
                                 <a href={markers[markerActive]?.site} target="_blank" rel="noreferrer">
-                                    <MdOutlineTravelExplore color={"#707070"} size={30} />
+                                    <MdOutlineTravelExplore color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.linkedin.length !== 0 && (
                                 <a href={markers[markerActive]?.linkedin} target="_blank" rel="noreferrer">
-                                    <FaLinkedin color={"#707070"} size={30} />
+                                    <FaLinkedin color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.youtube.length !== 0 && (
                                 <a href={markers[markerActive]?.youtube} target="_blank" rel="noreferrer">
-                                    <FaYoutubeSquare color={"#707070"} size={30} />
+                                    <FaYoutubeSquare color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.facebook.length !== 0 && (
                                 <a href={markers[markerActive]?.facebook} target="_blank" rel="noreferrer">
-                                    <FaFacebookSquare color={"#707070"} size={30} />
+                                    <FaFacebookSquare color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.instagram.length !== 0 && (
                                 <a href={markers[markerActive]?.instagram} target="_blank" rel="noreferrer">
-                                    <FaInstagramSquare color={"#707070"} size={30} />
+                                    <FaInstagramSquare color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.twitter.length !== 0 && (
                                 <a href={markers[markerActive]?.twitter} target="_blank" rel="noreferrer">
-                                    <FaTwitterSquare color={"#707070"} size={30} />
+                                    <FaTwitterSquare color={"#707070"} size={40} />
                                 </a>
                             )}
 
                             {markers[markerActive]?.tiktok.length !== 0 && (
                                 <a href={markers[markerActive]?.tiktok} target="_blank" rel="noreferrer">
-                                    <FaTiktok color={"#707070"} size={30} />
+                                    <FaTiktok color={"#707070"} size={40} />
                                 </a>
                             )}
                         </SocialMedia>
