@@ -88,10 +88,15 @@ function Map({ ctaLink, className }) {
                         </Title>
                         <Paragraph>{markers[markerActive]?.name}</Paragraph>
                         <Paragraph>
-                            {markers[markerActive]?.street}, {markers[markerActive]?.number}
+                            {markers[markerActive]?.street} - {markers[markerActive]?.number},{" "}
+                            {markers[markerActive]?.complement}
                         </Paragraph>
-                        <Paragraph>{markers[markerActive]?.cep}</Paragraph>
-                        <Paragraph>{markers[markerActive]?.neighborhood}</Paragraph>
+                        <Paragraph>
+                            {markers[markerActive]?.neighborhood}, {markers[markerActive]?.cep}
+                        </Paragraph>
+                        <Paragraph>
+                            {markers[markerActive]?.city} - {markers[markerActive]?.state}
+                        </Paragraph>
                         <Paragraph>{markers[markerActive]?.phone}</Paragraph>
                         <SocialMedia>
                             {markers[markerActive]?.whatsapp.length !== 0 && (
@@ -156,7 +161,7 @@ function Map({ ctaLink, className }) {
 
                             {markers[markerActive]?.tiktok.length !== 0 && (
                                 <a href={markers[markerActive]?.tiktok} target="_blank" rel="noreferrer">
-                                    <FaTiktok color={"#707070"} size={40} />
+                                    <FaTiktok color={"#707070"} size={30} />
                                 </a>
                             )}
                         </SocialMedia>
