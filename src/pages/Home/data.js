@@ -80,8 +80,7 @@ const data = {
                     {
                         id: "1",
                         text: "Cadastre um cursinho",
-                        link:
-                            "https://docs.google.com/forms/d/e/1FAIpQLSf-VaK8qrxYx6qd-6WHV8aaaiOnR5cxMsQUaKhU3L1N3jNx0w/viewform",
+                        link: "./geolocation",
                         internal: false,
                         target: "_blank",
                     },
