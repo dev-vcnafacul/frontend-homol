@@ -23,6 +23,10 @@ export const Title = styled(SectionTitle)`
 export const SubmitBtn = styled(Button)`
     width: 100%;
 
+    @media (max-width: 1200px) {
+        padding: 10px 0;
+    }
+
     @media (min-width: 1200px) {
         font-size: 19px;
         padding: 17px 0;
@@ -161,4 +165,10 @@ export const Footer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;
