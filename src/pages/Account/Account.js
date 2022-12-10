@@ -1,4 +1,4 @@
-import data from "pages/Home/data";
+import { footer } from "pages/Home/data";
 import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
 
 import Header from "components/Header";
@@ -78,7 +78,7 @@ function Account() {
                     <Error>{errorMessage}</Error>
                 </Content>
             </Wrap>
-            <Footer {...data.footer} />
+            <Footer {...footer} />
         </>
     );
 }

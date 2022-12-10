@@ -9,6 +9,7 @@ import {
     ACCOUNT_PATH,
     LOGOFF_PATH,
     FORM_GEOLOCATION,
+    DASHBOARD_TEACHER,
 } from "../paths";
 
 import Login from "pages/Login";
@@ -17,6 +18,7 @@ import Register from "pages/Register";
 import ResetPassword from "pages/ResetPassword";
 import Account from "pages/Account";
 import FormGeolocation from "pages/FormGeolocation";
+import TeacherDashboard from "pages/TeacherDashboard";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -32,21 +34,25 @@ function Plataform() {
     });
     return (
         <>
+            <PrivateRoute path={ACCOUNT_PATH}>
+                <Account />
+            </PrivateRoute>
+            <Route path={DASHBOARD_TEACHER}>
+                <TeacherDashboard />
+            </Route>
+
+            <Route exact path={REGISTER_PATH}>
+                <Register />
+            </Route>
             <Route exact path={LOGIN_PATH}>
                 <Login />
             </Route>
             <Route exact path={FORGOT_PASSWORD_PATH}>
                 <ForgotPassword />
             </Route>
-            <Route exact path={REGISTER_PATH}>
-                <Register />
-            </Route>
             <Route path={RESET_PASSWORD_PATH}>
                 <ResetPassword />
             </Route>
-            <PrivateRoute path={ACCOUNT_PATH}>
-                <Account />
-            </PrivateRoute>
             <Route path={LOGOFF_PATH}>
                 <LogoffRoute />
             </Route>

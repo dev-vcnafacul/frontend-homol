@@ -1,4 +1,4 @@
-import data from "../Home/data";
+import { footer, header } from "../Home/data";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -12,13 +12,13 @@ import { Wrap } from "./styles";
 function ForgotPassword() {
     return (
         <>
-            <Header solid {...data.header} />
+            <Header solid {...header} />
             <Wrap>
                 <TriangleGreen className="graphism triangle-green" />
                 <TriangleYellow className="graphism triangle-yellow" />
                 <ForgotPasswordForm />
             </Wrap>
-            <Footer {...data.footer} />
+            <Footer {...footer} />
         </>
     );
 }

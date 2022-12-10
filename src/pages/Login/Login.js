@@ -1,4 +1,4 @@
-import data from "pages/Home/data";
+import { footer, header } from "pages/Home/data";
 import { ACCOUNT_PATH } from "routing/paths";
 
 import LoginForm from "components/LoginForm";
@@ -22,13 +22,13 @@ function Login() {
                 <Redirect to={ACCOUNT_PATH} />
             ) : (
                 <>
-                    <Header solid {...data.header} />
+                    <Header solid {...header} />
                     <Wrap>
                         <TriangleGreen className="graphism triangle-green" />
                         <TriangleYellow className="graphism triangle-yellow" />
                         <LoginForm />
                     </Wrap>
-                    <Footer {...data.footer} />
+                    <Footer {...footer} />
                 </>
             )}
         </>

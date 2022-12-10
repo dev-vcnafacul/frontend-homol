@@ -6,19 +6,20 @@ import Hero from "../../components/Hero";
 import Supporters from "../../components/Supporters";
 import Map from "../../components/Map";
 import ActionAreas from "../../components/ActionAreas";
-import data from "./data";
+import { about_us, actionAreas, features, footer, header, hero, supporters } from "./data";
+import { map } from "leaflet";
 
 function Home() {
     return (
         <div>
-            <Header {...data.header} />
-            <Hero {...data.hero} />
-            <AboutUs {...data.about_us} />
-            <FeatureList {...data.features} />
-            <ActionAreas {...data.actionAreas} />
-            <Supporters {...data.supporters} />
-            <Map {...data.map} />
-            <Footer {...data.footer} />
+            <Header {...header} />
+            <Hero {...hero} />
+            <AboutUs {...about_us} />
+            <FeatureList {...features} />
+            <ActionAreas {...actionAreas} />
+            <Supporters {...supporters} />
+            <Map {...map} />
+            <Footer {...footer} />
         </div>
     );
 }
