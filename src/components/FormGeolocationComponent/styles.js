@@ -18,6 +18,10 @@ export const Title = styled(SectionTitle)`
     @media (max-width: 1200px) {
         margin-bottom: 20px;
     }
+
+    @media (max-width: 320px) {
+        font-size: 20px;
+    }
 `;
 
 export const SubmitBtn = styled(Button)`
