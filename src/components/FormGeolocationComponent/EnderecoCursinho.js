@@ -4,7 +4,7 @@ import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
+function EnderecoCursinho({ goNextStep, goBackStep, oldData, selectedPositionData }) {
     const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
@@ -17,6 +17,20 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
     useEffect(() => {
         getCepData(valueOfCep);
     }, [valueOfCep]);
+
+    useEffect(() => {
+        setData({
+            ...data,
+            cep: selectedPositionData.postcode,
+            courseStreet: selectedPositionData.road,
+            courseNumber: selectedPositionData.house_number,
+            courseNeighborhood: selectedPositionData.suburb,
+            courseCity: selectedPositionData.city,
+            //courseState: selectedPositionData.state,
+            //este valor não funciona para o forms, precisa ser formatado
+        });
+        console.log(data);
+    }, [selectedPositionData]);
 
     const invalidCEP = (value) => {
         if (value.length < 9) {
@@ -70,7 +84,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
             }
         } catch (error) {
             console.log(error);
-            throw error;
+            return "";
         } finally {
             setLoading(false);
         }
@@ -84,7 +98,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
     };
 
     const isValidField = (field, value) => {
-        if (!value || (typeof value === "string" && value.trim() === "")) {
+        if (!value || (typeof value === "string" && value?.trim() === "")) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Campo obrigatório" };
             });
