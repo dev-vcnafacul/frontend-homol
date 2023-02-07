@@ -73,10 +73,15 @@ function FormGeolocationComponent() {
             instagram: data.courseInstagram,
             twitter: data.courseTwitter,
             tiktok: data.courseTiktok,
+            userFullName: data.fullName,
+            userPhone: data.phone,
+            userConnection: data.occupation,
+            userEmail: data.email,
         };
 
         try {
             setLoading(true);
+            console.log(course);
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
                 method: "POST",
                 headers: {
