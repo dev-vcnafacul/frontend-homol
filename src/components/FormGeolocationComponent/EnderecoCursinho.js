@@ -29,7 +29,6 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData, selectedPositionDat
             //courseState: selectedPositionData.state,
             //este valor não funciona para o forms, precisa ser formatado
         });
-        console.log(data);
     }, [selectedPositionData]);
 
     const invalidCEP = (value) => {

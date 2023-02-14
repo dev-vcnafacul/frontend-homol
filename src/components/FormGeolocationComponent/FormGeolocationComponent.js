@@ -34,10 +34,11 @@ function FormGeolocationComponent() {
     const [selectedPosition, setSelectedPosition] = useState([0, 0]);
     const [selectedPositionData, setSelectedPositionData] = useState({});
 
+    const [featching, setFeatching] = useState(false);
+
     function goNextStep(newData) {
         const courseData = { ...data, ...newData };
         setData(courseData);
-        //debugger;
         setMessage("");
 
         if (step === 5) {
@@ -110,28 +111,31 @@ function FormGeolocationComponent() {
     }
 
     async function handleMapClick(event) {
-        let counter = 0; //gambiarra para resolver o problema de atraso dos dados
-        while (counter < 2) {
-            const lat = event.latlng.lat;
-            const lng = event.latlng.lng;
-            setSelectedPosition([lat, lng]);
-            const nominatimRequestURL = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&addressdetails=1&format=json`;
-            const nominatimResponse = await fetch(nominatimRequestURL)
-                .then((response) => response.json())
-                .then((reverseGeolocationData) => {
-                    setSelectedPositionData(reverseGeolocationData.address);
-                    counter = counter + 1;
-                })
-                .catch((error) => {
-                    console.log("Catch: " + error.message);
-                    counter = counter + 1;
-                });
-        }
+        setFeatching(true);
+        const lat = event.latlng.lat;
+        const lng = event.latlng.lng;
+        setSelectedPosition([lat, lng]);
+        const nominatimRequestURL = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&addressdetails=1&format=json`;
+        const nominatimResponse = await fetch(nominatimRequestURL)
+            .then((response) => response.json())
+            .then((reverseGeolocationData) => {
+                setSelectedPositionData(reverseGeolocationData.address);
+                setTimeout(() => {
+                    setFeatching(false);
+                }, 1000);
+            })
+            .catch((error) => {
+                console.log("Catch: " + error.message);
+
+                setTimeout(() => {
+                    setFeatching(false);
+                }, 1000);
+            });
     }
 
     function EventHandlers() {
         useMapEvent("click", handleMapClick);
-        return <Marker position={selectedPosition} />;
+        return <Marker position={selectedPosition} alt="marcador"></Marker>;
     }
 
     useEffect(() => {
@@ -193,7 +197,7 @@ function FormGeolocationComponent() {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
                         <Marker position={selectedPosition} alt="marcador"></Marker>
-                        <EventHandlers />
+                        {!featching && <EventHandlers />}
                     </MapContainer>
                     <Montserrat16>(*) Campo obrigatório</Montserrat16>
                     <EnderecoCursinho
