@@ -81,7 +81,6 @@ function FormGeolocationComponent() {
 
         try {
             setLoading(true);
-            console.log(course);
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
                 method: "POST",
                 headers: {
