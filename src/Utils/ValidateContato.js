@@ -112,11 +112,6 @@ export const isValidField = (field, value, setErrors) => {
             return { ...errors, [field]: "*Telefone inválido: O DDD " + value.substring(1, 3) + " não é válido" };
         });
         return false;
-    } else if (field === "phone" && value.length < 14) {
-        setErrors((errors) => {
-            return { ...errors, [field]: "*Telefone inválido: O número deve ter no mínimo um DDD mais 8 dígitos" };
-        });
-        return false;
     } else {
         setErrors((errors) => {
             return { ...errors, [field]: undefined };
