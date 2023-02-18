@@ -80,9 +80,8 @@ const data = {
                     {
                         id: "1",
                         text: "Cadastre um cursinho",
-                        link: "./geolocation",
-                        internal: false,
-                        target: "_blank",
+                        link: "/geolocation",
+                        internal: true,
                     },
                 ],
                 background_image: HeroBackgroundImg1,
