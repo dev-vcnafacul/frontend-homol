@@ -25,6 +25,7 @@ function FormGeolocationComponent() {
     const [data, setData] = useState({});
     const [step, setStep] = useState(1);
     const userToken = useSelector((state) => state.auth.token);
+    const user = useSelector((state) => state.auth.user);
 
     const [message, setMessage] = useState("");
 
@@ -48,6 +49,12 @@ function FormGeolocationComponent() {
         setMessage("");
 
         setStep((step) => step - 1);
+    }
+
+    if (!!userToken) {
+        data.fullName = user.nome + " " + user.sobrenome;
+        data.email = user.email;
+        data.phone = user.telefone;
     }
 
     async function registerCourse(data) {
@@ -85,7 +92,6 @@ function FormGeolocationComponent() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${userToken}`,
                 },
                 body: JSON.stringify(course),
             });
@@ -110,7 +116,7 @@ function FormGeolocationComponent() {
     useEffect(() => {
         async function userLogin(isLogged) {
             if (isLogged) {
-                setStep(2);
+                setStep(1);
             }
         }
         userLogin(!!userToken); //userToken != undefined
