@@ -69,7 +69,6 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 }
             }
         } catch (error) {
-            console.log(error);
             throw error;
         } finally {
             setLoading(false);

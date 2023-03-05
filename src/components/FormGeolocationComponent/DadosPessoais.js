@@ -11,6 +11,8 @@ function DadosPessoais({ goNextStep, oldData }) {
     const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
 
+    console.log(data);
+
     function handleForm(e) {
         e.preventDefault();
         let validate = true;
