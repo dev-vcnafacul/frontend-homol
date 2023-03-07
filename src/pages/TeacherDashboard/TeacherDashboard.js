@@ -1,5 +1,5 @@
 import Header from "components/Header";
-import { header } from "pages/Home/data";
+import { header } from "./data";
 
 import DashboardCard from "../../components/DashboardCard";
 import HeroImg from "../../assets/images/dashboard/dashboard-hero.svg";

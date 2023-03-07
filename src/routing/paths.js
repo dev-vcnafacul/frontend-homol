@@ -7,3 +7,4 @@ export const ACCOUNT_PATH = "/meu-perfil";
 export const LOGOFF_PATH = "/logoff";
 export const FORM_GEOLOCATION = "/geolocation";
 export const DASHBOARD_TEACHER = "/dash-teacher";
+export const DASHBOARD_GEOLOCATION = "/dash-geo";

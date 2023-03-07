@@ -10,6 +10,7 @@ import {
     LOGOFF_PATH,
     FORM_GEOLOCATION,
     DASHBOARD_TEACHER,
+    DASHBOARD_GEOLOCATION,
 } from "../paths";
 
 import Login from "pages/Login";
@@ -23,6 +24,7 @@ import TeacherDashboard from "pages/TeacherDashboard";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateAuthByLocalStorage } from "../../store/actions/auth";
+import DashGeolocation from "pages/DashGeolocation";
 
 function Plataform() {
     const dispatch = useDispatch();
@@ -39,6 +41,9 @@ function Plataform() {
             </PrivateRoute>
             <Route path={DASHBOARD_TEACHER}>
                 <TeacherDashboard />
+            </Route>
+            <Route path={DASHBOARD_GEOLOCATION}>
+                <DashGeolocation />
             </Route>
 
             <Route exact path={REGISTER_PATH}>
