@@ -1,13 +1,10 @@
 import Header from "components/Header";
 import { header } from "./data";
 
-import DashboardCard from "../../components/DashboardCard";
 import HeroImg from "../../assets/images/dashboard/dashboard-hero.svg";
-import BioExatasImg from "../../assets/images/dashboard/bioexatas.svg";
-import HumanasImg from "../../assets/images/dashboard/humanas.svg";
-import LinguagensImg from "../../assets/images/dashboard/linguagens.svg";
 
-import { Content, Hero, Text, Menu, Wrap, Message } from "./styles";
+import { Content, Hero, Text, Wrap, Message } from "./styles";
+import MenuDash from "components/MenuDash";
 
 function TeacherDashboard() {
     return (
@@ -21,11 +18,7 @@ function TeacherDashboard() {
                         <h1>VOCÊ NA FACUL!</h1>
                         <Message>Lorem ipsum dolor sit amet, consectetur adipisicing elitr, sed diam nonumy.</Message>
                     </Text>
-                    <Menu>
-                        <DashboardCard bg="marine" title="Linguagens" image={LinguagensImg} alt="Linguagens" />
-                        <DashboardCard bg="pink" title="BioExatas" image={BioExatasImg} alt="BioExatas" />
-                        <DashboardCard bg="lightGreen" title="Humanas" image={HumanasImg} alt="Humanas" />
-                    </Menu>
+                    <MenuDash />
                 </Content>
             </Wrap>
         </>
