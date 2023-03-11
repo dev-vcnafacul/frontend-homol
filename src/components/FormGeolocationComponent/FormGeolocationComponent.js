@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+import { MapContainer, TileLayer, Marker, useMapEvent } from "react-leaflet";
+
 import DadosPessoais from "./DadosPessoais";
 import DadosCursinho from "./DadosCursinho";
 import EnderecoCursinho from "./EnderecoCursinho";
@@ -29,10 +31,15 @@ function FormGeolocationComponent() {
 
     const [message, setMessage] = useState("");
 
+    const [initialPosition, setInitialPosition] = useState([-22.0184566, -47.9310767]);
+    const [selectedPosition, setSelectedPosition] = useState([0, 0]);
+    const [selectedPositionData, setSelectedPositionData] = useState({});
+
+    const [featching, setFeatching] = useState(false);
+
     function goNextStep(newData) {
         const courseData = { ...data, ...newData };
         setData(courseData);
-        //debugger;
         setMessage("");
 
         if (step === 5) {
@@ -113,6 +120,34 @@ function FormGeolocationComponent() {
         }
     }
 
+    async function handleMapClick(event) {
+        setFeatching(true);
+        const lat = event.latlng.lat;
+        const lng = event.latlng.lng;
+        setSelectedPosition([lat, lng]);
+        const nominatimRequestURL = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&addressdetails=1&format=json`;
+        const nominatimResponse = await fetch(nominatimRequestURL)
+            .then((response) => response.json())
+            .then((reverseGeolocationData) => {
+                setSelectedPositionData(reverseGeolocationData.address);
+                setTimeout(() => {
+                    setFeatching(false);
+                }, 1000);
+            })
+            .catch((error) => {
+                console.log("Catch: " + error.message);
+
+                setTimeout(() => {
+                    setFeatching(false);
+                }, 1000);
+            });
+    }
+
+    function EventHandlers() {
+        useMapEvent("click", handleMapClick);
+        return <Marker position={selectedPosition} alt="marcador"></Marker>;
+    }
+
     useEffect(() => {
         async function userLogin(isLogged) {
             if (isLogged) {
@@ -121,6 +156,17 @@ function FormGeolocationComponent() {
         }
         userLogin(!!userToken); //userToken != undefined
     }, [userToken]);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            /*talvez seja necessário fazer uma verificação aqui
+            antes de setar o valor de InitialPosition,
+            caso a função falhe em pegar a posição*/
+            setInitialPosition([latitude, longitude]);
+            setSelectedPosition([latitude, longitude]);
+        });
+    }, []);
 
     return (
         <Wrap>
@@ -150,8 +196,26 @@ function FormGeolocationComponent() {
             {step === 3 && (
                 <div>
                     <Title>Endereço do Cursinho</Title>
+                    <MapContainer
+                        center={initialPosition}
+                        zoom={13}
+                        scrollWheelZoom={true}
+                        style={{ width: "100%", height: "40vh" }}
+                    >
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={selectedPosition} alt="marcador"></Marker>
+                        {!featching && <EventHandlers />}
+                    </MapContainer>
                     <Montserrat16>(*) Campo obrigatório</Montserrat16>
-                    <EnderecoCursinho goNextStep={goNextStep} goBackStep={goBackStep} oldData={data} />
+                    <EnderecoCursinho
+                        goNextStep={goNextStep}
+                        goBackStep={goBackStep}
+                        oldData={data}
+                        selectedPositionData={selectedPositionData}
+                    />
                 </div>
             )}
 
