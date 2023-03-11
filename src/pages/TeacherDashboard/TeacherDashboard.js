@@ -1,23 +1,29 @@
 import Header from "components/Header";
 import { header } from "./data";
 
-import HeroImg from "../../assets/images/dashboard/dashboard-hero.svg";
-
-import { Content, Hero, Text, Wrap, Message } from "./styles";
+import { Component, Content, Wrap } from "./styles";
 import MenuDash from "components/MenuDash";
+import Main from "./Main";
+import DashGeolocation from "./DashGeolocation";
+import { useState } from "react";
+
+const myComponents = {
+    0: <Main />,
+    1: <DashGeolocation />,
+};
 
 function TeacherDashboard() {
+    const [component, setComponent] = useState(<Main />);
+
+    const ChangeComponent = (key) => {
+        return myComponents[key];
+    };
     return (
         <>
             <Header solid {...header} />
             <Wrap>
                 <Content>
-                    <Hero src={HeroImg} alt="Hero acenando para você" />
-                    <Text>
-                        <h1 style={{ "font-weight": "500", padding: "8px 0" }}>Bem vindos a</h1>
-                        <h1>VOCÊ NA FACUL!</h1>
-                        <Message>Lorem ipsum dolor sit amet, consectetur adipisicing elitr, sed diam nonumy.</Message>
-                    </Text>
+                    <Component>{component}</Component>
                     <MenuDash />
                 </Content>
             </Wrap>

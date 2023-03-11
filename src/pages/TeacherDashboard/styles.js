@@ -22,6 +22,8 @@ export const Wrap = styled.div`
 export const Content = styled(Container)`
     display: flex;
     justify-content: space-between;
+    background-color: #f3f4f6;
+    width: 100%;
 `;
 
 export const Text = styled.div`
@@ -54,3 +56,5 @@ export const Menu = styled.div`
     flex-direction: column;
     gap: 16px;
 `;
+
+export const Component = styled.div``;

@@ -24,7 +24,6 @@ import TeacherDashboard from "pages/TeacherDashboard";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateAuthByLocalStorage } from "../../store/actions/auth";
-import DashGeolocation from "pages/DashGeolocation";
 
 function Plataform() {
     const dispatch = useDispatch();
@@ -42,10 +41,6 @@ function Plataform() {
             <Route path={DASHBOARD_TEACHER}>
                 <TeacherDashboard />
             </Route>
-            <Route path={DASHBOARD_GEOLOCATION}>
-                <DashGeolocation />
-            </Route>
-
             <Route exact path={REGISTER_PATH}>
                 <Register />
             </Route>

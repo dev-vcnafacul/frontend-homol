@@ -8,6 +8,7 @@ const listDashboardCard = [
     { bg: "marine", title: "Linguagens", image: LinguagensImg, alt: "Linguagens" },
     { bg: "pink", title: "BioExatas", image: BioExatasImg, alt: "BioExatas" },
     { bg: "lightGreen", title: "Humanas", image: HumanasImg, alt: "Humanas" },
+    { bg: "orange", title: "Admin", image: HumanasImg, alt: "Admin" },
 ];
 
 function MenuDash() {

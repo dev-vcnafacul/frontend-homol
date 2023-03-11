@@ -8,4 +8,5 @@ export const Menu = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: 100vh;
 `;

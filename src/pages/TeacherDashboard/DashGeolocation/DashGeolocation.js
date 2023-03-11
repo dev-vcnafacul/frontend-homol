@@ -1,8 +1,7 @@
 import CardCursinho from "components/CardCursinho/index";
-import Dash from "pages/Dash/Dash";
 import { useSelector } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
-import { Content } from "./styles";
+import { Content, Container, Text } from "./styles";
 
 const url = `${process.env.REACT_APP_BASE_URL}/geolocations`;
 
@@ -26,17 +25,14 @@ function DashGeolocation() {
         getCursinhos();
     }, [getCursinhos]);
 
-    console.log(cursinhos);
-
     return (
         <>
-            <Dash>
-                <Content>
-                    {cursinhos.map((cursinho) => (
-                        <CardCursinho key={cursinho.id} cursinho={cursinho} />
-                    ))}
-                </Content>
-            </Dash>
+            <Text>Validação Localiza Cursinho</Text>
+            <Content>
+                {cursinhos.map((cursinho) => (
+                    <CardCursinho key={cursinho.id} cursinho={cursinho} />
+                ))}
+            </Content>
         </>
     );
 }
