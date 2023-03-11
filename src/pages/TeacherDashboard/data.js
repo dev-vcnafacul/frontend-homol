@@ -4,7 +4,6 @@ export const header = {
     homeLink: "/",
     itemsMenu: [
         { name: "DashBoard", link: "/dash-teacher" },
-        { name: "Localiza Cursinho", link: "/dash-geo" },
         { name: "Forum", link: "/#" },
         { name: "Simulados", link: "/#" },
         { name: "Redações", link: "/#" },

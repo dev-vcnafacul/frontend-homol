@@ -22,14 +22,11 @@ export const Wrap = styled.div`
 export const Content = styled(Container)`
     display: flex;
     justify-content: space-between;
-    background-color: #f3f4f6;
-    width: 100%;
 `;
 
 export const Text = styled.div`
     align-self: center;
     font-size: 20px;
-
     color: ${(props) => props.theme.colors.marine};
 `;
 
@@ -47,14 +44,34 @@ export const Hero = styled.img`
     width: 35vw;
 `;
 
-export const Menu = styled.div`
-    background-color: ${(props) => props.theme.colors.white};
-    align-self: start;
-    padding: 16px 32px;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+export const Component = styled.div`
+    width: calc(100% - 100px);
+    background-color: ${(props) => props.theme.colors.backgroundGrey};
 `;
 
-export const Component = styled.div``;
+export const theme = {
+    container: {
+        mobile: "24px",
+        tablet: "10px",
+        desktop: "10px",
+        desktopPlus: "0px",
+    },
+    colors: {
+        white: "#FFFFFF",
+        orange: "#FF7600",
+        yellow: "#FFE53C",
+        green: "#37D6B5",
+        marine: "#0B2747",
+        backgroundMarine: "#001228",
+        grey: "#707070",
+        backgroundGrey: "#F8F8F8",
+        black: "#000000",
+        pink: "#DA005A",
+        redError: "#ff0000",
+        lightGray: "#E0E0E0",
+        darkGrey: "#545454",
+        darkOrange: "#FC8621",
+        lightGreen: "#8cc408",
+        darkGreen: "#0f9b2c",
+    },
+};

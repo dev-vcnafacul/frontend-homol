@@ -11,6 +11,8 @@ function CardCursinho({ cursinho }) {
     function openModal(modal) {
         setIsModalOpen(modal);
     }
+    const Create = cursinho.created_at.split("T")[0].split("-");
+    const Update = cursinho.updated_at.split("T")[0].split("-");
     return (
         <>
             <Card onClick={() => openModal(!isModalOpen)}>
@@ -18,9 +20,8 @@ function CardCursinho({ cursinho }) {
                 <Information>
                     <Field field="Estado" information={cursinho.state} />
                     <Field field="Cidade" information={cursinho.city} />
-                    <Field field="Bairro" information={cursinho.neighborhood} />
-                    <Field field="Rua" information={cursinho.street + ", " + cursinho.number} />
-                    <Field field="Telefone" information={cursinho.phone} />
+                    <Field field="Data de Cadastro" information={Create[2] + "/" + Create[1] + "/" + Create[0]} />
+                    <Field field="Última Atualização" information={Update[2] + "/" + Update[1] + "/" + Update[0]} />
                 </Information>
                 <Status status={true} />
             </Card>

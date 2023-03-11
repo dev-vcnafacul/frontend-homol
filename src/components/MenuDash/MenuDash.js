@@ -15,9 +15,14 @@ function MenuDash() {
     return (
         <Menu>
             {listDashboardCard.map((dashcard) => (
-                <DashboardCard bg={dashcard.bg} title={dashcard.title} image={dashcard.image} alt={dashcard.alt} />
+                <DashboardCard
+                    key={dashcard.title}
+                    bg={dashcard.bg}
+                    title={dashcard.title}
+                    image={dashcard.image}
+                    alt={dashcard.alt}
+                />
             ))}
-            ;
         </Menu>
     );
 }

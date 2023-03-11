@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-    background-color: #f3f4f6;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -15,8 +14,9 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
     padding: 20px;
+    color: ${(props) => props.theme.colors.marine};
 `;

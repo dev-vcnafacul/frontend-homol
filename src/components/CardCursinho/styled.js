@@ -2,33 +2,37 @@ import styled from "styled-components";
 
 export const Card = styled.div`
     width: 300px;
+    height: 200px;
     border-radius: 10px;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    background-color: white;
-    padding: 10px 10px 0px 0px;
+    background-color: ${(props) => props.theme.colors.white};
+    padding: 10px;
+    margin: 15px 5px;
     cursor: pointer;
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 export const Information = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 15px 10px 0px 10px;
+    padding: 15px 10px;
 `;
 
 export const Titulo = styled.div`
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
 `;
 
 export const RowField = styled.span`
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bolder;
     padding: 2px;
 `;
 
 export const RowInformation = styled.span`
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px;
 `;
 

@@ -8,10 +8,14 @@ import Map from "../../components/Map";
 import ActionAreas from "../../components/ActionAreas";
 import { about_us, actionAreas, features, footer, header, hero, supporters } from "./data";
 import { map } from "leaflet";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/theme";
+
+const ThemeBody = (props) => <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
 
 function Home() {
     return (
-        <div>
+        <ThemeBody>
             <Header {...header} />
             <Hero {...hero} />
             <AboutUs {...about_us} />
@@ -20,7 +24,7 @@ function Home() {
             <Supporters {...supporters} />
             <Map {...map} />
             <Footer {...footer} />
-        </div>
+        </ThemeBody>
     );
 }
 export default Home;
