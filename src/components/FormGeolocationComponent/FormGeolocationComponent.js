@@ -129,7 +129,12 @@ function FormGeolocationComponent() {
         const nominatimResponse = await fetch(nominatimRequestURL)
             .then((response) => response.json())
             .then((reverseGeolocationData) => {
-                setSelectedPositionData(reverseGeolocationData.address);
+                setSelectedPositionData({
+                    ...selectedPositionData,
+                    latitude: lat,
+                    longitude: lng,
+                    address: reverseGeolocationData.address,
+                });
                 setTimeout(() => {
                     setFeatching(false);
                 }, 1000);

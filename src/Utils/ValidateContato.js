@@ -3,7 +3,7 @@ export const validateEmail = (email, setEmailError) => {
     if (regex.test(String(email).toLowerCase())) {
         setEmailError(false);
         return true;
-    } else if (email.trim() === "") {
+    } else if (email?.trim() === "") {
         setEmailError("*Campo obrigatório");
         return false;
     } else {

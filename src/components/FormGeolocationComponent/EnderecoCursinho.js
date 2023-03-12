@@ -19,15 +19,53 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData, selectedPositionDat
     }, [valueOfCep]);
 
     useEffect(() => {
+        function stateSanitizer(courseState) {
+            const stateTerm = {
+                Acre: "AC",
+                Alagoas: "AL",
+                Amapá: "AP",
+                Amazonas: "AM",
+                Bahia: "BA",
+                Ceará: "CE",
+                DistritoFederal: "DF",
+                EspíritoSanto: "ES",
+                Goiás: "GO",
+                Maranhão: "MA",
+                MatoGrosso: "MT",
+                MatoGrossodoSul: "MS",
+                MinasGerais: "MG",
+                Pará: "PA",
+                Paraíba: "PB",
+                Paraná: "PR",
+                Pernambuco: "PE",
+                Piauí: "PI",
+                RiodeJaneiro: "RJ",
+                RioGrandedoNorte: "RN",
+                RioGrandedoSul: "RS",
+                Rondônia: "RO",
+                Roraima: "RR",
+                SantaCatarina: "SC",
+                SãoPaulo: "SP",
+                Sergipe: "SE",
+                Tocantins: "TO",
+            };
+            const rawState = courseState?.replace(/\s/g, "");
+            stateFromReverseGeolocation = stateTerm[rawState];
+        }
+
+        let stateFromReverseGeolocation = selectedPositionData.address?.state;
+        stateSanitizer(stateFromReverseGeolocation?.trim());
+
         setData({
             ...data,
-            cep: selectedPositionData.postcode,
-            courseStreet: selectedPositionData.road,
-            courseNumber: selectedPositionData.house_number,
-            courseNeighborhood: selectedPositionData.suburb,
-            courseCity: selectedPositionData.city,
-            //courseState: selectedPositionData.state,
-            //este valor não funciona para o forms, precisa ser formatado
+            latitude: selectedPositionData.latitude,
+            longitude: selectedPositionData.longitude,
+            cep: selectedPositionData.address?.postcode,
+            courseStreet: selectedPositionData.address?.road,
+            courseNumber: selectedPositionData.address?.house_number,
+            courseNeighborhood: selectedPositionData.address?.suburb,
+            courseCity: selectedPositionData.address?.city,
+            courseState: stateFromReverseGeolocation,
         });
     }, [selectedPositionData]);
 
