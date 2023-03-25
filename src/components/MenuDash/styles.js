@@ -6,9 +6,9 @@ export const Menu = styled.div`
     background-color: ${(props) => props.theme.colors.white};
     align-self: start;
     padding: 16px 32px 0 32px;
-    width: 180px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0px;
     height: 100%;
 `;
