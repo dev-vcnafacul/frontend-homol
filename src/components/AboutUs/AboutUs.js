@@ -1,16 +1,12 @@
 import { useState } from "react";
 import Youtube from "react-youtube";
-
+import { ReactComponent as SquarePink } from "../../assets/icons/square-pink.svg";
 import { ReactComponent as TabletImage } from "../../assets/icons/tablet.svg";
 import { ReactComponent as TriangleGreyBorder } from "../../assets/icons/triangle-grey-border.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
-import { ReactComponent as SquarePink } from "../../assets/icons/square-pink.svg";
-
-import { Wrap, VideoWrapper, VideoContainer, Content, ImageContainer } from "./styles";
-import { Play } from "../atoms";
 import { SectionSubtitle, SectionTitle } from "../../styles/common";
-
-import { Anchor } from "./../atoms";
+import { Anchor, Play } from "../atoms";
+import { Content, ImageContainer, VideoContainer, VideoWrapper, Wrap } from "./styles";
 
 function AboutUs({ title, subtitle, cta, video }) {
     const [videoComponent, setVideoComponent] = useState("");

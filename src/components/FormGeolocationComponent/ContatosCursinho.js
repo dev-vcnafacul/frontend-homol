@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-import { validateEmail, isValidField, formatPhoneInput } from "../../Utils/ValidateContato";
+import { validateEmail, isValidField, formatPhoneInput } from "../../utils/ValidateContato";
 
 function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
     const [data, setData] = useState(oldData);

@@ -1,9 +1,8 @@
-import { Title, SubmitBtn, Wrap, Error } from "./styles";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
-import { useLocation } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { Error, SubmitBtn, Title, Wrap } from "./styles";
 
 function ResetPasswordForm() {
     const location = useLocation();
@@ -11,7 +10,7 @@ function ResetPasswordForm() {
     const [message, setMessage] = useState();
     const [loading, setLoading] = useState(false);
     const [temporizer, setTemporizer] = useState();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         return () => clearInterval(temporizer);
@@ -42,7 +41,7 @@ function ResetPasswordForm() {
                     }, 1000);
                     setTemporizer(intervalSetter);
                     setTimeout(() => {
-                        history.push("/login");
+                        navigate("/login");
                     }, 5000);
                 } else if (response.status === 400) {
                     setMessage("Link de redefinição de senha expirou. Por favor, refaça o processo.");

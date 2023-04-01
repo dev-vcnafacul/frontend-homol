@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useFetch } from "../../store/utils";
-import { doAuth } from "../../store/actions/auth";
-
 import { FORGOT_PASSWORD_PATH } from "../../routing/paths";
-
-import { Input, InputLabel, FormField, ToggleVisibility } from "../atoms";
-import { Title, Description, SubmitBtn, Wrap, ForgotPassword, Error } from "./styles";
+import { doAuth } from "../../store/actions/auth";
+import { useFetch } from "../../store/utils";
 import { Loading } from "../../styles/common";
+import { FormField, Input, InputLabel, ToggleVisibility } from "../atoms";
+import { Description, Error, ForgotPassword, SubmitBtn, Title, Wrap } from "./styles";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
@@ -15,8 +13,8 @@ function LoginForm() {
 
     const { fetchData, error, isLoading } = useFetch((state) => state.auth, doAuth(email, password));
 
-    function handleLogin(e) {
-        e.preventDefault();
+    function handleLogin(event) {
+        event.preventDefault();
         fetchData();
     }
 

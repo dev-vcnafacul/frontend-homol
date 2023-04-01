@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { SubmitButton, Error } from "./styles";
 import PasswordForm from "components/PasswordForm";
+import { useState } from "react";
+import { Error, SubmitButton } from "./styles";
 
 function ChangePasswordForm({ userToken, className, resetCallback }) {
     const [message, setMessage] = useState();

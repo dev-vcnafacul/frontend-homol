@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
 import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
-import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles";
+import Avatar from "./Avatar";
 import Menu from "./Menu";
 import Sign from "./Sign";
-import Avatar from "./Avatar";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Bar, Brand, FlexContainer, LogoContainer, MenuButtons } from "./styles";
 
 import { HOME_PATH } from "routing/paths";
 
 function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
-    const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
+    const [backgroundSolid, setBackgroundSolid] = useState(!!solid);
     const [openMenu, setOpenMenu] = useState(false);
     const userData = useSelector((state) => state.auth.user);
 
@@ -54,11 +54,10 @@ function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, sol
                     open={openMenu}
                     openFunction={setOpenMenu}
                 />
-                {/* {(signInLink || signUpLink) && !userData && (
+                {(signInLink || signUpLink) && !userData && (
                     <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
                 )}
-                {userData && <Avatar userName={userData.nome} solid={backgroundSolid}></Avatar>} */}
-                <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
+                {userData && <Avatar userName={userData.nome} solid={backgroundSolid}></Avatar>}
             </FlexContainer>
         </Bar>
     );

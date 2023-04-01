@@ -1,20 +1,16 @@
-import { footer } from "pages/Home/data";
-import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
-
-import Header from "components/Header";
-import Footer from "components/Footer";
 import AccountForm from "components/AccountForm";
 import ChangePasswordForm from "components/ChangePasswordForm";
-
-import { useDispatch, useSelector } from "react-redux";
+import Footer from "components/Footer";
+import Header from "components/Header";
+import { footer } from "pages/Home/data";
 import { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
 import { updateAccount } from "store/actions/account";
-
-import { Wrap, Content, Title, Error } from "./styles";
 import { Loading } from "styles/common";
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
+import { Content, Error, Title, Wrap } from "./styles";
 
 import HighlightSelector from "components/HighlightSelector/HighlightSelector";
 

@@ -6,5 +6,5 @@ export const RESET_PASSWORD_PATH = "/reset";
 export const ACCOUNT_PATH = "/meu-perfil";
 export const LOGOFF_PATH = "/logoff";
 export const FORM_GEOLOCATION = "/geolocation";
-export const DASHBOARD_TEACHER = "/dash-teacher";
-export const DASHBOARD_GEOLOCATION = "/dash-geo";
+export const DASHBOARD = "/dashboard";
+export const DASHBOARD_GEOLOCATION = "/dashboard/localiza-cursinho";

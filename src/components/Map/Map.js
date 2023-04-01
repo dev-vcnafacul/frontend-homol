@@ -1,21 +1,21 @@
-import { useState, useRef, useEffect } from "react";
-import { TileLayer, Marker } from "react-leaflet";
+import { useEffect, useRef, useState } from "react";
 import {
+    FaEnvelopeSquare,
+    FaFacebookSquare,
+    FaInstagramSquare,
     FaLinkedin,
+    FaMapMarkerAlt,
     FaTiktok,
     FaTwitterSquare,
-    FaInstagramSquare,
-    FaYoutubeSquare,
-    FaEnvelopeSquare,
     FaWhatsappSquare,
-    FaFacebookSquare,
-    FaMapMarkerAlt,
+    FaYoutubeSquare,
 } from "react-icons/fa";
 import { MdOutlineTravelExplore } from "react-icons/md";
-import { Section, Box, BoxContainer, MapBox, Title, Paragraph, Subtitle, Button, SocialMedia } from "./styles";
-import Geolocation from "./Geolocation";
-import { Anchor } from "./../atoms";
+import { Marker, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
+import { Anchor } from "./../atoms";
+import Geolocation from "./Geolocation";
+import { Box, BoxContainer, Button, MapBox, Paragraph, Section, SocialMedia, Subtitle, Title } from "./styles";
 
 function Map({ ctaLink, className }) {
     const [markerActive, setMarkerActive] = useState(0);

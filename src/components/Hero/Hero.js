@@ -1,6 +1,6 @@
-import Carousel from "../Carousel";
-import { LinkStyed, Slide, WrapContainer, Content, Title, Subtitle, Image, ImageWrapper, TextWrapper } from "./styles";
 import { Link } from "react-router-dom";
+import Carousel from "../Carousel";
+import { Content, Image, ImageWrapper, LinkStyed, Slide, Subtitle, TextWrapper, Title, WrapContainer } from "./styles";
 
 function Hero({ slides }) {
     const carouselSettings = {

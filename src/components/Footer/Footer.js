@@ -1,21 +1,21 @@
-import {
-    Section,
-    FlexContainer,
-    ParagraphHighlight,
-    Sitemap,
-    SitemapLink,
-    SocialMediaContainer,
-    SocialMediaTitle,
-    SocialMediaLinks,
-    SitemapContact,
-    LogoContainer,
-    Brand,
-} from "./styles";
-import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
 import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
+import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg";
 import { ReactComponent as LinkedinIcon } from "../../assets/icons/linkedin.svg";
 import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
-import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg";
+import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
+import {
+    Brand,
+    FlexContainer,
+    LogoContainer,
+    ParagraphHighlight,
+    Section,
+    Sitemap,
+    SitemapContact,
+    SitemapLink,
+    SocialMediaContainer,
+    SocialMediaLinks,
+    SocialMediaTitle,
+} from "./styles";
 
 function Footer({ sitemapLinks, slogan, email, socialLinks, className }) {
     return (

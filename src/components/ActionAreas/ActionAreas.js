@@ -1,17 +1,17 @@
 import { useState } from "react";
-import HighlightSelector from "../HighlightSelector/HighlightSelector";
 import MobileDropdownDiv from "../FeatureList/MobileDropdownDiv";
+import HighlightSelector from "../HighlightSelector/HighlightSelector";
 import {
-    Section,
-    FlexContainer,
-    ActionAreasTitle,
-    ActionAreasSubtitle,
-    SectionContent,
     ActionAreasCarousel,
+    ActionAreasSubtitle,
+    ActionAreasTitle,
     Card,
     CardIcon,
-    CardTitle,
     CardSubtitle,
+    CardTitle,
+    FlexContainer,
+    Section,
+    SectionContent,
 } from "./styles";
 
 function ActionAreas({ cardItems, tabItems, className }) {

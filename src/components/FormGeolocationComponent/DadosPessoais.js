@@ -4,7 +4,7 @@ import { Input, InputLabel, FormField, FormError } from "../atoms";
 // import { CheckboxWrapper, CheckboxText } from "./styles";
 import { SubmitBtn } from "./styles";
 
-import { validateEmail, isValidField, formatPhoneInput } from "../../Utils/ValidateContato";
+import { validateEmail, isValidField, formatPhoneInput } from "../../utils/ValidateContato";
 
 function DadosPessoais({ goNextStep, oldData }) {
     const [emailError, setEmailError] = useState(false);

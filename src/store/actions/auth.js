@@ -70,7 +70,7 @@ export function logoff() {
     };
 }
 
-export function register(email, password, history) {
+export function register(email, password, navigate) {
     return async (dispatch) => {
         const data = { email, password };
         //Fake temporary api: https://reqres.in/
@@ -85,7 +85,7 @@ export function register(email, password, history) {
         } else {
             const responseJSON = await response.json();
             dispatch({ type: REGISTER_SUCCESS, payload: responseJSON });
-            history.push({ pathname: HOME_PATH });
+            navigate({ pathname: HOME_PATH });
         }
     };
 }

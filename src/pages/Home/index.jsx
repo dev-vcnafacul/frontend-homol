@@ -1,15 +1,15 @@
-import FeatureList from "../../components/FeatureList";
+import { map } from "leaflet";
+import { ThemeProvider } from "styled-components";
 import AboutUs from "../../components/AboutUs";
+import ActionAreas from "../../components/ActionAreas";
+import FeatureList from "../../components/FeatureList";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
-import Supporters from "../../components/Supporters";
 import Map from "../../components/Map";
-import ActionAreas from "../../components/ActionAreas";
-import { about_us, actionAreas, features, footer, header, hero, supporters } from "./data";
-import { map } from "leaflet";
-import { ThemeProvider } from "styled-components";
+import Supporters from "../../components/Supporters";
 import { theme } from "../../styles/theme";
+import { about_us, actionAreas, features, footer, header, hero, supporters } from "./data";
 
 const ThemeBody = (props) => <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
 

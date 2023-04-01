@@ -1,9 +1,9 @@
 import { useState } from "react";
+import successIconFile from "../../assets/icons/check-circle.svg";
+import { Loading } from "../../styles/common";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv } from "./styles";
-import { Loading } from "../../styles/common";
-import successIconFile from "../../assets/icons/check-circle.svg";
+import { Error, LoginShortcut, Success, SuccessDiv, SuccessIcon, Title, Wrap } from "./styles";
 
 function RegisterForm({ className }) {
     const [data, setData] = useState({});

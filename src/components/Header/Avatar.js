@@ -9,7 +9,7 @@ import {
     AvatarWrapper,
 } from "./styles";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
-import { ACCOUNT_PATH, LOGOFF_PATH } from "../../routing/paths";
+import { ACCOUNT_PATH, LOGOFF_PATH, DASHBOARD } from "../../routing/paths";
 
 const Avatar = ({ signInLink, solid, signUpLink, className, userName }) => {
     const [open, setOpen] = useState(false);
@@ -25,6 +25,9 @@ const Avatar = ({ signInLink, solid, signUpLink, className, userName }) => {
                     </AccountCircleButtonDesktop>
                 </AvatarWrapper>
                 <DesktopDropdownMenu open={open} solid={solid}>
+                    <SignMenuItem open={open} solid={solid} to={DASHBOARD}>
+                        DashBoard
+                    </SignMenuItem>
                     <SignMenuItem open={open} solid={solid} to={ACCOUNT_PATH}>
                         Editar Perfil
                     </SignMenuItem>
@@ -37,6 +40,7 @@ const Avatar = ({ signInLink, solid, signUpLink, className, userName }) => {
                 <AccountCircleButtonDesktop onClick={() => setOpen(false)}>
                     <UserIcon />
                 </AccountCircleButtonDesktop>
+                <SignMenuItem to={DASHBOARD}>DashBoard</SignMenuItem>
                 <SignMenuItem to={ACCOUNT_PATH}>Editar Perfil</SignMenuItem>
                 <SignMenuItem to={LOGOFF_PATH}>Sair</SignMenuItem>
             </SignMenu>
