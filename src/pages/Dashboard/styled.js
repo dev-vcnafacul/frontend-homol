@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Container } from "styles/common";
 
 export const Wrap = styled.div`
     background-color: ${(props) => props.theme.colors.backgroundGrey};
@@ -10,10 +11,8 @@ export const Wrap = styled.div`
     display: flex;
 `;
 
-export const Body = styled.div`
+export const Content = styled(Container)`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 67px;
-    padding: 0px 0px;
+    background-color: #f3f4f6;
+    width: 100%;
 `;

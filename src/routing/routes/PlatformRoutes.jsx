@@ -21,6 +21,7 @@ import {
     LOGOFF_PATH,
     RESET_PASSWORD_PATH,
 } from "../paths";
+import DashBoardDefault from "components/DashBoardDefault";
 
 export function PlatformRoutes() {
     return (
@@ -32,8 +33,22 @@ export function PlatformRoutes() {
             <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword />} />
             <Route path={RESET_PASSWORD_PATH} element={<ResetPassword />} />
             <Route path={FORM_GEOLOCATION} element={<FormGeolocation />} />
-            <Route path={DASHBOARD} element={<Dashboard />} />
-            <Route path={DASHBOARD_GEOLOCATION} element={<DashGeolocation />} />
+            <Route
+                path={DASHBOARD}
+                element={
+                    <DashBoardDefault>
+                        <Dashboard />
+                    </DashBoardDefault>
+                }
+            />
+            <Route
+                path={DASHBOARD_GEOLOCATION}
+                element={
+                    <DashBoardDefault>
+                        <DashGeolocation />
+                    </DashBoardDefault>
+                }
+            />
         </Routes>
     );
 }
