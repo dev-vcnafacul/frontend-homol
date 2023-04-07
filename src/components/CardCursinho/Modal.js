@@ -3,33 +3,30 @@ import { ContentDiv, ModalDiv, Grid, InforcacaoCursinho, Cadastrado, Atualizado,
 import Field from "components/Field";
 
 function Modal({ handleClose, show, cursinho }) {
-    const [infos, setInfos] = useState([
-        { id: "id", type: "text", label: "ID", value: cursinho.id },
-        { id: "latitude", type: "text", label: "Latitude", value: cursinho.latitude },
-        { id: "longitude", type: "text", label: "Longitude", value: cursinho.longitude },
-        { id: "name", type: "text", label: "Name", value: cursinho.name },
-        { id: "cep", type: "text", label: "Cep", value: cursinho.cep },
-        { id: "state", type: "text", label: "Estado", value: cursinho.state },
-        { id: "city", type: "text", label: "Cidade", value: cursinho.city },
-        { id: "neighborhood", type: "text", label: "Bairro", value: cursinho.neighborhood },
-        { id: "street", type: "text", label: "Rua", value: cursinho.street },
-        { id: "number", type: "text", label: "Numero", value: cursinho.number },
-        { id: "complement", type: "text", label: "Complemento", value: cursinho.complement },
-        { id: "phone", type: "text", label: "Telefone", value: cursinho.phone },
-        { id: "whatsapp", type: "text", label: "WhatApp", value: cursinho.whatsapp },
-        { id: "email", type: "email", label: "Email", value: cursinho.email },
-        { id: "email_2", type: "email", label: "Email2", value: cursinho.email_2 },
-        { id: "category", type: "text", label: "Categoria", value: cursinho.category },
-        { id: "site", type: "text", label: "Site", value: cursinho.site },
-        { id: "linkedin", type: "text", label: "Linkedin", value: cursinho.linkedin },
-        { id: "youtube", type: "text", label: "Youtube", value: cursinho.youtube },
-        { id: "facebook", type: "text", label: "Facebook", value: cursinho.facebook },
-        { id: "instagram", type: "text", label: "Instagram", value: cursinho.instagram },
-        { id: "twitter", type: "text", label: "Twitter", value: cursinho.twitter },
-        { id: "tiktok", type: "text", label: "TikTok", value: cursinho.tiktok },
-    ]);
-
-    const [cadastrado, setCadastrado] = useState({
+    const [infos, setInfos] = useState({
+        id: cursinho.id,
+        latitude: cursinho.latitude,
+        longitude: cursinho.longitude,
+        name: cursinho.name,
+        cep: cursinho.cep,
+        state: cursinho.state,
+        city: cursinho.city,
+        neighborhood: cursinho.neighborhood,
+        street: cursinho.street,
+        number: cursinho.number,
+        complement: cursinho.complement,
+        phone: cursinho.phone,
+        whatsapp: cursinho.whatsapp,
+        email: cursinho.email,
+        email_2: cursinho.email_2,
+        category: cursinho.category,
+        site: cursinho.site,
+        linkedin: cursinho.linkedin,
+        youtube: cursinho.youtube,
+        facebook: cursinho.facebook,
+        instagram: cursinho.instagram,
+        twitter: cursinho.twitter,
+        tiktok: cursinho.tiktok,
         user_fullname: cursinho.user_fullname,
         user_phone: cursinho.user_phone,
         user_connection: cursinho.user_connection,
@@ -40,8 +37,8 @@ function Modal({ handleClose, show, cursinho }) {
 
     const [errors, setErrors] = useState({});
 
-    function handleChangeField(field, values, value, setValue) {
-        setValue({ ...values, [field]: value });
+    function handleChangeField(field, value) {
+        setInfos({ ...infos, [field]: value });
     }
 
     function formatPhoneInput(value) {
@@ -95,9 +92,9 @@ function Modal({ handleClose, show, cursinho }) {
                         <Forms>
                             {infos.map((info) => (
                                 <Field
-                                    id={info.id}
-                                    type={info.type}
-                                    label={info.label}
+                                    id="name"
+                                    type="text"
+                                    label="Cursinho"
                                     value={""}
                                     error={() => {}}
                                     onChange={(e) => handleChangeField("email", infos, e.target.value, setInfos)}
