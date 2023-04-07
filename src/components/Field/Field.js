@@ -11,8 +11,6 @@ function Field({ id, label, type, error, value, children, onChange, onBlur, clas
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
-                height={"50%"}
-                min_width={"5000px"}
             >
                 {children}
             </Input>
