@@ -25,7 +25,7 @@ function CardCursinho({ cursinho }) {
                 </Information>
                 <Status status={cursinho.status} />
             </Card>
-            <Modal handleClose={() => openModal(!isModalOpen)} show={isModalOpen}>
+            <Modal handleClose={() => openModal(!isModalOpen)} show={isModalOpen} cursinho={cursinho}>
                 Teste
             </Modal>
         </>

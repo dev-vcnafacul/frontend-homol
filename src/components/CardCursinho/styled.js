@@ -57,7 +57,7 @@ export const FooterCard = styled.div`
 `;
 
 export const ModalDiv = styled.div`
-    display: ${(p) => p.block && p.block};
+    display: ${(p) => p.block};
     position: fixed;
     top: 0;
     left: 0;
@@ -75,4 +75,39 @@ export const ContentDiv = styled.div`
     left: 50%;
     padding: 2rem;
     transform: translate(-50%, -50%);
+`;
+
+export const Grid = styled.div`
+    display: grid;
+    grid-template-columns: 4fr 2fr 3fr;
+    grid-template-rows: 1fr 1fr;
+`;
+
+export const InforcacaoCursinho = styled.div`
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+`;
+
+export const Cadastrado = styled.div`
+    background-color: green;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+`;
+
+export const Atualizado = styled.div`
+    background-color: blue;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+`;
+
+export const Map = styled.div`
+    background-color: yellow;
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+`;
+
+export const Title = styled.div`
+    color: ${(props) => props.theme.colors.marine};
+    font-weight: bold;
+    font-size: 18px;
 `;
