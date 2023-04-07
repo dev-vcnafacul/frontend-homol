@@ -9,6 +9,7 @@ import FormGeolocation from "pages/FormGeolocation";
 import Home from "pages/Home";
 import Login from "pages/Login";
 import ResetPassword from "pages/ResetPassword";
+import DashBoardDefault from "components/DashBoardDefault";
 
 import {
     ACCOUNT_PATH,
@@ -21,7 +22,6 @@ import {
     LOGOFF_PATH,
     RESET_PASSWORD_PATH,
 } from "../paths";
-import DashBoardDefault from "components/DashBoardDefault";
 
 export function PlatformRoutes() {
     return (
