@@ -22,5 +22,7 @@ export const theme = {
         darkOrange: "#FC8621",
         lightGreen: "#8cc408",
         darkGreen: "#0f9b2c",
+        green2: "#0F9B2C",
+        red: "#F43535",
     },
 };

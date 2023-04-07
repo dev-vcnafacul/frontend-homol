@@ -34,14 +34,13 @@ export const Input = styled.input`
     appearance: none;
     background-color: ${(props) => props.theme.colors.white};
     box-sizing: border-box;
-    width: ${(props) => (props.width ? props.width : "100%")};
-    height: ${(props) => (props.height ? props.height : "100%")};
+    width: 100%;
     border-radius: 4px 4px 0 0;
     border: 1px solid ${(props) => (props.error ? props.theme.colors.redError : props.theme.colors.grey)};
     color: ${(props) => props.theme.colors.grey};
     font-size: 14px;
-    padding: ${(props) => (props.padding ? props.padding : "21px 10px 9px")};
-    margin: ${(props) => (props.margin ? props.margin : "25px")};
+    padding: 21px 10px 9px;
+    margin-bottom: 25px;
     outline-color: ${(props) => props.theme.colors.orange};
     background-repeat: no-repeat;
     background-position-x: 98%;
@@ -51,9 +50,9 @@ export const Input = styled.input`
             ? "url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+)"
             : "none"};
 
-    @media (min-width: ${(props) => (props.min_width ? props.min_width : "1200px")}) {
-        font-size: ${(props) => (props.min_width_font_size ? props.min_width_font_size : "16px")};
-        padding: ${(props) => (props.min_width_padding ? props.min_width_padding : "26px 23px 11px")};
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        padding: 26px 23px 11px;
     }
 `;
 

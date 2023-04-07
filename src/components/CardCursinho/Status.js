@@ -1,4 +1,4 @@
-import { FooterCard, StatusCursinho } from "./styled";
+import { FooterCard, StatusCursinho } from "./styles";
 import statusRejected from "../../assets/icons/statusRejected.svg";
 import StatusValidated from "../../assets/icons/statusValidated.svg";
 import statusWaiting from "../../assets/icons/statusWaiting.svg";

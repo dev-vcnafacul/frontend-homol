@@ -1,4 +1,4 @@
-const { RowField, RowInformation } = require("./styled");
+const { RowField, RowInformation } = require("./styles");
 
 function Field({ field, information }) {
     return (

@@ -3,7 +3,7 @@ import Field from "./Field";
 import Status from "./Status";
 import Modal from "./Modal";
 
-const { Card, Titulo, Information } = require("./styled");
+const { Card, Titulo, Information } = require("./styles");
 
 function CardCursinho({ cursinho }) {
     const [isModalOpen, setIsModalOpen] = useState(true);
