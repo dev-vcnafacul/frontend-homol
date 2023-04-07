@@ -31,18 +31,18 @@ export const Information = styled.div`
 `;
 
 export const Titulo = styled.div`
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
 `;
 
 export const RowField = styled.span`
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bolder;
     padding: 2px;
 `;
 
 export const RowInformation = styled.span`
-    font-size: 16px;
+    font-size: 13px;
     padding: 2px;
 `;
 
@@ -58,18 +58,19 @@ export const FooterCard = styled.div`
 
 export const ModalDiv = styled.div`
     display: ${(p) => p.block};
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
 `;
 
 export const ContentDiv = styled.div`
     position: fixed;
     background-color: white;
-    width: 50%;
+    width: 80%;
     height: auto;
     top: 50%;
     left: 50%;
@@ -86,6 +87,8 @@ export const Grid = styled.div`
 export const InforcacaoCursinho = styled.div`
     grid-column: 1 / 2;
     grid-row: 1 / 3;
+    max-height: 600px;
+    overflow-y: scroll;
 `;
 
 export const Cadastrado = styled.div`
@@ -109,5 +112,10 @@ export const Map = styled.div`
 export const Title = styled.div`
     color: ${(props) => props.theme.colors.marine};
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
+`;
+
+export const Forms = styled.div`
+    display: flex;
+    flex-wrap: wrap;
 `;

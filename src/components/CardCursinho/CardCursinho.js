@@ -6,7 +6,7 @@ import Modal from "./Modal";
 const { Card, Titulo, Information } = require("./styled");
 
 function CardCursinho({ cursinho }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(true);
 
     function openModal(modal) {
         setIsModalOpen(modal);
