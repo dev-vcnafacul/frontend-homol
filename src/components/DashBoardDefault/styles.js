@@ -29,6 +29,7 @@ export const theme = {
 
 export const Grid = styled.div`
     display: grid;
+    height: 100vh;
     grid-template-columns: 1fr 240px;
     grid-template-rows: 77px 1fr;
     background-color: ${(props) => props.theme.colors.backgroundGrey};
