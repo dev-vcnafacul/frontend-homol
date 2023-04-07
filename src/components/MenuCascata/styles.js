@@ -3,12 +3,15 @@ import styled from "styled-components";
 export const Select = styled.select`
     width: 200px;
     height: 35px;
-    background: white;
-    color: gray;
-    padding-left: 5px;
     font-size: 14px;
-    border: none;
-    margin-left: 10px;
+    font-family: inherit;
+    color: ${(props) => props.theme.colors.grey};
+    padding: 10px;
+    border: 1px solid ${(props) => props.theme.colors.lightGrey};
+    border-radius: 5px;
+    appearance: none;
+    margin: 10px;
+
     option {
         color: black;
         background: white;

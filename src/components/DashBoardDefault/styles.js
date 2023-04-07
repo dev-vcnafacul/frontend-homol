@@ -31,6 +31,7 @@ export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 240px;
     grid-template-rows: 77px 1fr;
+    background-color: ${(props) => props.theme.colors.backgroundGrey};
 `;
 
 export const Body = styled.div`

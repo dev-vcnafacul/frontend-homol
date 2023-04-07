@@ -23,7 +23,7 @@ function CardCursinho({ cursinho }) {
                     <Field field="Data de Cadastro" information={Create[2] + "/" + Create[1] + "/" + Create[0]} />
                     <Field field="Última Atualização" information={Update[2] + "/" + Update[1] + "/" + Update[0]} />
                 </Information>
-                <Status status={true} />
+                <Status status={cursinho.status} />
             </Card>
             <Modal handleClose={() => openModal(!isModalOpen)} show={isModalOpen}>
                 Teste

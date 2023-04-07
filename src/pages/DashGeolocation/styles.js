@@ -84,5 +84,4 @@ export const Title = styled.div`
 
 export const Component = styled.div`
     width: calc(100% - 100px);
-    background-color: ${(props) => props.theme.colors.backgroundGrey};
 `;
