@@ -89,8 +89,9 @@ function DadosPessoais({ goNextStep, oldData }) {
                         <option value=""></option>
                         <option value="Coordenador">Coordenador</option>
                         <option value="Professor">Professor</option>
-                        <option value="Colabordor">Colaborador</option>
+                        <option value="Colaborador">Colaborador</option>
                         <option value="Aluno">Aluno</option>
+                        <option value="Outros">Outros</option>
                     </Input>
                 </FormField>
                 <SubmitBtn as="input" type="submit" value="Continuar" />

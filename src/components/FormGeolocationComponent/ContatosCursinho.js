@@ -18,7 +18,7 @@ function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
         let validate = true;
         const fields = ["coursePhone"];
         fields.forEach((field) => {
-            if (!isValidField(field, data[field], setErrors)) validate = false;
+            if (data[field] && !isValidField(field, data[field], setErrors)) validate = false;
         });
         if (emailValid && validate) {
             goNextStep(data);
@@ -34,7 +34,7 @@ function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
         <>
             <form onSubmit={handleForm}>
                 <FormField>
-                    <InputLabel htmlFor="coursePhone">Telefone*</InputLabel>
+                    <InputLabel htmlFor="coursePhone">Telefone</InputLabel>
                     <Input
                         // onLoad={() => componentDidMount()}
                         id="coursePhone"
@@ -42,7 +42,6 @@ function ContatosCursinho({ goNextStep, goBackStep, oldData }) {
                         type="text"
                         onChange={(e) => {
                             setData({ ...data, coursePhone: formatPhoneInput(e.target.value) });
-                            isValidField("coursePhone", e.target.value, setErrors);
                         }}
                         value={data.coursePhone ?? ""}
                     />

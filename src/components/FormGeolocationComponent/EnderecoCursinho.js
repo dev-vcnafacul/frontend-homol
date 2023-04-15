@@ -4,7 +4,7 @@ import { Loading } from "../../styles/common";
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { SubmitBtn, Footer } from "./styles";
 
-function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
+function EnderecoCursinho({ goNextStep, goBackStep, oldData, selectedPositionData }) {
     const [data, setData] = useState(oldData);
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
@@ -17,6 +17,57 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
     useEffect(() => {
         getCepData(valueOfCep);
     }, [valueOfCep]);
+
+    useEffect(() => {
+        function stateSanitizer(courseState) {
+            const stateTerm = {
+                Acre: "AC",
+                Alagoas: "AL",
+                Amapá: "AP",
+                Amazonas: "AM",
+                Bahia: "BA",
+                Ceará: "CE",
+                DistritoFederal: "DF",
+                EspíritoSanto: "ES",
+                Goiás: "GO",
+                Maranhão: "MA",
+                MatoGrosso: "MT",
+                MatoGrossodoSul: "MS",
+                MinasGerais: "MG",
+                Pará: "PA",
+                Paraíba: "PB",
+                Paraná: "PR",
+                Pernambuco: "PE",
+                Piauí: "PI",
+                RiodeJaneiro: "RJ",
+                RioGrandedoNorte: "RN",
+                RioGrandedoSul: "RS",
+                Rondônia: "RO",
+                Roraima: "RR",
+                SantaCatarina: "SC",
+                SãoPaulo: "SP",
+                Sergipe: "SE",
+                Tocantins: "TO",
+            };
+            const rawState = courseState?.replace(/\s/g, "");
+            stateFromReverseGeolocation = stateTerm[rawState];
+        }
+
+        let stateFromReverseGeolocation = selectedPositionData.address?.state;
+        stateSanitizer(stateFromReverseGeolocation?.trim());
+
+        setData({
+            ...data,
+            latitude: selectedPositionData.latitude,
+            longitude: selectedPositionData.longitude,
+            cep: selectedPositionData.address?.postcode,
+            courseStreet: selectedPositionData.address?.road,
+            courseNumber: selectedPositionData.address?.house_number,
+            courseNeighborhood: selectedPositionData.address?.suburb,
+            courseCity: selectedPositionData.address?.city,
+            courseState: stateFromReverseGeolocation,
+        });
+    }, [selectedPositionData]);
 
     const invalidCEP = (value) => {
         if (value.length < 9) {
@@ -69,7 +120,6 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
                 }
             }
         } catch (error) {
-            console.log(error);
             throw error;
         } finally {
             setLoading(false);
@@ -84,7 +134,7 @@ function EnderecoCursinho({ goNextStep, goBackStep, oldData }) {
     };
 
     const isValidField = (field, value) => {
-        if (!value || (typeof value === "string" && value.trim() === "")) {
+        if (!value || (typeof value === "string" && value?.trim() === "")) {
             setErrors((errors) => {
                 return { ...errors, [field]: "*Campo obrigatório" };
             });

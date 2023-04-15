@@ -29,28 +29,35 @@ function Map({ ctaLink, className }) {
     }
 
     async function handleLoadMakers() {
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        });
+        try {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/geolocations`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            });
 
-        if (response.status === 200) {
-            const updatedMarkers = await response.json();
+            if (response.status === 200) {
+                const updatedMarkers = await response.json();
 
-            setMarkers(
-                updatedMarkers.map((course) => {
-                    return {
-                        ...course,
-                        whatsapp: course.whatsapp.replace(/[^0-9]+/g, ""),
-                    };
-                })
-            );
-            const center = updatedMarkers.reduce(
-                (acc, coord, i, arr) => [acc[0] + coord.latitude / arr.length, acc[1] + coord.longitude / arr.length],
-                [0.0, 0.0]
-            );
-            setMapCenter(center);
-        } else {
+                setMarkers(
+                    updatedMarkers.map((course) => {
+                        return {
+                            ...course,
+                            whatsapp: course.whatsapp.replace(/[^0-9]+/g, ""),
+                        };
+                    })
+                );
+                const center = updatedMarkers.reduce(
+                    (acc, coord, i, arr) => [
+                        acc[0] + coord.latitude / arr.length,
+                        acc[1] + coord.longitude / arr.length,
+                    ],
+                    [0.0, 0.0]
+                );
+                setMapCenter(center);
+            } else {
+                setMarkers([]);
+            }
+        } catch (error) {
             setMarkers([]);
         }
     }
