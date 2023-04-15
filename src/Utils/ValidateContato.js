@@ -3,7 +3,7 @@ export const validateEmail = (email, setEmailError) => {
     if (regex.test(String(email).toLowerCase())) {
         setEmailError(false);
         return true;
-    } else if (email.trim() === "") {
+    } else if (email?.trim() === "") {
         setEmailError("*Campo obrigatório");
         return false;
     } else {
@@ -98,6 +98,11 @@ export const isValidField = (field, value, setErrors) => {
         });
         return false;
     } else if (field === "coursePhone" && value.length < 14) {
+        setErrors((errors) => {
+            return { ...errors, [field]: "*Telefone inválido: O número deve ter no mínimo um DDD mais 8 dígitos" };
+        });
+        return false;
+    } else if (field === "phone" && value.length < 14) {
         setErrors((errors) => {
             return { ...errors, [field]: "*Telefone inválido: O número deve ter no mínimo um DDD mais 8 dígitos" };
         });

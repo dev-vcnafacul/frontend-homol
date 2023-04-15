@@ -2,10 +2,13 @@ import { UPDATE_ACCOUNT_SUCCESS } from "./account.types";
 
 export function updateAccount(data, userToken) {
     return async (dispatch) => {
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/patchme`, {
+        const arrayData = data.nascimento.split("/");
+        const nascimento = `${arrayData[2]}-${arrayData[1]}-${arrayData[0]}`;
+        const payload = { ...data, nascimento: nascimento };
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/user`, {
             method: "PUT",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
-            body: JSON.stringify(data),
+            body: JSON.stringify(payload),
         });
         if (response.status !== 200) {
             throw new Error("Token error");
