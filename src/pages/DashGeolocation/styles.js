@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -83,5 +83,5 @@ export const Title = styled.div`
 `;
 
 export const Component = styled.div`
-    width: calc(100% - 100px);
+    width: 100%;
 `;

@@ -3,21 +3,21 @@ import styled from "styled-components";
 export const Select = styled.select`
     width: 200px;
     height: 35px;
-    font-size: 14px;
+    font-size: 18px;
     font-family: inherit;
-    color: ${(props) => props.theme.colors.grey};
-    padding: 10px;
-    border: 1px solid ${(props) => props.theme.colors.lightGrey};
+    font-weight: bolder;
+    color: ${(props) => props.theme.colors.blue};
+    border: none;
     border-radius: 5px;
     appearance: none;
-    margin: 10px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 4px;
+    text-align: center;
+`;
 
-    option {
-        color: black;
-        background: white;
-        display: flex;
-        white-space: pre;
-        min-height: 20px;
-        padding: 0px 2px 1px;
-    }
+export const Option = styled.option`
+    display: flex;
+    color: white;
+    font-size: 14px;
+    background-color: #0b2747;
 `;

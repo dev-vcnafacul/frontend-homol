@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvent } from "react-leaflet";
-import { SubmitBtn } from "./styles";
+import { ContentDivConfimation, ModalConfimation, SubmitBtn } from "./styles";
 import {
     ContentDiv,
     ModalDiv,
@@ -19,9 +19,13 @@ import statusRejected from "../../assets/icons/statusRejected.svg";
 import StatusValidated from "../../assets/icons/statusValidated.svg";
 import statusWaiting from "../../assets/icons/statusWaiting.svg";
 import { theme } from "styles/theme";
+import { useSelector } from "react-redux";
 
-function Modal({ handleClose, show, cursinho }) {
+function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
     const [selectedPositionData, setSelectedPositionData] = useState({});
+    const [editando, setEditando] = useState(false);
+    const [novoStatus, setNovoStatus] = useState(status);
+    const userToken = useSelector((state) => state.auth.token);
     const [infos, setInfos] = useState({
         id: cursinho.id,
         latitude: selectedPositionData.latitude ?? cursinho.latitude,
@@ -55,15 +59,11 @@ function Modal({ handleClose, show, cursinho }) {
     });
 
     const [errors, setErrors] = useState({});
-    const [initialPosition, setInitialPosition] = useState([-22.0184566, -47.9310767]);
     const [selectedPosition, setSelectedPosition] = useState([0, 0]);
     const [featching, setFeatching] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        console.log(event.target);
-        console.log(name);
-        console.log(value);
         setInfos({ ...infos, [name]: value });
     };
 
@@ -118,14 +118,11 @@ function Modal({ handleClose, show, cursinho }) {
         setFeatching(true);
         const lat = event.latlng.lat;
         const lng = event.latlng.lng;
-        console.log(lat);
-        console.log(lng);
         setSelectedPosition([lat, lng]);
         const nominatimRequestURL = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&addressdetails=1&format=json`;
         await fetch(nominatimRequestURL)
             .then((response) => response.json())
             .then((reverseGeolocationData) => {
-                console.log(reverseGeolocationData);
                 setSelectedPositionData({
                     ...selectedPositionData,
                     latitude: lat,
@@ -161,30 +158,107 @@ function Modal({ handleClose, show, cursinho }) {
     }
 
     const AtualizaStatus = () => {
-        if (cursinho.status === "0") return StatusValidated;
-        if (cursinho.status === "1") return statusWaiting;
-        if (cursinho.status === "2") return statusRejected;
+        if (status === "0") return StatusValidated;
+        if (status === "1") return statusWaiting;
+        if (status === "2") return statusRejected;
+    };
+
+    const Salvar = useCallback(async (status) => {
+        try {
+            const url = `${process.env.REACT_APP_BASE_URL}/geolocation`;
+            await fetch(url, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
+                body: JSON.stringify(infos),
+            });
+            setGeo(infos);
+            Validar(status === "0");
+        } catch {
+            console.log("Error....");
+        }
+    }, []);
+
+    const Validar = useCallback(async (validated) => {
+        try {
+            const url = `${process.env.REACT_APP_BASE_URL}/validatedgeolocation`;
+            await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
+                body: JSON.stringify({
+                    geolocationId: cursinho.id,
+                    validated: validated,
+                }),
+            });
+            // eslint-disable-next-line no-undef
+            setStatus(validated ? "0" : "2");
+        } catch {
+            console.log("Error....");
+        }
+    }, []);
+
+    const OpenConfirmation = () => {
+        return (
+            <>
+                <ModalConfimation>
+                    <ContentDivConfimation></ContentDivConfimation>
+                </ModalConfimation>
+            </>
+        );
     };
 
     const Buttons = () => {
-        if (cursinho.status === "0" || cursinho.status === "2") {
+        if (!editando) {
             return (
                 <>
-                    <SubmitBtn as="input" value="Editar" onClick={handleClose} />
-                    <SubmitBtn as="input" value="Fechar" onClick={handleClose} />
+                    <SubmitBtn as="input" value="Editar" enable={true} onClick={() => setEditando(true)} />
+                    <SubmitBtn as="input" value="Fechar" enable={true} onClick={handleClose} />
                 </>
             );
         }
-        if (cursinho.status === "1") {
-            return (
-                <>
-                    <SubmitBtn as="input" value="Aceitar" onClick={handleClose} color={theme.colors.green2} />
-                    <SubmitBtn as="input" value="Rejeitar" onClick={handleClose} color={theme.colors.red} />
-                    <SubmitBtn as="input" value="Fechar" onClick={handleClose} />
-                </>
-            );
-        }
+        return (
+            <>
+                <SubmitBtn
+                    as="input"
+                    value="Aceitar"
+                    onClick={() => {
+                        setNovoStatus("0");
+                    }}
+                    disabled={novoStatus === "0"}
+                    color={theme.colors.green2}
+                />
+                <SubmitBtn
+                    as="input"
+                    value="Rejeitar"
+                    onClick={() => {
+                        setNovoStatus("2");
+                    }}
+                    disabled={novoStatus === "2"}
+                    color={theme.colors.red}
+                />
+                <SubmitBtn
+                    as="input"
+                    value="Salvar"
+                    enable={true}
+                    onClick={() => {
+                        Salvar(novoStatus);
+                        handleClose();
+                    }}
+                />
+                <SubmitBtn
+                    as="input"
+                    value="Fechar"
+                    enable={true}
+                    onClick={() => {
+                        setEditando(false);
+                        handleClose();
+                    }}
+                />
+            </>
+        );
     };
+
+    useEffect(() => {}, [status, novoStatus]);
+
     return (
         <ModalDiv block={show ? "block" : "none"}>
             <ContentDiv>

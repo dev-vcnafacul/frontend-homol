@@ -70,7 +70,9 @@ function DashGeolocation() {
         <>
             <Component>
                 <Text>Validação Localiza Cursinho</Text>
-                <MenuCascata status={status} setState={setStatus} />
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <MenuCascata status={status} setState={setStatus} />
+                </div>
                 {CarregaCursinho()}
                 {ModalComponent()}
             </Component>
