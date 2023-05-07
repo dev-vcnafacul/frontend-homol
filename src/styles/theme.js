@@ -20,5 +20,7 @@ export const theme = {
         lightGray: "#E0E0E0",
         darkGrey: "#545454",
         darkOrange: "#FC8621",
+        lightGreen: "#8cc408",
+        darkGreen: "#0f9b2c",
     },
 };

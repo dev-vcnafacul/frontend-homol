@@ -8,6 +8,7 @@ import {
     RESET_PASSWORD_PATH,
     ACCOUNT_PATH,
     LOGOFF_PATH,
+    FORM_GEOLOCATION,
 } from "../paths";
 
 import Login from "pages/Login";
@@ -15,6 +16,7 @@ import ForgotPassword from "pages/ForgotPassword";
 import Register from "pages/Register";
 import ResetPassword from "pages/ResetPassword";
 import Account from "pages/Account";
+import FormGeolocation from "pages/FormGeolocation";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -47,6 +49,9 @@ function Plataform() {
             </PrivateRoute>
             <Route path={LOGOFF_PATH}>
                 <LogoffRoute />
+            </Route>
+            <Route path={FORM_GEOLOCATION}>
+                <FormGeolocation />
             </Route>
         </>
     );

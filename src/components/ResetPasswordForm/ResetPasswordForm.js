@@ -1,6 +1,5 @@
 import { Title, SubmitBtn, Wrap, Error } from "./styles";
-import { useState, useEffect, useRef } from "react";
-import { API_URL } from "../../constants";
+import { useState, useEffect } from "react";
 import { Loading } from "../../styles/common";
 import PasswordForm from "../PasswordForm";
 import { useLocation } from "react-router-dom";
@@ -27,7 +26,7 @@ function ResetPasswordForm() {
             const data = { token, password };
             try {
                 setLoading(true);
-                const response = await fetch(`${API_URL}/reset`, {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/reset`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
@@ -46,9 +45,13 @@ function ResetPasswordForm() {
                         history.push("/login");
                     }, 5000);
                 } else if (response.status === 400) {
-                    setMessage("Link de redefinição de senha expirou. Tente novamente!");
+                    setMessage("Link de redefinição de senha expirou. Por favor, refaça o processo.");
+                } else if (response.status === 404) {
+                    setMessage(
+                        "Houve um problema com o seu link de redefinição de senha. Por favor, refaça o processo."
+                    );
                 } else {
-                    setMessage("Link de redefinição de senha inválido. Tente novamente!");
+                    setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
                 }
             } catch {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

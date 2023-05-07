@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MapContainer } from "react-leaflet";
 import { Container } from "../../styles/common";
+import { Link } from "react-router-dom";
 
 export const Section = styled.section`
     position: relative;
@@ -54,6 +55,14 @@ export const Box = styled.div`
     }
 `;
 
+export const SocialMedia = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const Subtitle = styled.p`
     color: ${(props) => props.theme.colors.marine};
     font-size: 14px;
@@ -64,7 +73,7 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const Button = styled.a`
+export const Button = styled(Link)`
     padding: 12px 25px;
     color: ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.orange};

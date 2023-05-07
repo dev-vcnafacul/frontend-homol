@@ -1,7 +1,6 @@
 import { Input, InputLabel, FormField } from "../atoms";
 import { Title, Description, SubmitBtn, Wrap, Error } from "./styles";
 import { useState } from "react";
-import { API_URL } from "../../constants";
 import { Loading } from "../../styles/common";
 
 function ForgotPasswordForm() {
@@ -16,7 +15,7 @@ function ForgotPasswordForm() {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/esqueci-minha-senha`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/esqueci-minha-senha`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
@@ -26,8 +25,10 @@ function ForgotPasswordForm() {
                 setMessage(
                     "Enviamos um e-mail com instruções para redefinição da senha. Verifique sua caixa de entrada, por favor."
                 );
-            } else {
+            } else if (response.status === 404) {
                 setMessage("E-mail não encontrado na base de usuários.");
+            } else {
+                setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");
             }
         } catch {
             setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

@@ -3,7 +3,6 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import { Title, Wrap, Error, Success, SuccessIcon, LoginShortcut, SuccessDiv } from "./styles";
 import { Loading } from "../../styles/common";
-import { API_URL } from "../../constants";
 import successIconFile from "../../assets/icons/check-circle.svg";
 
 function RegisterForm({ className }) {
@@ -41,7 +40,7 @@ function RegisterForm({ className }) {
 
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/cadastro`, {
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/user`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user),
@@ -53,6 +52,12 @@ function RegisterForm({ className }) {
             } else if (response.status === 422) {
                 if (errors[0]["rule"] === "unique" && errors[0]["field"] === "email") {
                     setMessage("Esse e-mail já existe em nossa base de dados. Tente novamente!");
+                }
+                if (errors[0]["rule"] === "required") {
+                    setMessage("O campo " + errors[0]["field"] + " não pode estar vazio");
+                }
+                if (errors[0]["rule"] === "confirmed" && errors[0]["field"] === "password_confirmation") {
+                    setMessage("A senha e a confirmação de senha não batem!");
                 }
             } else {
                 setMessage("Ops, ocorreu um problema na requisição. Tente novamente!");

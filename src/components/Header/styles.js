@@ -84,8 +84,20 @@ export const SignInButton = styled(Link)`
 `;
 
 export const SignContainer = styled.div`
+    cursor: pointer;
     @media (min-width: 1200px) {
+        position: relative;
         display: flex;
+        align-items: center;
+    }
+`;
+
+export const AvatarContainer = styled.div`
+    cursor: pointer;
+    @media (min-width: 1200px) {
+        position: relative;
+        display: flex;
+        flex-direction: column;
         align-items: center;
     }
 `;
@@ -104,6 +116,12 @@ export const AccountCircleButton = styled.div`
 
     @media (min-width: 1200px) {
         display: none;
+    }
+`;
+
+export const AccountCircleButtonDesktop = styled(AccountCircleButton)`
+    @media (min-width: 1200px) {
+        display: flex;
     }
 `;
 
@@ -168,12 +186,46 @@ export const SignMenu = styled.div`
     }
 `;
 
+export const DesktopDropdownMenu = styled.div`
+    display: none;
+    @media (min-width: 1200px) {
+        display: ${(props) => (props.open ? "block" : "none")};
+        background-color: ${(props) => {
+            if (props.solid && props.open) {
+                return props.theme.colors.marine;
+            } else if (!props.solid && !props.open) {
+                return "transparent";
+            } else {
+                return props.theme.colors.white;
+            }
+        }};
+        left: 0;
+        top: 35px;
+        width: 100%;
+        position: absolute;
+        padding-bottom: 20px;
+        a {
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+`;
+
 export const SignMenuItem = styled(Link)`
     font-size: 20px;
     color: ${(props) => props.theme.colors.marine};
     font-weight: 700;
     margin: 25px 0 0 0;
     display: block;
+    @media (min-width: 1200px) {
+        color: ${(props) => {
+            if (props.solid && props.open) {
+                return props.theme.colors.white;
+            } else {
+                return props.theme.colors.marine;
+            }
+        }};
+    }
 `;
 
 export const Bar = styled.div`
@@ -220,4 +272,38 @@ export const Brand = styled.p`
 export const LogoContainer = styled.div`
     display: flex;
     align-items: center;
+`;
+
+export const AvatarName = styled.p`
+    display: none;
+
+    &:hover {
+        font-weight: 700;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        color: ${(props) => (props.solid !== props.open ? props.theme.colors.marine : props.theme.colors.white)};
+        margin: auto 10px auto 0;
+        display: inline;
+        font-weight: 500;
+        text-align: left;
+    }
+`;
+
+export const AvatarWrapper = styled.div`
+    display: inherit;
+    background-color: ${(props) => {
+        if (props.solid && props.open) {
+            return props.theme.colors.marine;
+        } else if (!props.solid && !props.open) {
+            return "transparent";
+        } else {
+            return props.theme.colors.white;
+        }
+    }};
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
 `;

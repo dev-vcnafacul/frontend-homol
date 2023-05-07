@@ -1,34 +1,44 @@
 import { AUTH_SUCCESS, REGISTER_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "./auth.types";
 import { HOME_PATH } from "../../routing/paths";
-import { API_URL } from "../../constants";
 
 export function doAuth(email, password) {
     return async (dispatch) => {
         const data = { email, password };
-        const response = await fetch(`${API_URL}/login`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         });
-
+        const payloadReceived = await response.json();
         if (response.status === 400) {
-            throw new Error("User not found");
+            throw new Error("A senha informada está incorreta!");
+        } else if (response.status === 404) {
+            throw new Error("Esse e-mail não foi cadastrado em nossa plataforma!");
+        } else if (response.status === 422) {
+            let errorField = "";
+            switch (payloadReceived["errors"][0]["field"]) {
+                case "password":
+                    errorField = "senha";
+                    break;
+                default:
+                    errorField = payloadReceived["errors"][0]["field"];
+            }
+            throw new Error("Preencha corretamente o campo de " + errorField + " e tente novamente!");
         } else {
-            const responseJSON = await response.json();
-            const birthday = new Date(responseJSON.user.nascimento.replace("Z", ""));
+            const birthday = new Date(payloadReceived.user.nascimento.replace("Z", ""));
             const monthBirthday = birthday.getMonth() + 1 < 10 ? `0${birthday.getMonth() + 1}` : birthday.getMonth();
             const dayBirthday = birthday.getDate() < 10 ? `0${birthday.getDate()}` : birthday.getDate();
             const payload = {
-                token: responseJSON.token.token,
+                token: payloadReceived.token.token,
                 user: {
-                    email: responseJSON.user.email,
-                    nome: responseJSON.user.nome,
-                    sobrenome: responseJSON.user.sobrenome,
-                    genero: responseJSON.user.genero,
+                    email: payloadReceived.user.email,
+                    nome: payloadReceived.user.nome,
+                    sobrenome: payloadReceived.user.sobrenome,
+                    genero: payloadReceived.user.genero,
                     nascimento: `${dayBirthday}/${monthBirthday}/${birthday.getFullYear()}`,
-                    telefone: responseJSON.user.telefone,
-                    estado: responseJSON.user.estado,
-                    cidade: responseJSON.user.cidade,
+                    telefone: payloadReceived.user.telefone,
+                    estado: payloadReceived.user.estado,
+                    cidade: payloadReceived.user.cidade,
                 },
             };
             window.localStorage.setItem("sessionData", JSON.stringify(payload));

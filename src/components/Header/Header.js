@@ -5,13 +5,16 @@ import { ReactComponent as Logo } from "../../assets/images/home/logo.svg";
 import { Bar, FlexContainer, MenuButtons, LogoContainer, Brand } from "./styles";
 import Menu from "./Menu";
 import Sign from "./Sign";
+import Avatar from "./Avatar";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { HOME_PATH } from "routing/paths";
 
 function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
     const [backgroundSolid, setBackgroundSolid] = useState(solid ? true : false);
     const [openMenu, setOpenMenu] = useState(false);
+    const userData = useSelector((state) => state.auth.user);
 
     useEffect(() => {
         if (solid !== true) {
@@ -51,9 +54,11 @@ function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, sol
                     open={openMenu}
                     openFunction={setOpenMenu}
                 />
-                {(signInLink || signUpLink) && (
+                {/* {(signInLink || signUpLink) && !userData && (
                     <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
                 )}
+                {userData && <Avatar userName={userData.nome} solid={backgroundSolid}></Avatar>} */}
+                <Sign solid={backgroundSolid} signInLink={signInLink} signUpLink={signUpLink} />
             </FlexContainer>
         </Bar>
     );
