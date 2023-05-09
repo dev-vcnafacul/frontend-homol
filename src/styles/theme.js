@@ -6,6 +6,7 @@ export const theme = {
         desktopPlus: "calc((100% - 1174px) / 2)",
     },
     colors: {
+        black: "#000000",
         white: "#FFFFFF",
         orange: "#FF7600",
         yellow: "#FFE53C",

@@ -151,6 +151,12 @@ export const Input = styled.input`
         props.arrow
             ? "url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+)"
             : "none"};
+
+    :disabled {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: ${(props) => props.theme.colors.black};
+        opacity: 1;
+    }
 `;
 
 export const InputLabel = styled.label`

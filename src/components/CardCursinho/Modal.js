@@ -20,10 +20,12 @@ import StatusValidated from "../../assets/icons/statusValidated.svg";
 import statusWaiting from "../../assets/icons/statusWaiting.svg";
 import { theme } from "styles/theme";
 import { useSelector } from "react-redux";
+import ModalConfirmCancel from "components/ModalConfirmCancel/ModalConfirmCancel";
 
 function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
     const [selectedPositionData, setSelectedPositionData] = useState({});
     const [editando, setEditando] = useState(false);
+    const [modified, setModified] = useState(false);
     const [novoStatus, setNovoStatus] = useState(status);
     const userToken = useSelector((state) => state.auth.token);
     const [infos, setInfos] = useState({
@@ -65,6 +67,7 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setInfos({ ...infos, [name]: value });
+        setModified(true);
     };
 
     const handleSubmit = (event) => {
@@ -249,6 +252,9 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                     value="Fechar"
                     enable={true}
                     onClick={() => {
+                        if (modified) {
+                            console.log("");
+                        }
                         setEditando(false);
                         handleClose();
                     }}
@@ -258,281 +264,340 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
     };
 
     useEffect(() => {}, [status, novoStatus]);
-
+    console.log(editando);
     return (
-        <ModalDiv block={show ? "block" : "none"}>
-            <ContentDiv>
-                <Grid>
-                    <InforcacaoCursinho>
-                        <Title>
-                            Informação do Cursinho
-                            <img src={AtualizaStatus()} alt="status" />
-                        </Title>
-                        <Forms>
-                            <FormField>
-                                <InputLabel>Nome do Cursinho:</InputLabel>
-                                <Input
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    value={infos.name}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Whatsapp:</InputLabel>
-                                <Input
-                                    id="whatsapp"
-                                    name="whatsapp"
-                                    type="text"
-                                    value={infos.whatsapp}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Tipo de Cursinho:</InputLabel>
-                                <Input
-                                    id="category"
-                                    name="category"
-                                    type="text"
-                                    value={infos.category}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Email:</InputLabel>
-                                <Input
-                                    id="email"
-                                    name="email"
-                                    type="text"
-                                    value={infos.email}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Cep:</InputLabel>
-                                <Input
-                                    id="cep"
-                                    name="cep"
-                                    type="text"
-                                    value={infos.cep}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Site:</InputLabel>
-                                <Input
-                                    id="site"
-                                    name="site"
-                                    type="text"
-                                    value={infos.site}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Logradouro:</InputLabel>
-                                <Input
-                                    id="street"
-                                    name="street"
-                                    type="text"
-                                    value={infos.street}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Instagram:</InputLabel>
-                                <Input
-                                    id="instagram"
-                                    name="instagram"
-                                    type="text"
-                                    value={infos.instagram}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Numero:</InputLabel>
-                                <Input
-                                    id="number"
-                                    name="number"
-                                    type="text"
-                                    value={infos.number}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Youtube:</InputLabel>
-                                <Input
-                                    id="youtube"
-                                    name="youtube"
-                                    type="text"
-                                    value={infos.youtube}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Complemento:</InputLabel>
-                                <Input
-                                    id="complement"
-                                    name="complement"
-                                    type="text"
-                                    value={infos.complement}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Facebook:</InputLabel>
-                                <Input
-                                    id="facebook"
-                                    name="facebook"
-                                    type="text"
-                                    value={infos.facebook}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Bairro:</InputLabel>
-                                <Input
-                                    id="neighborhood"
-                                    name="neighborhood"
-                                    type="text"
-                                    value={infos.neighborhood}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Linkedin:</InputLabel>
-                                <Input
-                                    id="linkedin"
-                                    name="linkedin"
-                                    type="text"
-                                    value={infos.linkedin}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Municipio:</InputLabel>
-                                <Input
-                                    id="city"
-                                    name="city"
-                                    type="text"
-                                    value={infos.city}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Twitter:</InputLabel>
-                                <Input
-                                    id="twitter"
-                                    name="twitter"
-                                    type="text"
-                                    value={infos.twitter}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Estado:</InputLabel>
-                                <Input
-                                    id="state"
-                                    name="state"
-                                    type="text"
-                                    value={infos.state}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Tiktok:</InputLabel>
-                                <Input
-                                    id="tiktok"
-                                    name="tiktok"
-                                    type="text"
-                                    value={infos.tiktok}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Telefone:</InputLabel>
-                                <Input
-                                    id="phone"
-                                    name="phone"
-                                    type="text"
-                                    value={infos.phone}
-                                    onChange={handleInputChange}
-                                ></Input>
-                            </FormField>
-                        </Forms>
-                    </InforcacaoCursinho>
-                    <Cadastrado>
-                        <Title>Cadastrado Por</Title>
-                        <Forms>
-                            <FormField>
-                                <InputLabel>Nome Completo:</InputLabel>
-                                <Input
-                                    id="user_fullname"
-                                    name="user_fullname"
-                                    type="text"
-                                    value={infos.user_fullname}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Email:</InputLabel>
-                                <Input id="user_email" name="user_email" type="text" value={infos.user_email}></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Celular/Whatsapp:</InputLabel>
-                                <Input id="user_phone" name="user_phone" type="text" value={infos.user_phone}></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Relação com o Cursinho:</InputLabel>
-                                <Input
-                                    id="user_connection"
-                                    name="user_connection"
-                                    type="text"
-                                    value={infos.user_connection}
-                                ></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Cadastrado em:</InputLabel>
-                                <Input id="created_at" name="created_at" type="text" value={infos.created_at}></Input>
-                            </FormField>
-                        </Forms>
-                    </Cadastrado>
-                    <Atualizado>
-                        <Title>Última Edição Por</Title>
-                        <Forms>
-                            <FormField>
-                                <InputLabel>Nome Completo:</InputLabel>
-                                <Input id="created_at" name="created_at" type="text" value={infos.created_at}></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Cadastrado em:</InputLabel>
-                                <Input id="created_at" name="created_at" type="text" value={infos.created_at}></Input>
-                            </FormField>
-                            <FormField>
-                                <InputLabel>Editado em:</InputLabel>
-                                <Input id="created_at" name="created_at" type="text" value={infos.created_at}></Input>
-                            </FormField>
-                        </Forms>
-                    </Atualizado>
-                    <Map>
-                        <Title>Endereço do Cursinho</Title>
-                        <MapContainer
-                            center={[infos.latitude, infos.longitude]}
-                            zoom={13}
-                            scrollWheelZoom={true}
-                            style={{ width: "100%", height: "35vh", cursor: "default" }}
-                        >
-                            <TileLayer
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            />
-                            <Marker position={[infos.latitude, infos.longitude]} alt="marcador"></Marker>
-                            {!featching && <EventHandlers />}
-                        </MapContainer>
-                        {Buttons()}
-                    </Map>
-                </Grid>
-            </ContentDiv>
-        </ModalDiv>
+        <>
+            <ModalDiv block={show ? "block" : "none"}>
+                <ContentDiv>
+                    <Grid>
+                        <InforcacaoCursinho>
+                            <Title>
+                                Informação do Cursinho
+                                <img src={AtualizaStatus()} alt="status" />
+                            </Title>
+                            <Forms>
+                                <FormField>
+                                    <InputLabel>Nome do Cursinho:</InputLabel>
+                                    <Input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        value={infos.name}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Whatsapp:</InputLabel>
+                                    <Input
+                                        id="whatsapp"
+                                        name="whatsapp"
+                                        type="text"
+                                        value={infos.whatsapp}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Tipo de Cursinho:</InputLabel>
+                                    <Input
+                                        id="category"
+                                        name="category"
+                                        type="text"
+                                        value={infos.category}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Email:</InputLabel>
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        type="text"
+                                        value={infos.email}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Cep:</InputLabel>
+                                    <Input
+                                        id="cep"
+                                        name="cep"
+                                        type="text"
+                                        value={infos.cep}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Site:</InputLabel>
+                                    <Input
+                                        id="site"
+                                        name="site"
+                                        type="text"
+                                        value={infos.site}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Logradouro:</InputLabel>
+                                    <Input
+                                        id="street"
+                                        name="street"
+                                        type="text"
+                                        value={infos.street}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Instagram:</InputLabel>
+                                    <Input
+                                        id="instagram"
+                                        name="instagram"
+                                        type="text"
+                                        value={infos.instagram}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Numero:</InputLabel>
+                                    <Input
+                                        id="number"
+                                        name="number"
+                                        type="text"
+                                        value={infos.number}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Youtube:</InputLabel>
+                                    <Input
+                                        id="youtube"
+                                        name="youtube"
+                                        type="text"
+                                        value={infos.youtube}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Complemento:</InputLabel>
+                                    <Input
+                                        id="complement"
+                                        name="complement"
+                                        type="text"
+                                        value={infos.complement}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Facebook:</InputLabel>
+                                    <Input
+                                        id="facebook"
+                                        name="facebook"
+                                        type="text"
+                                        value={infos.facebook}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Bairro:</InputLabel>
+                                    <Input
+                                        id="neighborhood"
+                                        name="neighborhood"
+                                        type="text"
+                                        value={infos.neighborhood}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Linkedin:</InputLabel>
+                                    <Input
+                                        id="linkedin"
+                                        name="linkedin"
+                                        type="text"
+                                        value={infos.linkedin}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Municipio:</InputLabel>
+                                    <Input
+                                        id="city"
+                                        name="city"
+                                        type="text"
+                                        value={infos.city}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Twitter:</InputLabel>
+                                    <Input
+                                        id="twitter"
+                                        name="twitter"
+                                        type="text"
+                                        value={infos.twitter}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Estado:</InputLabel>
+                                    <Input
+                                        id="state"
+                                        name="state"
+                                        type="text"
+                                        value={infos.state}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Tiktok:</InputLabel>
+                                    <Input
+                                        id="tiktok"
+                                        name="tiktok"
+                                        type="text"
+                                        value={infos.tiktok}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Telefone:</InputLabel>
+                                    <Input
+                                        id="phone"
+                                        name="phone"
+                                        type="text"
+                                        value={infos.phone}
+                                        disabled={!editando}
+                                        onChange={handleInputChange}
+                                    />
+                                </FormField>
+                            </Forms>
+                        </InforcacaoCursinho>
+                        <Cadastrado>
+                            <Title>Cadastrado Por</Title>
+                            <Forms>
+                                <FormField>
+                                    <InputLabel>Nome Completo:</InputLabel>
+                                    <Input
+                                        id="user_fullname"
+                                        name="user_fullname"
+                                        type="text"
+                                        value={infos.user_fullname}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Email:</InputLabel>
+                                    <Input
+                                        id="user_email"
+                                        name="user_email"
+                                        type="text"
+                                        value={infos.user_email}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Celular/Whatsapp:</InputLabel>
+                                    <Input
+                                        id="user_phone"
+                                        name="user_phone"
+                                        type="text"
+                                        value={infos.user_phone}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Relação com o Cursinho:</InputLabel>
+                                    <Input
+                                        id="user_connection"
+                                        name="user_connection"
+                                        type="text"
+                                        value={infos.user_connection}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Cadastrado em:</InputLabel>
+                                    <Input
+                                        id="created_at"
+                                        name="created_at"
+                                        type="text"
+                                        value={infos.created_at}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                            </Forms>
+                        </Cadastrado>
+                        <Atualizado>
+                            <Title>Última Edição Por</Title>
+                            <Forms>
+                                <FormField>
+                                    <InputLabel>Nome Completo:</InputLabel>
+                                    <Input
+                                        id="created_at"
+                                        name="created_at"
+                                        type="text"
+                                        value={infos.created_at}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Cadastrado em:</InputLabel>
+                                    <Input
+                                        id="created_at"
+                                        name="created_at"
+                                        type="text"
+                                        value={infos.created_at}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                                <FormField>
+                                    <InputLabel>Editado em:</InputLabel>
+                                    <Input
+                                        id="created_at"
+                                        name="created_at"
+                                        type="text"
+                                        value={infos.created_at}
+                                        disabled={true}
+                                    />
+                                </FormField>
+                            </Forms>
+                        </Atualizado>
+                        <Map>
+                            <Title>Endereço do Cursinho</Title>
+                            <MapContainer
+                                center={[infos.latitude, infos.longitude]}
+                                zoom={13}
+                                scrollWheelZoom={true}
+                                style={{ width: "100%", height: "35vh", cursor: "default" }}
+                            >
+                                <TileLayer
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
+                                <Marker position={[infos.latitude, infos.longitude]} alt="marcador"></Marker>
+                                {!featching && <EventHandlers />}
+                            </MapContainer>
+                            {Buttons()}
+                        </Map>
+                    </Grid>
+                </ContentDiv>
+            </ModalDiv>
+        </>
     );
 }
 
