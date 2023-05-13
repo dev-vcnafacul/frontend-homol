@@ -11,13 +11,17 @@ function DashGeolocation() {
     const userToken = useSelector((state) => state.auth.token);
 
     const getCursinhos = useCallback(async () => {
-        const res = await fetch(url);
-        // eslint-disable-next-line no-undef
-        const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
-        while (true) {
-            const { value, done } = await reader.read();
-            if (done) break;
-            setCursinhos(JSON.parse(value));
+        try {
+            const res = await fetch(url);
+            // eslint-disable-next-line no-undef
+            const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                setCursinhos(JSON.parse(value));
+            }
+        } catch (error) {
+            console.log(error);
         }
     }, []);
 

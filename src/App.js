@@ -23,15 +23,15 @@ function App() {
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <CookieBar {...lgpd} />
+                <BrowserRouter>
+                    <Switch>
+                        <>
+                            <PlataformRoutes />
+                            <WebsiteRoutes />
+                        </>
+                    </Switch>
+                </BrowserRouter>
             </ThemeProvider>
-            <BrowserRouter>
-                <Switch>
-                    <>
-                        <PlataformRoutes />
-                        <WebsiteRoutes />
-                    </>
-                </Switch>
-            </BrowserRouter>
         </Provider>
     );
 }

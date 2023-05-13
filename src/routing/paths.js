@@ -8,3 +8,4 @@ export const LOGOFF_PATH = "/logoff";
 export const FORM_GEOLOCATION = "/geolocation";
 export const DASHBOARD_TEACHER = "/dash-teacher";
 export const DASHBOARD_GEOLOCATION = "/dash-geo";
+export const TEST_PATH = "/simulado";

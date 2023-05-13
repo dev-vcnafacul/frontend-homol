@@ -11,6 +11,7 @@ import {
     FORM_GEOLOCATION,
     DASHBOARD_TEACHER,
     DASHBOARD_GEOLOCATION,
+    TEST_PATH,
 } from "../paths";
 
 import Login from "pages/Login";
@@ -20,6 +21,7 @@ import ResetPassword from "pages/ResetPassword";
 import Account from "pages/Account";
 import FormGeolocation from "pages/FormGeolocation";
 import TeacherDashboard from "pages/TeacherDashboard";
+import TestPage from "pages/TestPage";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -58,6 +60,9 @@ function Plataform() {
             </Route>
             <Route path={FORM_GEOLOCATION}>
                 <FormGeolocation />
+            </Route>
+            <Route path={TEST_PATH}>
+                <TestPage />
             </Route>
         </>
     );
