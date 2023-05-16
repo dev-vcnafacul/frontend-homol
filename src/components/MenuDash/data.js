@@ -1,4 +1,4 @@
-import { DASHBOARD_GEOLOCATION } from "routing/paths";
+import { DASHBOARD_GEOLOCATION } from "router/paths";
 
 import BioExatasImg from "../../assets/images/dashboard/bioexatas.svg";
 import HumanasImg from "../../assets/images/dashboard/humanas.svg";

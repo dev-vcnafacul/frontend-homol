@@ -5,7 +5,7 @@ import { footer, header } from "pages/Home/data";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { DASHBOARD } from "routing/paths";
+import { DASHBOARD } from "router/paths";
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
 import { Wrap } from "./styles";

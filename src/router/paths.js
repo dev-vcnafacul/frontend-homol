@@ -8,3 +8,5 @@ export const LOGOFF_PATH = "/logoff";
 export const FORM_GEOLOCATION = "/geolocation";
 export const DASHBOARD = "/dashboard";
 export const DASHBOARD_GEOLOCATION = "/dashboard/localiza-cursinho";
+
+export const TEST = "/simulado";

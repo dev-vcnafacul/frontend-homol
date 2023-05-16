@@ -9,7 +9,7 @@ import {
     AvatarWrapper,
 } from "./styles";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
-import { ACCOUNT_PATH, LOGOFF_PATH, DASHBOARD } from "../../routing/paths";
+import { ACCOUNT_PATH, LOGOFF_PATH, DASHBOARD } from "../../router/paths";
 
 const Avatar = ({ signInLink, solid, signUpLink, className, userName }) => {
     const [open, setOpen] = useState(false);

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
-import { Router } from "routing/routes";
+import { Router } from "router/routes";
 import CookieBar from "./components/CookieBar";
 import { lgpd } from "./pages/Home/data";
 import store from "./store";

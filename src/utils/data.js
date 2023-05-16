@@ -1,4 +1,4 @@
-import { LOGIN_PATH, REGISTER_PATH } from "routing/paths";
+import { LOGIN_PATH, REGISTER_PATH } from "router/paths";
 
 export const header = {
     homeLink: "/",

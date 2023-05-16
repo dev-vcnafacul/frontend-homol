@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { LOGIN_PATH } from "routing/paths";
+import { LOGIN_PATH } from "router/paths";
 
 import { Input, InputLabel, FormField, FormError } from "../atoms";
 import { Description, LinkLogin, SubmitBtn } from "./styles";

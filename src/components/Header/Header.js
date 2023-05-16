@@ -9,7 +9,7 @@ import Menu from "./Menu";
 import Sign from "./Sign";
 import { Bar, Brand, FlexContainer, LogoContainer, MenuButtons } from "./styles";
 
-import { HOME_PATH } from "routing/paths";
+import { HOME_PATH } from "router/paths";
 
 function Header({ itemsMenu, socialLinks, signInLink, signUpLink, className, solid }) {
     const [backgroundSolid, setBackgroundSolid] = useState(!!solid);

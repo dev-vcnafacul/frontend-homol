@@ -21,7 +21,9 @@ import {
     LOGIN_PATH,
     LOGOFF_PATH,
     RESET_PASSWORD_PATH,
+    TEST,
 } from "../paths";
+import { Solving } from "pages/Simulado/Solving";
 
 export function PlatformRoutes() {
     return (
@@ -33,14 +35,8 @@ export function PlatformRoutes() {
             <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPassword />} />
             <Route path={RESET_PASSWORD_PATH} element={<ResetPassword />} />
             <Route path={FORM_GEOLOCATION} element={<FormGeolocation />} />
-            <Route
-                path={DASHBOARD}
-                element={
-                    <DashBoardDefault>
-                        <Dashboard />
-                    </DashBoardDefault>
-                }
-            />
+            <Route path={DASHBOARD} element={<Dashboard />} />
+            <Route path={TEST} element={<Solving />} />
             <Route
                 path={DASHBOARD_GEOLOCATION}
                 element={

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FORGOT_PASSWORD_PATH } from "../../routing/paths";
+import { FORGOT_PASSWORD_PATH } from "../../router/paths";
 import { doAuth } from "../../store/actions/auth";
 import { useFetch } from "../../store/utils";
 import { Loading } from "../../styles/common";
