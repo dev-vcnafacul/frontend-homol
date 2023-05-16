@@ -191,27 +191,3 @@ export const SubmitBtn = styled(Button)`
         }};
     }
 `;
-
-export const ModalConfimation = styled.div`
-    display: ${(p) => p.block};
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 9999;
-`;
-
-export const ContentDivConfimation = styled.div`
-    position: fixed;
-    background-color: white;
-    width: 90%;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    padding: 2rem;
-    transform: translate(-50%, -50%);
-    max-height: 600px;
-    max-width: 1080px;
-`;

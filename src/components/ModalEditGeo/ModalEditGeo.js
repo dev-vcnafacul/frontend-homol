@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvent } from "react-leaflet";
-import { ContentDivConfimation, ModalConfimation, SubmitBtn } from "./styles";
+import { SubmitBtn } from "./styles";
+import statusRejected from "../../assets/icons/statusRejected.svg";
+import StatusValidated from "../../assets/icons/statusValidated.svg";
+import statusWaiting from "../../assets/icons/statusWaiting.svg";
+import { theme } from "styles/theme";
+import { useSelector } from "react-redux";
+import ModalConfirmCancel from "components/ModalConfirmCancel/ModalConfirmCancel";
 import {
     ContentDiv,
     ModalDiv,
@@ -14,55 +20,26 @@ import {
     FormField,
     InputLabel,
     Input,
-} from "./styles";
-import statusRejected from "../../assets/icons/statusRejected.svg";
-import StatusValidated from "../../assets/icons/statusValidated.svg";
-import statusWaiting from "../../assets/icons/statusWaiting.svg";
-import { theme } from "styles/theme";
-import { useSelector } from "react-redux";
-import ModalConfirmCancel from "components/ModalConfirmCancel/ModalConfirmCancel";
+} from "../CardCursinho/styles";
 
-function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
+function ModalEditGeo({ handleClose, show, geo, setGeo }) {
     const [selectedPositionData, setSelectedPositionData] = useState({});
     const [editando, setEditando] = useState(false);
     const [modified, setModified] = useState(false);
-    const [novoStatus, setNovoStatus] = useState(status);
+    const [cancelModified, setCancelModified] = useState(false);
+    const [novoStatus, setNovoStatus] = useState(geo.status);
     const userToken = useSelector((state) => state.auth.token);
-    const [infos, setInfos] = useState({
-        id: cursinho.id,
-        latitude: selectedPositionData.latitude ?? cursinho.latitude,
-        longitude: selectedPositionData.longitude ?? cursinho.longitude,
-        name: cursinho.name,
-        cep: cursinho.cep,
-        state: cursinho.state,
-        city: cursinho.city,
-        neighborhood: cursinho.neighborhood,
-        street: cursinho.street,
-        number: cursinho.number,
-        complement: cursinho.complement,
-        phone: cursinho.phone,
-        whatsapp: cursinho.whatsapp,
-        email: cursinho.email,
-        email_2: cursinho.email_2,
-        category: cursinho.category,
-        site: cursinho.site,
-        linkedin: cursinho.linkedin,
-        youtube: cursinho.youtube,
-        facebook: cursinho.facebook,
-        instagram: cursinho.instagram,
-        twitter: cursinho.twitter,
-        tiktok: cursinho.tiktok,
-        user_fullname: cursinho.user_fullname,
-        user_phone: cursinho.user_phone,
-        user_connection: cursinho.user_connection,
-        user_email: cursinho.user_email,
-        created_at: cursinho.created_at,
-        updated_at: cursinho.updated_at,
-    });
+    const [infos, setInfos] = useState(geo);
 
     const [errors, setErrors] = useState({});
     const [selectedPosition, setSelectedPosition] = useState([0, 0]);
     const [featching, setFeatching] = useState(false);
+
+    const [refuseAction, setRefuseAction] = useState(false);
+    const [refuseReason, setRefuseReason] = useState("Teste");
+
+    const messageNotSaved =
+        "Suas alterações ainda não foram salvas. Se você sair agora, perderá todas as alterações. Deseja continuar?";
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -161,9 +138,9 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
     }
 
     const AtualizaStatus = () => {
-        if (status === "0") return StatusValidated;
-        if (status === "1") return statusWaiting;
-        if (status === "2") return statusRejected;
+        if (geo.status === "0") return StatusValidated;
+        if (geo.status === "1") return statusWaiting;
+        if (geo.status === "2") return statusRejected;
     };
 
     const Salvar = useCallback(async (status) => {
@@ -181,32 +158,50 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
         }
     }, []);
 
-    const Validar = useCallback(async (validated) => {
+    const Validar = useCallback(async (body) => {
         try {
+            console.log(body);
             const url = `${process.env.REACT_APP_BASE_URL}/validatedgeolocation`;
             await fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
-                body: JSON.stringify({
-                    geolocationId: cursinho.id,
-                    validated: validated,
-                }),
+                body: JSON.stringify(body),
             });
             // eslint-disable-next-line no-undef
-            setStatus(validated ? "0" : "2");
-        } catch {
+            setNovoStatus(body.validated ? "0" : "2");
+        } catch (error) {
             console.log("Error....");
+            console.log(error);
         }
     }, []);
 
-    const OpenConfirmation = () => {
-        return (
-            <>
-                <ModalConfimation>
-                    <ContentDivConfimation></ContentDivConfimation>
-                </ModalConfimation>
-            </>
-        );
+    const Continue = () => {
+        setInfos(geo);
+        setEditando(false);
+        setCancelModified(false);
+        handleClose();
+    };
+
+    const Cancel = () => {
+        setCancelModified(false);
+        setRefuseAction(false);
+    };
+
+    const ConfirmRefuse = () => {
+        const body = {
+            geolocationId: geo.id,
+            validated: false,
+            refuseReason: refuseReason,
+        };
+        Validar(body);
+    };
+
+    const Accept = () => {
+        const body = {
+            geolocationId: geo.id,
+            validated: true,
+        };
+        Validar(body);
     };
 
     const Buttons = () => {
@@ -223,9 +218,7 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                 <SubmitBtn
                     as="input"
                     value="Aceitar"
-                    onClick={() => {
-                        setNovoStatus("0");
-                    }}
+                    onClick={Accept}
                     disabled={novoStatus === "0"}
                     color={theme.colors.green2}
                 />
@@ -233,7 +226,7 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                     as="input"
                     value="Rejeitar"
                     onClick={() => {
-                        setNovoStatus("2");
+                        setRefuseAction(true);
                     }}
                     disabled={novoStatus === "2"}
                     color={theme.colors.red}
@@ -253,18 +246,17 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                     enable={true}
                     onClick={() => {
                         if (modified) {
-                            console.log("");
+                            setCancelModified(true);
+                        } else {
+                            setEditando(false);
                         }
-                        setEditando(false);
-                        handleClose();
                     }}
                 />
             </>
         );
     };
 
-    useEffect(() => {}, [status, novoStatus]);
-    console.log(editando);
+    useEffect(() => {}, [geo.status, novoStatus]);
     return (
         <>
             <ModalDiv block={show ? "block" : "none"}>
@@ -583,8 +575,7 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                                 center={[infos.latitude, infos.longitude]}
                                 zoom={13}
                                 scrollWheelZoom={true}
-                                style={{ width: "100%", height: "35vh", cursor: "default" }}
-                            >
+                                style={{ width: "100%", height: "35vh", cursor: "default" }}>
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -597,8 +588,42 @@ function Modal({ handleClose, show, cursinho, status, setStatus, setGeo }) {
                     </Grid>
                 </ContentDiv>
             </ModalDiv>
+            <ModalDiv block={show && modified && editando && cancelModified ? "block" : "none"}>
+                <ContentDiv>
+                    <ModalConfirmCancel
+                        message={messageNotSaved}
+                        show={show}
+                        continueFunc={Continue}
+                        cancelFunc={Cancel}>
+                        <span>
+                            "Suas alterações ainda <b>não foram salvas</b>. Se você sair agora, perderá todas as
+                            alterações. Deseja continuar?"
+                        </span>
+                    </ModalConfirmCancel>
+                </ContentDiv>
+            </ModalDiv>
+            <ModalDiv block={show && editando && refuseAction ? "block" : "none"}>
+                <ContentDiv>
+                    <ModalConfirmCancel
+                        message={messageNotSaved}
+                        show={show}
+                        continueFunc={ConfirmRefuse}
+                        cancelFunc={Cancel}>
+                        <div>
+                            <b>Descreva o motivo da rejeição: </b>
+                            <Input
+                                id="created_at"
+                                name="created_at"
+                                type="text"
+                                value={refuseReason}
+                                onChange={(e) => setRefuseReason(e.target.value)}
+                            />
+                        </div>
+                    </ModalConfirmCancel>
+                </ContentDiv>
+            </ModalDiv>
         </>
     );
 }
 
-export default Modal;
+export default ModalEditGeo;
