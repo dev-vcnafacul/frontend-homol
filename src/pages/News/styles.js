@@ -24,3 +24,15 @@ export const ArticleWrapper = styled(Container)`
         }
     }
 `;
+
+export const Iframe = styled.iframe`
+    height: 100vh;
+    width: 80%;
+    border: none;
+    padding: 10px;
+`;
+
+export const BodyIFrame = styled.div`
+    display: flex;
+    justify-content: center;
+`;

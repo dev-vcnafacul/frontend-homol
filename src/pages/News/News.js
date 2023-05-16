@@ -1,17 +1,19 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
-import Quote from "../../components/Quote";
 import data from "../Home/data";
-import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
+import { BodyIFrame, Iframe } from "./styles";
+
+import pdf from "assets/docs/Texto_apadrinhamento_2016.pdf";
 
 function News() {
-    const docs = [{ uri: "https://drive.google.com/file/d/1KvXELaR2ZJ1oeQ6Xn0UdkMqurYVca6wE/view?usp=sharing" }];
     return (
         <div>
             <Header {...data.header} />
             <Hero {...data.hero} />
-            <DocViewer pluginRenderers={DocViewerRenderers} documents={docs} />
+            <BodyIFrame>
+                <Iframe src={pdf + "#toolbar=0&navpanes=0&scrollbar=0&view=FitH&pagemode=thumbs"} />
+            </BodyIFrame>
             <Footer {...data.footer} />
         </div>
     );
