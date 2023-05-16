@@ -5,12 +5,12 @@ import Header from "components/Header";
 import { footer } from "pages/Home/data";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
 import { updateAccount } from "store/actions/account";
 import { Loading } from "styles/common";
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";
 import { Content, Error, Title, Wrap } from "./styles";
+import { header } from "utils/data";
 
 import HighlightSelector from "components/HighlightSelector/HighlightSelector";
 
@@ -42,13 +42,7 @@ function Account() {
     return (
         <>
             {isLoading && <Loading />}
-            <Header
-                solid
-                itemsMenu={[
-                    { link: ACCOUNT_PATH, name: "Meu Perfil", internal: true },
-                    { link: LOGOFF_PATH, name: "Sair" },
-                ]}
-            />
+            <Header solid {...header} />
             <Wrap>
                 <TriangleGreen className="graphism triangle-green" />
                 <TriangleYellow className="graphism triangle-yellow" />
