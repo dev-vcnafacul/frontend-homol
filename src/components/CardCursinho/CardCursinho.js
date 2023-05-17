@@ -10,10 +10,11 @@ function CardCursinho({ cursinho }) {
     const Update = cursinho.updated_at.split("T")[0].split("-");
     const [openModal, setOpenModal] = useState(false);
     const [geo, setGeo] = useState(cursinho);
+    const [status, setStatus] = useState(cursinho.status);
 
     useEffect(() => {
         console.log("useEffect");
-    }, [cursinho.status]);
+    }, [geo]);
 
     const openModalFunc = () => setOpenModal(!openModal);
 
@@ -27,9 +28,15 @@ function CardCursinho({ cursinho }) {
                     <Field field="Data de Cadastro" information={Create[2] + "/" + Create[1] + "/" + Create[0]} />
                     <Field field="Última Atualização" information={Update[2] + "/" + Update[1] + "/" + Update[0]} />
                 </Information>
-                <Status status={cursinho.status} />
+                <Status status={status} />
             </Card>
-            <ModalEditGeo handleClose={openModalFunc} show={openModal} geo={geo} setGeo={setGeo} />
+            <ModalEditGeo
+                handleClose={openModalFunc}
+                show={openModal}
+                geo={geo}
+                setGeo={setGeo}
+                setStatus={setStatus}
+            />
         </>
     );
 }

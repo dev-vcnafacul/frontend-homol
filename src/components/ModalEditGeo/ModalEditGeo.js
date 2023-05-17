@@ -22,7 +22,7 @@ import {
     Input,
 } from "../CardCursinho/styles";
 
-function ModalEditGeo({ handleClose, show, geo, setGeo }) {
+function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
     const [selectedPositionData, setSelectedPositionData] = useState({});
     const [editando, setEditando] = useState(false);
     const [modified, setModified] = useState(false);
@@ -137,10 +137,15 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
         return <Marker position={selectedPosition} alt="marcador"></Marker>;
     }
 
-    const AtualizaStatus = () => {
-        if (geo.status === "0") return StatusValidated;
-        if (geo.status === "1") return statusWaiting;
-        if (geo.status === "2") return statusRejected;
+    const GetStatus = () => {
+        if (novoStatus === "0") return StatusValidated;
+        if (novoStatus === "1") return statusWaiting;
+        if (novoStatus === "2") return statusRejected;
+    };
+
+    const SetStatus = (status) => {
+        setInfos({ ...infos, status: status });
+        setStatus(status);
     };
 
     const Salvar = useCallback(async (status) => {
@@ -169,6 +174,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
             });
             // eslint-disable-next-line no-undef
             setNovoStatus(body.validated ? "0" : "2");
+            SetStatus(body.validated ? "0" : "2");
         } catch (error) {
             console.log("Error....");
             console.log(error);
@@ -194,6 +200,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
             refuseReason: refuseReason,
         };
         Validar(body);
+        setRefuseAction(false);
     };
 
     const Accept = () => {
@@ -208,6 +215,22 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
         if (!editando) {
             return (
                 <>
+                    <SubmitBtn
+                        as="input"
+                        value="Aceitar"
+                        onClick={Accept}
+                        disabled={novoStatus === "0"}
+                        color={theme.colors.green2}
+                    />
+                    <SubmitBtn
+                        as="input"
+                        value="Rejeitar"
+                        onClick={() => {
+                            setRefuseAction(true);
+                        }}
+                        disabled={novoStatus === "2"}
+                        color={theme.colors.red}
+                    />
                     <SubmitBtn as="input" value="Editar" enable={true} onClick={() => setEditando(true)} />
                     <SubmitBtn as="input" value="Fechar" enable={true} onClick={handleClose} />
                 </>
@@ -215,22 +238,6 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
         }
         return (
             <>
-                <SubmitBtn
-                    as="input"
-                    value="Aceitar"
-                    onClick={Accept}
-                    disabled={novoStatus === "0"}
-                    color={theme.colors.green2}
-                />
-                <SubmitBtn
-                    as="input"
-                    value="Rejeitar"
-                    onClick={() => {
-                        setRefuseAction(true);
-                    }}
-                    disabled={novoStatus === "2"}
-                    color={theme.colors.red}
-                />
                 <SubmitBtn
                     as="input"
                     value="Salvar"
@@ -242,7 +249,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
                 />
                 <SubmitBtn
                     as="input"
-                    value="Fechar"
+                    value="Voltar"
                     enable={true}
                     onClick={() => {
                         if (modified) {
@@ -256,7 +263,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
         );
     };
 
-    useEffect(() => {}, [geo.status, novoStatus]);
+    useEffect(() => {}, [novoStatus]);
     return (
         <>
             <ModalDiv block={show ? "block" : "none"}>
@@ -265,7 +272,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
                         <InforcacaoCursinho>
                             <Title>
                                 Informação do Cursinho
-                                <img src={AtualizaStatus()} alt="status" />
+                                <img src={GetStatus()} alt="status" />
                             </Title>
                             <Forms>
                                 <FormField>
@@ -575,7 +582,8 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
                                 center={[infos.latitude, infos.longitude]}
                                 zoom={13}
                                 scrollWheelZoom={true}
-                                style={{ width: "100%", height: "35vh", cursor: "default" }}>
+                                style={{ width: "100%", height: "35vh", cursor: "default" }}
+                            >
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -594,7 +602,8 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
                         message={messageNotSaved}
                         show={show}
                         continueFunc={Continue}
-                        cancelFunc={Cancel}>
+                        cancelFunc={Cancel}
+                    >
                         <span>
                             "Suas alterações ainda <b>não foram salvas</b>. Se você sair agora, perderá todas as
                             alterações. Deseja continuar?"
@@ -602,13 +611,14 @@ function ModalEditGeo({ handleClose, show, geo, setGeo }) {
                     </ModalConfirmCancel>
                 </ContentDiv>
             </ModalDiv>
-            <ModalDiv block={show && editando && refuseAction ? "block" : "none"}>
+            <ModalDiv block={show && refuseAction ? "block" : "none"}>
                 <ContentDiv>
                     <ModalConfirmCancel
                         message={messageNotSaved}
                         show={show}
                         continueFunc={ConfirmRefuse}
-                        cancelFunc={Cancel}>
+                        cancelFunc={Cancel}
+                    >
                         <div>
                             <b>Descreva o motivo da rejeição: </b>
                             <Input
