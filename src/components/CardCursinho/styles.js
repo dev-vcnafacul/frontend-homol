@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button } from "../atoms";
+import MaskedInput from "react-text-mask";
 
 export const Card = styled.div`
     width: 300px;
@@ -138,7 +139,8 @@ export const Input = styled.input`
     width: 100%;
     min-width: 222px;
     border-radius: 4px 4px 0 0;
-    border: 1px solid ${(props) => (props.error ? props.theme.colors.redError : props.theme.colors.grey)};
+    border: ${(props) => (props.error ? "2px" : "1px")} solid
+        ${(props) => (props.error ? props.theme.colors.redError : props.theme.colors.grey)};
     color: ${(props) => props.theme.colors.grey};
     font-size: 12px;
     padding: 21px 10px 5px;
@@ -189,5 +191,33 @@ export const SubmitBtn = styled(Button)`
             if (props.disabled) return props.theme.colors.darkGrey;
             return props.color ?? props.theme.colors.orange;
         }};
+    }
+`;
+
+export const MaskInput = styled(MaskedInput)`
+    appearance: none;
+    background-color: ${(props) => props.theme.colors.white};
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 222px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid ${(props) => (props.error ? props.theme.colors.redError : props.theme.colors.grey)};
+    color: ${(props) => props.theme.colors.grey};
+    font-size: 12px;
+    padding: 21px 10px 5px;
+    margin-bottom: 5px;
+    outline-color: ${(props) => props.theme.colors.orange};
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    background-image: ${(props) =>
+        props.arrow
+            ? "url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+)"
+            : "none"};
+
+    :disabled {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: ${(props) => props.theme.colors.black};
+        opacity: 1;
     }
 `;

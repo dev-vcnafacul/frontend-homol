@@ -114,3 +114,8 @@ export const isValidField = (field, value, setErrors) => {
         return true;
     }
 };
+
+export const MaskOptions = {
+    phone: ["(", /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/],
+    cep: [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/],
+};

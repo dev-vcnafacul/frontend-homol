@@ -20,7 +20,11 @@ import {
     FormField,
     InputLabel,
     Input,
+    MaskInput,
 } from "../CardCursinho/styles";
+import { FormError } from "components/atoms";
+import { MaskOptions } from "utils/ValidateContato";
+import { validateEmail } from "utils/ValidateContato";
 
 function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
     const [selectedPositionData, setSelectedPositionData] = useState({});
@@ -30,10 +34,9 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
     const [novoStatus, setNovoStatus] = useState(geo.status);
     const userToken = useSelector((state) => state.auth.token);
     const [infos, setInfos] = useState(geo);
-
-    const [errors, setErrors] = useState({});
     const [selectedPosition, setSelectedPosition] = useState([0, 0]);
     const [featching, setFeatching] = useState(false);
+    const [emailError, setEmailError] = useState(false);
 
     const [refuseAction, setRefuseAction] = useState(false);
     const [refuseReason, setRefuseReason] = useState("Teste");
@@ -44,6 +47,9 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setInfos({ ...infos, [name]: value });
+        if (name === "email") {
+            validateEmail(value, setEmailError);
+        }
         setModified(true);
     };
 
@@ -51,48 +57,6 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
         event.preventDefault();
         // handle form submission
     };
-
-    function formatPhoneInput(value) {
-        return value
-            .replace(/\D/g, "")
-            .replace(/(\d{2})(\d)/, "($1) $2")
-            .replace(/(\d{4})(\d)/, "$1-$2")
-            .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
-            .replace(/(-\d{4})\d+?$/, "$1");
-    }
-
-    function formatDateInput(value) {
-        return value
-            .replace(/\D/g, "")
-            .replace(/(\d{2})(\d)/, "$1/$2")
-            .replace(/(\d{2})(\d)/, "$1/$2")
-            .replace(/(\d{4})\d+?$/, "$1");
-    }
-
-    function validateField(field, values) {
-        const value = values[field];
-        if (!value || (typeof value === "string" && value.trim() === "")) {
-            setErrors((errors) => {
-                return { ...errors, [field]: "*Campo obrigatório" };
-            });
-            return false;
-        } else if (field === "nascimento" && value.length < 10) {
-            setErrors((errors) => {
-                return { ...errors, [field]: "*Data inválida" };
-            });
-            return false;
-        } else if (field === "telefone" && value.length < 14) {
-            setErrors((errors) => {
-                return { ...errors, [field]: "*Telefone inválido" };
-            });
-            return false;
-        } else {
-            setErrors((errors) => {
-                return { ...errors, [field]: undefined };
-            });
-            return true;
-        }
-    }
 
     async function handleMapClick(event) {
         setFeatching(true);
@@ -308,6 +272,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                                         onChange={handleInputChange}
                                     />
                                 </FormField>
+                                <FormError>{emailError}</FormError>
                                 <FormField>
                                     <InputLabel>Email:</InputLabel>
                                     <Input
@@ -317,17 +282,19 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                                         value={infos.email}
                                         disabled={!editando}
                                         onChange={handleInputChange}
+                                        error={emailError}
                                     />
                                 </FormField>
                                 <FormField>
                                     <InputLabel>Cep:</InputLabel>
-                                    <Input
+                                    <MaskInput
                                         id="cep"
                                         name="cep"
                                         type="text"
                                         value={infos.cep}
                                         disabled={!editando}
                                         onChange={handleInputChange}
+                                        mask={MaskOptions.cep}
                                     />
                                 </FormField>
                                 <FormField>
@@ -368,7 +335,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                                     <Input
                                         id="number"
                                         name="number"
-                                        type="text"
+                                        type="number"
                                         value={infos.number}
                                         disabled={!editando}
                                         onChange={handleInputChange}
@@ -475,13 +442,14 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                                 </FormField>
                                 <FormField>
                                     <InputLabel>Telefone:</InputLabel>
-                                    <Input
+                                    <MaskInput
                                         id="phone"
                                         name="phone"
                                         type="text"
                                         value={infos.phone}
                                         disabled={!editando}
                                         onChange={handleInputChange}
+                                        mask={MaskOptions.phone}
                                     />
                                 </FormField>
                             </Forms>
@@ -504,7 +472,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                                     <Input
                                         id="user_email"
                                         name="user_email"
-                                        type="text"
+                                        type="email"
                                         value={infos.user_email}
                                         disabled={true}
                                     />
