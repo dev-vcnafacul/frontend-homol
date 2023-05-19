@@ -27,7 +27,7 @@ export const ArticleWrapper = styled(Container)`
 
 export const Iframe = styled.iframe`
     height: 100vh;
-    width: 80%;
+    width: 59%;
     border: none;
     padding: 10px;
 `;
