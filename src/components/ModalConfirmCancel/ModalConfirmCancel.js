@@ -1,12 +1,16 @@
-import { Button, Body } from "./styles";
+import { Button, Body, Content, ButtonDiv } from "./styles";
 
 function ModalConfirmCancel({ children, show, continueFunc, cancelFunc }) {
     return (
-        <Body block={show ? "block" : "none"}>
-            {children}
-            <Button onClick={continueFunc}>Continuar</Button>
-            <Button onClick={cancelFunc}>Cancelar</Button>
-        </Body>
+        <Content block={show ? "block" : "none"}>
+            <Body>
+                {children}
+                <ButtonDiv>
+                    <Button onClick={continueFunc}>Continuar</Button>
+                    <Button onClick={cancelFunc}>Cancelar</Button>
+                </ButtonDiv>
+            </Body>
+        </Content>
     );
 }
 

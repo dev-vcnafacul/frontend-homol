@@ -565,40 +565,32 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                 </ContentDiv>
             </ModalDiv>
             <ModalDiv block={show && modified && editando && cancelModified ? "block" : "none"}>
-                <ContentDiv>
-                    <ModalConfirmCancel
-                        message={messageNotSaved}
-                        show={show}
-                        continueFunc={Continue}
-                        cancelFunc={Cancel}
-                    >
-                        <span>
-                            "Suas alterações ainda <b>não foram salvas</b>. Se você sair agora, perderá todas as
-                            alterações. Deseja continuar?"
-                        </span>
-                    </ModalConfirmCancel>
-                </ContentDiv>
+                <ModalConfirmCancel message={messageNotSaved} show={show} continueFunc={Continue} cancelFunc={Cancel}>
+                    <span>
+                        "Suas alterações ainda <b>não foram salvas</b>. Se você sair agora, perderá todas as alterações.
+                        Deseja continuar?"
+                    </span>
+                </ModalConfirmCancel>
             </ModalDiv>
             <ModalDiv block={show && refuseAction ? "block" : "none"}>
-                <ContentDiv>
-                    <ModalConfirmCancel
-                        message={messageNotSaved}
-                        show={show}
-                        continueFunc={ConfirmRefuse}
-                        cancelFunc={Cancel}
-                    >
-                        <div>
-                            <b>Descreva o motivo da rejeição: </b>
-                            <Input
-                                id="created_at"
-                                name="created_at"
-                                type="text"
-                                value={refuseReason}
-                                onChange={(e) => setRefuseReason(e.target.value)}
-                            />
-                        </div>
-                    </ModalConfirmCancel>
-                </ContentDiv>
+                <ModalConfirmCancel
+                    message={messageNotSaved}
+                    show={show}
+                    continueFunc={ConfirmRefuse}
+                    cancelFunc={Cancel}
+                >
+                    <div>
+                        <b>Descreva o motivo da rejeição: </b>
+                        <Input
+                            style={{ marginTop: "10px" }}
+                            id="created_at"
+                            name="created_at"
+                            type="text"
+                            value={refuseReason}
+                            onChange={(e) => setRefuseReason(e.target.value)}
+                        />
+                    </div>
+                </ModalConfirmCancel>
             </ModalDiv>
         </>
     );

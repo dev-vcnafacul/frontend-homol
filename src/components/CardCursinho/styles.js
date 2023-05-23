@@ -78,7 +78,7 @@ export const ContentDiv = styled.div`
     left: 50%;
     padding: 2rem;
     transform: translate(-50%, -50%);
-    max-height: 600px;
+    max-height: 800px;
     max-width: 1080px;
 `;
 
