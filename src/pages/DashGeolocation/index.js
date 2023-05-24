@@ -13,7 +13,6 @@ function DashGeolocation() {
     const getCursinhos = useCallback(async (status) => {
         try {
             const url = `${process.env.REACT_APP_BASE_URL}/listallgeolocation/page=0&quantity=10&status=${status}`;
-            console.log(url);
             const res = await fetch(url);
             // eslint-disable-next-line no-undef
             const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
