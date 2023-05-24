@@ -9,4 +9,5 @@ export const AccordionTitle = styled.button`
     border: none;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 `;

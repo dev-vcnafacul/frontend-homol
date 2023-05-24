@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Card = styled(Link)`
+export const Card = styled.div`
     background-color: ${(props) => props.theme.colors[props.bg]};
     color: ${(props) => props.theme.colors.white};
     padding: 12px 8px;
@@ -10,7 +10,7 @@ export const Card = styled(Link)`
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    width: 10rem;
+    width: 11rem;
 `;
 
 export const CardDescription = styled.div`

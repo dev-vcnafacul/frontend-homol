@@ -6,6 +6,7 @@ import LinguagensImg from "../../assets/images/dashboard/linguagens.svg";
 
 export const dashboardCardList = [
     {
+        id: 1,
         bg: "marine",
         title: "Linguagens",
         image: LinguagensImg,
@@ -19,6 +20,7 @@ export const dashboardCardList = [
         ],
     },
     {
+        id: 2,
         bg: "pink",
         title: "BioExatas",
         image: BioExatasImg,
@@ -31,6 +33,7 @@ export const dashboardCardList = [
         ],
     },
     {
+        id: 3,
         bg: "lightGreen",
         title: "Humanas",
         image: HumanasImg,
@@ -43,6 +46,7 @@ export const dashboardCardList = [
         ],
     },
     {
+        id: 4,
         bg: "orange",
         title: "Admin",
         image: HumanasImg,
