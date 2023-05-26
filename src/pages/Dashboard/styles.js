@@ -15,3 +15,23 @@ export const Content = styled(Container)`
     display: flex;
     width: 100%;
 `;
+
+export const Text = styled.div`
+    align-self: center;
+    font-size: 20px;
+    color: ${(props) => props.theme.colors.marine};
+`;
+
+export const Message = styled.p`
+    line-height: 32px;
+    font-size: 18px;
+`;
+
+export const Hero = styled.img`
+    align-self: end;
+    object-fit: contain;
+    object-position: start;
+    flex-grow: 0;
+    margin-right: 16px;
+    width: 35vw;
+`;

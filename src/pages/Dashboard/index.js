@@ -1,6 +1,5 @@
 import HeroImg from "../../assets/images/dashboard/dashboard-hero.svg";
-import { Hero, Message, Text } from "../TeacherDashboard/styles";
-import { Content } from "./styles";
+import { Content, Hero, Message, Text } from "./styles";
 
 function Dashboard() {
     return (
