@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { updateAuthByLocalStorage } from "store/actions/auth";
+import { updateAuthByLocalStorage } from "store/actions/auth/auth";
 import { PlatformRoutes } from "./PlatformRoutes";
 import { WebsiteRoutes } from "./WebsiteRoutes";
 

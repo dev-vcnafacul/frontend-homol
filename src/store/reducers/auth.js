@@ -1,5 +1,5 @@
-import { AUTH_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "store/actions/auth.types";
-import { UPDATE_ACCOUNT_SUCCESS } from "store/actions/account.types";
+import { AUTH_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "store/actions/auth/auth.types";
+import { UPDATE_ACCOUNT_SUCCESS } from "store/actions/auth/account.types";
 
 export function authReducer(state = "", action) {
     switch (action.type) {

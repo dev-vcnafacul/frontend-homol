@@ -49,6 +49,7 @@ export function PlatformRoutes() {
                     </DashBoardDefault>
                 }
             />
+            ;
         </Routes>
     );
 }

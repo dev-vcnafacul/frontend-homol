@@ -6,7 +6,7 @@ import { footer } from "pages/Home/data";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ACCOUNT_PATH, LOGOFF_PATH } from "routing/paths";
-import { updateAccount } from "store/actions/account";
+import { updateAccount } from "store/actions/auth/account";
 import { Loading } from "styles/common";
 import { ReactComponent as TriangleGreen } from "../../assets/icons/triangle-green.svg";
 import { ReactComponent as TriangleYellow } from "../../assets/icons/triangle-yellow.svg";

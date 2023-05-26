@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FORGOT_PASSWORD_PATH } from "../../routing/paths";
-import { doAuth } from "../../store/actions/auth";
+import { doAuth } from "../../store/actions/auth/auth";
 import { useFetch } from "../../store/utils";
 import { Loading } from "../../styles/common";
 import { FormField, Input, InputLabel, ToggleVisibility } from "../atoms";

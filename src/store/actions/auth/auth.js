@@ -1,5 +1,12 @@
-import { AUTH_SUCCESS, REGISTER_SUCCESS, AUTH_CHECK_FROM_LS, LOGOFF } from "./auth.types";
-import { HOME_PATH } from "../../routing/paths";
+import { HOME_PATH } from "routing/paths";
+import {
+    AUTH_SUCCESS,
+    REGISTER_SUCCESS,
+    AUTH_CHECK_FROM_LS,
+    LOGOFF,
+    PERMISSION_SUCCESS,
+    UPDATE_PERMISSION,
+} from "./auth.types";
 
 export function doAuth(email, password) {
     return async (dispatch) => {
@@ -41,7 +48,17 @@ export function doAuth(email, password) {
                     cidade: payloadReceived.user.cidade,
                 },
             };
+            const payload_permission = {
+                admin: payloadReceived.p.admin,
+                professor: payloadReceived.p.professor,
+                validaCursinho: payloadReceived.p.valida_cursinho,
+            };
             window.localStorage.setItem("sessionData", JSON.stringify(payload));
+            window.localStorage.setItem("pData", JSON.stringify(payload_permission));
+            dispatch({
+                type: PERMISSION_SUCCESS,
+                payload: payload_permission,
+            });
             dispatch({
                 type: AUTH_SUCCESS,
                 payload: payload,
@@ -57,6 +74,10 @@ export function updateAuthByLocalStorage() {
                 type: AUTH_CHECK_FROM_LS,
                 payload: JSON.parse(window.localStorage.getItem("sessionData")),
             });
+            dispatch({
+                type: UPDATE_PERMISSION,
+                payload: JSON.parse(window.localStorage.getItem("pData")),
+            });
         }
     };
 }
@@ -64,6 +85,7 @@ export function updateAuthByLocalStorage() {
 export function logoff() {
     return async (dispatch) => {
         window.localStorage.removeItem("sessionData");
+        window.localStorage.removeItem("pData");
         dispatch({
             type: LOGOFF,
         });

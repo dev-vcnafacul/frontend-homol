@@ -4,19 +4,24 @@ import DashboardCard from "../../components/DashboardCard";
 import { dashboardCardList } from "./data";
 import { Menu } from "./styles";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-function MenuDash({ permission }) {
+function MenuDash() {
+    const permission = useSelector((state) => state.permission);
     const [accordionItemOpen, setAccordionItemOpen] = useState(0);
 
     const openAccordion = (item) => {
         if (accordionItemOpen === item) setAccordionItemOpen(0);
         else setAccordionItemOpen(item);
     };
+    console.log("Permission");
+    console.log(permission.admin || permission.validaCursinho);
 
     return (
         <Menu>
             {dashboardCardList.map((dashcard) => {
-                if (dashcard.title === "Admin" && permission.aluno) return <div key={dashcard.title}></div>;
+                if (dashcard.title === "Admin" && (!permission.admin || !permission.validaCursinho))
+                    return <div key={dashcard.title}></div>;
                 else {
                     return (
                         <Accordion
