@@ -5,8 +5,10 @@ import { dashboardCardList } from "./data";
 import { Menu } from "./styles";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 function MenuDash() {
+    const location = useLocation();
     const permission = useSelector((state) => state.permission);
     const [accordionItemOpen, setAccordionItemOpen] = useState(0);
 
@@ -52,6 +54,7 @@ function MenuDash() {
                                                 title={item.text}
                                                 image={item.icon}
                                                 alt={item.alt}
+                                                activate={location.pathname === item.link}
                                                 to={item.link}
                                             />
                                         );
@@ -64,6 +67,7 @@ function MenuDash() {
                                         title={item.text}
                                         image={item.icon}
                                         alt={item.alt}
+                                        activate={location.pathname === item.link}
                                         to={item.link}
                                     />
                                 );

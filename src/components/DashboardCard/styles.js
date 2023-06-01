@@ -27,7 +27,7 @@ export const CardTitle = styled.span`
 `;
 
 export const Container = styled(CardDescription)`
-    background-color: white;
+    background-color: ${(props) => (props.activate ? props.theme.colors.lightGray : props.theme.colors.white)};
     color: ${(props) => props.theme.colors.marine};
     padding: 16px;
     border: 1px solid ${(props) => props.theme.colors.lightGray};
