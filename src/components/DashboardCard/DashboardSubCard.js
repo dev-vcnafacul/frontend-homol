@@ -4,13 +4,13 @@ import { Container, CardTitle, ImgSubmenu } from "./styles";
 
 function DashboardSubCard({ title, image, alt, ...rest }) {
     return (
-        <Container>
-            <ImgSubmenu src={image} alt={alt} />
-            <CardTitle>{title}</CardTitle>
-            <Link {...rest}>
+        <Link {...rest}>
+            <Container>
+                <ImgSubmenu src={image} alt={alt} />
+                <CardTitle>{title}</CardTitle>
                 <IoAddCircle size={14} color="green" />
-            </Link>
-        </Container>
+            </Container>
+        </Link>
     );
 }
 
