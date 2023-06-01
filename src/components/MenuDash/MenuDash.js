@@ -46,7 +46,6 @@ function MenuDash() {
                             {dashcard.subMenuList.map((item) => {
                                 if (dashcard.title === "Admin") {
                                     if (permission.includes(item.permission)) {
-                                        console.log("tem permissao");
                                         return (
                                             <DashboardSubCard
                                                 key={item.text}
