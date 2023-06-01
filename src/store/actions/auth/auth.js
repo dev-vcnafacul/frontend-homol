@@ -48,11 +48,7 @@ export function doAuth(email, password) {
                     cidade: payloadReceived.user.cidade,
                 },
             };
-            const payload_permission = {
-                admin: payloadReceived.p.admin,
-                professor: payloadReceived.p.professor,
-                validaCursinho: payloadReceived.p.valida_cursinho,
-            };
+            const payload_permission = payloadReceived.p;
             window.localStorage.setItem("sessionData", JSON.stringify(payload));
             window.localStorage.setItem("pData", JSON.stringify(payload_permission));
             dispatch({

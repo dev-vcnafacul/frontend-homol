@@ -14,14 +14,11 @@ function MenuDash() {
         if (accordionItemOpen === item) setAccordionItemOpen(0);
         else setAccordionItemOpen(item);
     };
-    console.log("Permission");
-    console.log(permission.admin || permission.validaCursinho);
 
     return (
         <Menu>
             {dashboardCardList.map((dashcard) => {
-                if (dashcard.title === "Admin" && (!permission.admin || !permission.validaCursinho))
-                    return <div key={dashcard.title}></div>;
+                if (dashcard.title === "Admin" && permission.aluno) return <div key={dashcard.title}></div>;
                 else {
                     return (
                         <Accordion
@@ -46,15 +43,32 @@ function MenuDash() {
                                 />
                             }
                         >
-                            {dashcard.subMenuList.map((item) => (
-                                <DashboardSubCard
-                                    key={item.text}
-                                    title={item.text}
-                                    image={item.icon}
-                                    alt={item.alt}
-                                    to={item.link}
-                                />
-                            ))}
+                            {dashcard.subMenuList.map((item) => {
+                                if (dashcard.title === "Admin") {
+                                    if (permission.includes(item.permission)) {
+                                        console.log("tem permissao");
+                                        return (
+                                            <DashboardSubCard
+                                                key={item.text}
+                                                title={item.text}
+                                                image={item.icon}
+                                                alt={item.alt}
+                                                to={item.link}
+                                            />
+                                        );
+                                    }
+                                    return <></>;
+                                }
+                                return (
+                                    <DashboardSubCard
+                                        key={item.text}
+                                        title={item.text}
+                                        image={item.icon}
+                                        alt={item.alt}
+                                        to={item.link}
+                                    />
+                                );
+                            })}
                         </Accordion>
                     );
                 }

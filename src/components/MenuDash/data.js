@@ -57,8 +57,9 @@ export const dashboardCardList = [
                 alt: "check mapa",
                 text: "Validação LC",
                 link: DASHBOARD_GEOLOCATION,
+                permission: "valida_cursinho",
             },
-            { icon: HumanasImg, alt: "check", text: "Permissões", link: "#" },
+            { icon: HumanasImg, alt: "check", text: "Permissões", link: "#", permission: "permissoes" },
         ],
     },
 ];
