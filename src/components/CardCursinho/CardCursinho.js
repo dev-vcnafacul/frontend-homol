@@ -21,10 +21,10 @@ function CardCursinho({ cursinho }) {
     return (
         <>
             <Card onClick={openModalFunc}>
-                <Titulo>{cursinho.name}</Titulo>
+                <Titulo>{geo.name}</Titulo>
                 <Information>
-                    <Field field="Estado" information={cursinho.state} />
-                    <Field field="Cidade" information={cursinho.city} />
+                    <Field field="Estado" information={geo.state} />
+                    <Field field="Cidade" information={geo.city} />
                     <Field field="Data de Cadastro" information={Create[2] + "/" + Create[1] + "/" + Create[0]} />
                     <Field field="Última Atualização" information={Update[2] + "/" + Update[1] + "/" + Update[0]} />
                 </Information>

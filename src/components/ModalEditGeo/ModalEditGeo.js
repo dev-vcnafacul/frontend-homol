@@ -112,16 +112,16 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
         setStatus(status);
     };
 
-    const Salvar = useCallback(async (status) => {
+    const Salvar = useCallback(async (body) => {
         try {
             const url = `${process.env.REACT_APP_BASE_URL}/geolocation`;
             await fetch(url, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
-                body: JSON.stringify(infos),
+                body: JSON.stringify(body),
             });
-            setGeo(infos);
-            Validar(status === "0");
+            setGeo(body);
+            setEditando(false);
         } catch {
             console.log("Error....");
         }
@@ -207,7 +207,7 @@ function ModalEditGeo({ handleClose, show, geo, setGeo, setStatus }) {
                     value="Salvar"
                     enable={true}
                     onClick={() => {
-                        Salvar(novoStatus);
+                        Salvar(infos);
                         handleClose();
                     }}
                 />
